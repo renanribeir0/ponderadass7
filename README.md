@@ -5,23 +5,23 @@
 ## Nome do grupo
 
 ## :student: Integrantes: 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 5</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 6</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 7</a>
+- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 1</a>
+- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 2</a>
+- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 3</a> 
+- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 4</a> 
+- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 5</a>
+- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 6</a> 
+- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 7</a>
 
 ## :teacher: Professores:
 ### Orientador(a) 
-- <a href="https://www.linkedin.com/in/victorbarq/">Vanessa Nunes</a>
+- <a href="https://www.linkedin.com/in/vanunes/">Vanessa Nunes</a>
 ### Instrutores
 - <a href="https://www.linkedin.com/in/jose-romualdo/">Programação - José Romualdo</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Matemática e Física - Geraldo Vasconcelos</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Negócios - Lisane Valdo</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Design - Guilherme Henrique de Oliveira Cestari</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Liderança - Filipe Gonçalves</a>
+- <a href="https://www.linkedin.com/in/seulogin/">Matemática e Física - Geraldo Vasconcelos</a>
+- <a href="https://www.linkedin.com/in/seulogin/">Negócios - Lisane Valdo</a>
+- <a href="https://www.linkedin.com/in/seulogin/">Design - Guilherme Henrique de Oliveira Cestari</a> 
+- <a href="https://www.linkedin.com/in/seulogin/">Liderança - Filipe Gonçalves</a>
 
 ## 📝 Descrição
 

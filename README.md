@@ -5,13 +5,12 @@
 ## Nome do grupo
 
 ## :student: Integrantes: 
-- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 5</a>
-- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 6</a> 
-- <a href="https://www.linkedin.com/in/seulogin/">Nome do integrante 7</a>
+- <a href="https://www.linkedin.com/in/luiscmiranda/">Luis Miranda</a>
+- <a href="https://www.linkedin.com/in/mauricio-felicissimo-475024240/">Mauricio Felicissimo</a>
+- <a href="https://www.linkedin.com/in/eduarda-gonzaga-009794219/">Eduarda Gonzaga</a> 
+- <a href="https://www.linkedin.com/in/joao-victor-montagna-4bb3a4247/">João Montagna</a> 
+- <a href="https://www.linkedin.com/in/renan-ribeiro-31a205247/">Renan Ribeiro</a>
+- <a href="https://www.linkedin.com/in/yuri-toledo-964123230/">Yuri Toledo</a>
 
 ## :teacher: Professores:
 ### Orientador(a) 
@@ -306,8 +305,8 @@ Faça o mesmo para a documentação em formato DOCX, se houver.
 
 |--> documentos<br>
   &emsp;| --> outros <br>
-  &emsp;| T(NUMERO_DA_TURMA)_G(NUMERO_DO_GRUPO)_V(VERSÃO)_document.pdf<br>
-  &emsp;| T(NUMERO_DA_TURMA)_G(NUMERO_DO_GRUPO)_V(VERSÃO)_document.docx<br>
+  &emsp;| T6_G3_V1_document.pdf<br>
+  &emsp;| T6_G3_V1_document.docx<br>
 |--> imagens<br>
 |--> src<br>
   &emsp;|--> Circuito<br>
@@ -361,4 +360,4 @@ Alunos inteli (remover essa observação do readme.md após leitura e execução
 ```
 <a href="https://drive.google.com/file/d/1hXWLHUhjBkPVuGqeE2LZKozFntnJZzlx/view">Tutorial</a>
 
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Intelihub/Template_M4/">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">Inteli, Nome do integrante 1, Nome do integrante 2, Nome do integrante 3, Nome do integrante 4, Nome do integrante 5, Nome do integrante 6, Nome do integrante 7</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Intelihub/Template_M4/">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">Inteli, Luis Miranda, Mauricio Felicissimo, Eduarda Gonzaga, João Montagna, Renan Ribeiro, Yuri Toledo</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>

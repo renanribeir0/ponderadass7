@@ -1,8 +1,8 @@
 # <a href= "https://www.inteli.edu.br/"><img src="/imagens/logointeli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a> Instituto de Tecnologia e Liderança 
 
-# Nome do projeto
+# Utech
 
-## Nome do grupo
+## Montech
 
 ## :student: Integrantes: 
 - <a href="https://www.linkedin.com/in/luiscmiranda/">Luis Miranda</a>

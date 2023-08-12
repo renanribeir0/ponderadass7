@@ -1,6 +1,6 @@
 # <a href= "https://www.inteli.edu.br/"><img src="/imagens/logointeli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a> Instituto de Tecnologia e Liderança 
 
-# Utech
+# Kondo
 
 ## Montech
 

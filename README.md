@@ -6,6 +6,7 @@
 
 ## :student: Integrantes: 
 - <a href="https://www.linkedin.com/in/luiscmiranda/">Luis Miranda</a>
+
 - <a href="https://www.linkedin.com/in/mauricio-felicissimo-475024240/">Mauricio Felicissimo</a>
 - <a href="https://www.linkedin.com/in/eduarda-gonzaga-009794219/">Eduarda Gonzaga</a> 
 - <a href="https://www.linkedin.com/in/joao-victor-montagna-4bb3a4247/">João Montagna</a> 

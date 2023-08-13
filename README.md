@@ -85,13 +85,49 @@
 
 ## 1.1 Parceiro de Negócios
 
-Faça uma breve descrição da instituição representada pelo parceiro de negócios, porte, onde atua, área de mercado que atua e posicionamento no mercado.
+Fundado em 2020, o Inteli (Instituto de Tecnologia e Liderança) é uma instituição de Ensino Superior privada brasileira, sem fins lucrativos, localizada em São Paulo, focada nas áreas de tecnologia, engenharia, negócios e liderança. Portanto, focaremos essa análise na indústria de Ensino Superior no Brasil.
+
+Principais competidores: dentre os competidores diretos, podemos citar instituições de Ensino Superior públicas e privadas que oferecem cursos em tecnologia/engenharia - exemplos no Estado de São Paulo são a USP (Universidade de São Paulo), Unicamp (Universidade de Campinas), Insper (Instituto de Ensino e Pesquisa), ITA (Instituto Tecnológico de Aeronáutica) e FIAP (Faculdade de Informática e Administração). Indiretamente, podemos citar também cursos livres e bootcamps, principalmente no caso de alunos que já possuem uma formação e querem se requalificar.
+
+Modelo de negócio: o Inteli oferece cursos de graduação, tendo sua receita principal vinda do pagamento de mensalidades pelos estudantes e seus responsáveis, além de doações de bolsas, e também das taxas de inscrição do vestibular. Seus custos/despesas incluem o de construção e manutenção da infraestrutura física e digital de ensino, e da folha de pagamento do corpo docente e demais funcionários. Um fator essencial para a saúde do negócio é o contínuo interesse de novos candidatos, além da retenção dos alunos existentes.
+
+Tendências de mercado: o mercado de Ensino Superior no Brasil vem crescendo nas últimas décadas, principalmente com o crescimento de grandes grupos educacionais privados, muitos com fins lucrativos, que também aumentam a concentração no mercado. Uma das tendências deste mercado é a oferta de cursos no formato híbrido e virtual, com a expansão de pólos EAD pelo país. Em termos de ensino em tecnologia, também observa-se o surgimento de novos cursos de graduação e pós-graduação, em áreas como Data Science e Big Data/AI, que não existiam anos atrás. Algumas instituições, como o Inteli, tem também começado a adotar formatos atualizados de ensino, como o PBL (Problem-based Learning).
 
 ### 1.1.1 Partes Interessadas 
 Descreva os principais stakeholders envolvidos no projeto e seus papéis.
 
+**1. Alunos**:
+
+Os alunos são os principais beneficiários do projeto. Eles buscam adquirir conhecimentos, habilidades e experiências por meio da métodologia de ensino oferecida pelo Inteli.
+
+**2. Escritório de Projetos**:
+
+A equipe do Escritório de Projetos do Inteli é responsável por planejar, desenvolver e implementar os projetos que serão desenvolvidos em cada módulo do curso.
+
 ### 1.1.2 Análise da Indústria
-Analise a indústria (Modelo de 5 Forças de Porter) em relação ao cenário da empresa parceira.
+**As 5 Forças de Porter**
+
+As 5 Forças de Porter é o nome dado para um modelo criado por Michael Porter visando entender as forças do mercado que influenciam no desempenho de uma empresa. A seguir, uma análise do Inteli (Instituto de Tecnologia e Liderança) seguindo o modelo de Porter:
+
+**Rivalidade entre os concorrentes existentes**:
+
+O Inteli surge em um mercado educacional já existente, competindo com universidades tradicionais, cursos online de tecnologia e outras instituições inovadoras. A USP (Universidade de São Paulo), Insper (Instituto de Ensino e Pesquisa) e ITA (Instituto Tecnológico de Aeronáutica), são alguns dos seus concorrentes. A competição é baseada principalmente em relação ao nome da faculdade para o mercado de trabalho, qualidade do ensino e mensalidade. No entanto, o Inteli se diferencia ao oferecer uma abordagem única de ensino baseado em projetos, integrando competências comportamentais e negócios com a tecnologia. Isso lhe confere uma vantagem competitiva, pois a abordagem diferenciada pode atrair alunos em busca de uma formação mais abrangente e prática.
+
+**Ameaça de novos entrantes**:
+
+Embora o mercado educacional possa ser acessível a novos entrantes, a presença da família Esteves e o apoio do banco BTG Pactual conferem ao Inteli uma base sólida, tendo em vista a reputação e os recursos financeiros desses e outros patrocinadores. Além disso, a proposta de valor única do Inteli, com foco em projetos e competências multidisciplinares, também pode dificultar a entrada de novos concorrentes diretos.
+
+**Ameaça de produtos ou serviços substitutos**:
+
+Considerando o foco do Inteli na formação de líderes em tecnologia com habilidades de negócios e competências comportamentais, a ameaça de substitutos diretos é relativamente baixa. No entanto, a rápida evolução da educação online e outras formas de aprendizado contínuo podem tornar-se substitutos indiretos. Sendo assim, o Inteli deve sempre inovar e aumentar suas ofertas de serviços educacionais para estas mudanças no mercado.
+
+**Poder de barganha dos fornecedores**:
+
+Os fornecedores do Inteli incluem professores, orientadores, psicopedagogos, especialistas em tecnologia, profissionais de negócios que contribuirão para a instrução e desenvolvimento dos alunos, entre outros. Dado o alto nível de especialização necessário, esses fornecedores podem ter um certo poder de barganha. No entanto, a proposta e os recursos do Inteli podem atrair talentos qualificados e tornar mais acessível o poder de barganha dos fornecedores.
+
+**Poder de barganha dos compradores (alunos)**:
+
+O poder de barganha dos alunos pode variar, uma vez que dispõem de várias alternativas educacionais à escolha. No entanto, o Inteli apresenta uma proposta de valor singular, destacando competências tangíveis e traços comportamentais, juntamente com a criação de laços no mercado, interagindo com diversas empresas ao longo de cada módulo até a graduação. Isso pode reduzir o poder de barganha dos alunos que buscam uma formação mais abrangente e alinhada com as demandas do setor. Importante mencionar que o Inteli oferece um amplo leque de bolsas de estudo destinadas a estudantes que enfrentam restrições financeiras para custear mensalidades, alojamento, alimentação, entre outros.
 
 ## 1.2 Problema
 
@@ -170,7 +206,65 @@ Esta seção pode ser atualizada durante o ciclo de desenvolvimento do software,
 
 ## 3.1 Requisitos Funcionais
 
-Descreva detalhadamente os requisitos do sistema. Inclua também informações sobre as funcionalidades esperadas do software, descrição de testes, as restrições e limitações do sistema e outras especificações relevantes.
+Requisitos Funcionais são todos os problemas e necessidades que devem ser atendidos e resolvidos pelo software por meio de funções ou serviços. Para esta análise inicial, trouxemos 3 requisitos, sendo eles: 
+
+**RF01. Análise de Compatibilidade dos Projetos**
+
+**Descrição**: assegurar a compatibilidade entre os projetos propostos pelas empresas e os módulos abertos, considerando tanto as competências necessárias para os projetos quanto as disciplinas disponíveis. Isso possibilita uma otimização aprimorada, garantindo que os projetos empresariais estejam alinhados com as competências existentes no sistema, aumentando assim a eficácia e o sucesso dos projetos.
+
+**Informações**:
+
+-A análise é realizada para garantir a compatibilidade entre projetos empresariais e módulos abertos.
+
+-São consideradas as competências exigidas pelos projetos e as disciplinas disponíveis no sistema.
+
+**Aplicação**:
+
+-Um projeto proposto por uma empresa para modelo preditivo com programação em Python e análise de dados.
+
+-A análise de compatibilidade identifica as disciplinas relacionadas a Python e análise de dados na página do EP.
+
+-Caso haja uma correspondência satisfatória entre as competências e as disciplinas disponíveis, o projeto é considerado compatível. Para isso, podemos desenvolver uma integração com o chat GPT na parte de IA para corresponder uma proposta de projeto com um módulo em aberto. Isso pode ser visualizado no formato de dashboard dentro da plataforma.
+
+**RF02. Abertura de Módulos no Trimestre/Semestre**
+
+**Descrição**: divulgação de informações referentes aos módulos disponíveis no trimestre/semestre. Essas informações incluem detalhes sobre os tópicos que serão abordados e estudados pelos alunos ao longo do período.
+
+**Informações**:
+
+-O sistema deve fornecer informações sobre os módulos disponíveis no trimestre/semestre.
+
+-As informações devem abranger os assuntos que serão ensinados durante o período.
+
+**Aplicação**:
+
+-No início do semestre, as empresas acessam o sistema para obter informações sobre os módulos oferecidos que estão disponiveis para realização de projeto.
+
+-Cada módulo listado apresenta uma descrição detalhada dos tópicos que serão abordados.
+
+-As empresas podem tomar decisões com base nessas informações, selecionando módulos que se alinhem com seus interesses e objetivos.
+
+**RF03. Cadastro de Usuários**
+
+**Descrição**: capacidade de cadastrar e autenticar usuários na plataforma. Os usuários que podem ser cadastrados são os administradores responsáveis pelo gerenciamento da plataforma.
+
+**Informações**:
+
+-A plataforma deve permitir o cadastro de usuários.
+
+-A autenticação é necessária para garantir acesso seguro aos recursos da plataforma.
+
+-Cada usuário cadastrado deve fornecer informações como nome, endereço de e-mail e senha.
+
+-A autenticação deve ser baseada em credenciais seguras para garantir a integridade dos dados (exemplo: e-mail com "nome.sobrenome@inteli.edu.br".
+
+**Aplicação**:
+
+-Um administrador do inteli acessa a plataforma e clica na opção de cadastro.
+
+-Ele preenche os campos obrigatórios, como seu nome, endereço de e-mail e senha escolhida.
+
+-Após o cadastro, o administrador pode fazer o login usando suas credenciais recém-criadas.
 
 ### 3.1.1 Casos de Uso
 
@@ -310,7 +404,8 @@ Faça o mesmo para a documentação em formato DOCX, se houver.
   &emsp;| T6_G3_V1_document.docx<br>
 |--> imagens<br>
 |--> src<br>
-  &emsp;|--> Circuito<br>
+  &emsp;|--> Back-end<br>
+  &emsp;|--> Front-end<br>
 | readme.md<br>
 | license.txt
 

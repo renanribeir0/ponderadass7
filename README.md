@@ -138,7 +138,9 @@ Descreva o problema ou a oportunidade de negócio.
 Descreva os problemas identificados e as necessidades do usuário, bem como uma avaliação da situação atual e as possíveis soluções para cada questão. Além disso, identifique os obstáculos e limitações do projeto, a fim de assegurar que todas as preocupações sejam abordadas antes do início da implementação. A Análise do Problema é essencial para garantir que a solução do software seja eficaz e atenda às necessidades dos usuários. É importante que seja realizada uma pesquisa exaustiva e que todas as perspectivas sejam consideradas para garantir que a solução seja bem-sucedida.
 
 ### 1.2.2 Análise do cenário: Matriz SWOT
-Apresente a Matriz SWOT com análise da empresa parceira.
+
+![image](https://github.com/2023M5T06-Inteli/Grupo-03/assets/99493861/df061f0f-5355-4645-96fb-7427d3b11a0e)
+
 
 ## 1.3 Descritivo da Solução
 
@@ -196,13 +198,7 @@ Aqui você deve colocar o link para o wireframe ou colocar as imagens geradas na
 Além disso: forneça exemplos de como as funcionalidades do software são acessadas e usadas pelos usuários, incluindo informações sobre os passos necessários para realizar tarefas específicas; aborde as principais preocupações de UX, como acessibilidade, usabilidade, consistência e simplicidade; e apresente exemplos de como as telas foram pensadas para atender às necessidades dos usuários com diferentes tipos de habilidades e recursos.
 
 # 3. Requisitos
-
-Inclua nesta seção os requisitos funcionais e não funcionais da solução proposta. 
-
-Esta seção é importante porque permite que os desenvolvedores entendam claramente o que é esperado do software e quais serão as restrições e desafios enfrentados durante o desenvolvimento. Além disso, permite que os usuários finais saibam se o software atende às suas expectativas e se está adequado ao seu ambiente de trabalho. 
-
-Esta seção pode ser atualizada durante o ciclo de desenvolvimento do software, garantindo que todas as necessidades e especificações estejam sempre sendo consideradas.
-
+Um requisito é uma especificação que define as necessidades e condições que o sistema deve atender. 
 
 ## 3.1 Requisitos Funcionais
 
@@ -268,12 +264,11 @@ Requisitos Funcionais são todos os problemas e necessidades que devem ser atend
 
 ### 3.1.1 Casos de Uso
 
-Descreva os casos de uso da solução proposta. É importante entender que esta é uma parte importante da documentação do software pois descreve as suas funcionalidades e como elas serão utilizadas pelos usuários. Aqui, são listados todos os cenários possíveis de uso do software, incluindo as ações que o usuário pode realizar, as interações com o sistema e os resultados esperados. Os casos de uso devem ser descritos em detalhes, incluindo a descrição do objetivo da funcionalidade, as entradas de dados, as ações do usuário e os resultados esperados. Além disso, também devem ser incluídos os critérios de aceitação, que são os padrões que o software precisa atender para ser considerado como funcionando corretamente.
+O diagrama de caso de uso é uma ferramenta para a engenharia de requisitos e análise de sistemas, servindo para demonstrar de uma forma mais visual a interação entre os usuários e o sistema em desenvolvimento. Com a utilização de diagramas comportamentais permite uma maior compreensão dos requisitos e definição do escopo. 
 
-Os diagramas de caso de uso podem ser anexados aqui ou você pode adicionar o link para o drive (lembre-se de compartilhar com os professores). As User stories deverão ser escritas no Gut Huib Projects.
+Para melhor compreensão das interações presente no sistema, definimos dois fluxos: EP (escritório de projetos) e OI (organização interessada) que possuem as principais funcionalidades no sistema, listadas abaixo.
+<img src="../imagens/caso_de_uso.png">
 
-<img src="../imagens/caso-uso.png">
-Exemplo de Diagrama de Casos de Uso
 
 ### 3.1.2 User Stories
 
@@ -292,7 +287,7 @@ Exemplo:
 
 ## 3.2 Requisitos não funcionais
 
-Descreva detalhadamente os requisitos não funcionais como requisitos de segurança, escalabilidade, uso de recursos e privacidade, por exemplo. Inclua também informações sobre os resultados esperados, descrição de testes, as restrições e limitações do sistema e outras especificações relevantes.
+Os requistos não funcionais definem características e qualidades do sistemas, abordando aspectos como usabilidade, desempenho ou escalabilidade. Para esta análise inicial, trouxemos 3 requisitos, sendo eles: 
 
 
 # 4.	Arquitetura do Sistema

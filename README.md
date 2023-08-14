@@ -135,7 +135,7 @@ Descreva o problema ou a oportunidade de negócio.
 
 ### 1.2.1 Análise do Problema
 
-Descreva os problemas identificados e as necessidades do usuário, bem como uma avaliação da situação atual e as possíveis soluções para cada questão. Além disso, identifique os obstáculos e limitações do projeto, a fim de assegurar que todas as preocupações sejam abordadas antes do início da implementação. A Análise do Problema é essencial para garantir que a solução do software seja eficaz e atenda às necessidades dos usuários. É importante que seja realizada uma pesquisa exaustiva e que todas as perspectivas sejam consideradas para garantir que a solução seja bem-sucedida.
+O problema apresentado pelo Inteli, reside na ausência de uma plataforma eficaz para a gestão de parcerias entre empresas e estudantes em projetos conjuntos baseados no modelo de Aprendizagem Baseada em Problemas (PBL). Atualmente, a organização, acompanhamento e distribuição de projetos propostos aos módulos abertos no trimestre são feitas de forma manual, utilizando planilhas no Excel. Esse processo se tornou inadequado devido à diversidade de matérias e ao aumento no número de turmas em aberto.
 
 ### 1.2.2 Análise do cenário: Matriz SWOT
 

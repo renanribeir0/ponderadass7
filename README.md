@@ -139,7 +139,7 @@ O problema apresentado pelo Inteli, reside na ausência de uma plataforma eficaz
 
 ### 1.2.2 Análise do cenário: Matriz SWOT
 <img src="documentos/img/SWOT-Inteli.png">
-![image](https://github.com/2023M5T06-Inteli/Grupo-03/assets/99493861/df061f0f-5355-4645-96fb-7427d3b11a0e)
+
 
 
 ## 1.3 Descritivo da Solução

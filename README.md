@@ -138,7 +138,7 @@ Descreva o problema ou a oportunidade de negócio.
 O problema apresentado pelo Inteli, reside na ausência de uma plataforma eficaz para a gestão de parcerias entre empresas e estudantes em projetos conjuntos baseados no modelo de Aprendizagem Baseada em Problemas (PBL). Atualmente, a organização, acompanhamento e distribuição de projetos propostos aos módulos abertos no trimestre são feitas de forma manual, utilizando planilhas no Excel. Esse processo se tornou inadequado devido à diversidade de matérias e ao aumento no número de turmas em aberto.
 
 ### 1.2.2 Análise do cenário: Matriz SWOT
-
+<img src="documentos/img/SWOT-Inteli.png">
 ![image](https://github.com/2023M5T06-Inteli/Grupo-03/assets/99493861/df061f0f-5355-4645-96fb-7427d3b11a0e)
 
 

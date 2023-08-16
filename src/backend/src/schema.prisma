@@ -1,0 +1,48 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Parceiro {
+  id               Int      @id @default(autoincrement())
+  createdAt        DateTime @default(now())
+  nomeEmpresa      String?
+  mercado          String?
+  nomeContato      String?
+  email            String   @unique
+  telefone         String
+  nota             Int      
+  importancia      String
+  iniciativas      Iniciativa[]
+}
+
+model Iniciativa {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  modulo    Modulo?   @relation(fields: [moduloId], references: [id])
+  moduloId  Int?
+  parceiro  Parceiro?    @relation(fields: [parceiroId], references: [id])
+  parceiroId Int?
+  escopo     String?
+  mvp        String
+  tema       String
+  validacao  Boolean
+  turma      Turma      @relation(fields: [turmaId], references: [id])
+  turmaId    Int
+}
+
+model Modulo {
+    id          Int     @id @default(autoincrement())
+    descricao   String?
+    iniciativas Iniciativa[]
+}
+
+model Turma {
+    id      Int     @id @default(autoincrement())
+    iniciativas Iniciativa[]
+}

@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// import { telaExemplo } from "./pages/exemplo";
+import  ButtonUsage  from "C:/Users/Inteli/Desktop/ProjetoM5/Grupo-03/src/frontend/project-ep/src/components/atoms/botao.tsx"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  function App() {
+    return (
+      <>
+        <h1>NHAAA</h1>
+        <ButtonUsage/>
+        {/* <telaExemplo/> */}
+      </>
+    );
+  }
 
-export default App;
+  export default App;

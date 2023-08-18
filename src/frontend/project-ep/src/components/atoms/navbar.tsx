@@ -1,7 +1,7 @@
 import React from 'react';
 import { LogoIcone } from '../atoms/icone';
 
-export function navbar () {
+const Navbar = () => {
   return (
     <>
       <LogoIcone />
@@ -10,5 +10,8 @@ export function navbar () {
     
     </>
   );
-};
+
+}
+
+export default Navbar;
 

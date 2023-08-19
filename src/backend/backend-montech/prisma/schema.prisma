@@ -28,10 +28,10 @@ model Iniciativa {
   moduloId  Int?
   parceiro  Parceiro?    @relation(fields: [parceiroId], references: [id])
   parceiroId Int?
+  problema   String?
   escopo     String?
   mvp        String
   tema       String
-  validacao  Boolean
   turma      Turma      @relation(fields: [turmaId], references: [id])
   turmaId    Int
 }

@@ -2,7 +2,7 @@ import React from "react";
 // import Router from "./router";
 // import { telaExemplo } from "./pages/exemplo";
 import ButtonUsage  from './components/atoms/botao.tsx'
-import Navbar from './components/atoms/navbar.tsx'
+import Navbar from './components/atoms/navbar/index.jsx'
 import { Link } from "react-router-dom";
 
   function App() {

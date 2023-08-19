@@ -1,0 +1,76 @@
+.principal {
+    background-color: #5E586B;
+    height: 89.5vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.formProposta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 50%;
+
+    input {
+        margin: 10% 0 0 0;
+        height: 50%;
+    }
+}
+
+.botao {
+    height: 50%;
+    display: flex;
+    justify-content: end;
+    margin-right: 5%;
+}
+
+.principal2 {
+    height: 89.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #5E586B;
+}
+
+.paiCard {
+    margin-top: 5%;
+    width: 49%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.margem {
+    border-left: 1px solid #000 ;
+    margin-top: 5%;
+    width: 50%;
+    
+}
+
+.infoModulo {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10%;
+
+    p{
+        display: flex;
+        align-items: center;
+    }
+    
+}
+
+
+.tema {
+    display: flex;
+    width: 100%;
+}
+
+.botao {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}

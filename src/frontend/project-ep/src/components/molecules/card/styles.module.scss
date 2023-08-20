@@ -1,9 +1,10 @@
-$card-color: #251B3A;
+$card-color: #ffffff;
 $card-hover-color: darken($card-color, 10%);
-$text-color: white;
+$text-color: #2e2640;
 
 .card {
     width: 40%;
+    height: 30%;
     border-radius: 10px;
     margin: 0;
     padding: 0;
@@ -17,7 +18,8 @@ $text-color: white;
 }
 
 .info {
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     display: flex;
     justify-content: center;
     color: $text-color;

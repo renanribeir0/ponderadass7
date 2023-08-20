@@ -2,16 +2,11 @@ import React from "react";
 import styles from './styles.module.scss';
 // import ButtonUsage from "../atoms/botao";
 
-const Card = () => {
-    let switchCard= false
-    const SelecionaCard = () => {
-        if(switchCard){
-            
-        }
-    } 
+const Card = ({ onClick }) => {
+    
 
     return (
-        <div className={styles.card} onClick={switchCard= true}>
+        <div className={styles.card} onClick={onClick}>
 
             <div className={styles.info}>
                 <h5>Módulo 05 - Engenharia de Software</h5>

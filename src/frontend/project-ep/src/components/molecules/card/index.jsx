@@ -2,18 +2,18 @@ import React from "react";
 import styles from './styles.module.scss';
 // import ButtonUsage from "../atoms/botao";
 
-const Card = ({ onClick }) => {
+const Card = (props) => {
     
 
     return (
-        <div className={styles.card} onClick={onClick}>
+        <div className={`${styles.card} ${props.className}`} onClick={props.onClick}>
 
             <div className={styles.info}>
-                <h5>Módulo 05 - Engenharia de Software</h5>
+                <h5>{props.modulo}</h5>
 
             </div>
             <div className={styles.info}>
-                <h4>Desenvolvimento de serviços em cloud computing</h4>
+                <h4>{props.nomeModulo}</h4>
 
             </div>
 

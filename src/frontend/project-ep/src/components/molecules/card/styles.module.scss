@@ -21,9 +21,12 @@ $text-color: #2e2640;
     width: 90%;
     margin-left: 5%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     color: $text-color;
 }
 
-
+.cardSelected {
+    border: 2px solid rgb(82, 26, 135);
+    // box-shadow: 0px 0px 0px 10px rgb(82, 26, 135); // Opcional: para adicionar um leve sombreado ao redor do card
+}
 

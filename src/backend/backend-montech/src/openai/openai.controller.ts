@@ -1,6 +1,8 @@
 import { Controller, Get, Post, Body, Res } from '@nestjs/common';
 import { OpenAIService } from './openai.service';
 import { Response } from 'express';
+import { interval, take, lastValueFrom } from 'rxjs';
+
 
 @Controller('openai')
 export class OpenAIController {
@@ -16,7 +18,8 @@ export class OpenAIController {
   @Post()
   async complete(@Body('description') description: string, @Res() res: Response) {
     try {
-      const response = await this.openAIService.complete(description).toPromise();
+      console.log(description)
+      const response = await lastValueFrom(this.openAIService.complete(description));
       res.json(response.data);
     } catch (error) {
       console.error('Erro ao acessar a API do OpenAI:', error);

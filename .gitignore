@@ -3,7 +3,6 @@ dist/
 
 # Prerequisites
 *.d
-
 # Compiled Object files
 *.slo
 *.lo
@@ -33,3 +32,6 @@ dist/
 *.exe
 *.out
 *.app
+
+node_modules/
+dist/

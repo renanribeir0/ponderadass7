@@ -15,18 +15,56 @@ $text-color: #2e2640;
     align-items: center;
     margin-bottom: 5%;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    // p {
+
+        // }
+    }
+    
+    .info1 {
+        width: 90%;
+        height: 30%;
+        margin-left: 2%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: $text-color;
+        border-bottom: 1px solid #000 ;
+        
+    p {
+
+            font-size: 12px !important;
+    }
 }
+
 
 .info {
     width: 90%;
-    margin-left: 5%;
+    margin-left: 2%;
     display: flex;
     justify-content: flex-start;
     color: $text-color;
+
+    p {
+
+        font-size: 12px !important;
+}
 }
 
 .cardSelected {
     border: 2px solid rgb(82, 26, 135);
     // box-shadow: 0px 0px 0px 10px rgb(82, 26, 135); // Opcional: para adicionar um leve sombreado ao redor do card
+}
+
+.iconeCurso {
+    border-radius: 1px;
+    height: 50%;
+    width: height;
+    margin: 2px 4px 0px 0px;
+}
+
+.iconeFerramenta {
+    height: 20px !important;
+    width: height;
+    margin: 2px 4px 0px 0px
 }
 

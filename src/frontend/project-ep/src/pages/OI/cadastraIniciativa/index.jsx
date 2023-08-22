@@ -3,6 +3,7 @@ import Navbar from "../../../components/atoms/navbar/index.jsx";
 import ButtonUsage from "../../../components/atoms/botao.tsx";
 import Card from '../../../components/molecules/card/index.jsx'
 import styles from '../cadastraIniciativa/styles.module.scss';
+import ModalSucesso from "../../../components/molecules/modalSucesso/index.jsx";
 // import {telaFundo} from "../components/";
 import TextField from '@mui/material/TextField';
 import desenho from '../../../assets/desenho.png'
@@ -20,6 +21,8 @@ const CadastraIniciativa = (props) => {
     const [descricao, setDescricao] = useState("");  // Novo estado para armazenar a descrição
     const [selectedCard, setSelectedCard] = useState(null); // Estado para armazenar o Card selecionado
     const [apiResponse, setApiResponse] = useState([]); // Simulação da resposta da API
+    const [isModalOpen, setIsModalOpen] = useState(false); //Controla Modal
+    const [nomeModulo, setNomeModulo] = useState('')
 
     // Função para lidar com a mudança no TextField
     const handleDescricaoChange = (event) => {
@@ -44,8 +47,8 @@ const CadastraIniciativa = (props) => {
 
             // Processar a resposta aqui, por exemplo:
             console.log("AGORA A RESPOSTA DO ENDPOINT ")
-            console.log(data)
-            setApiResponse(data.choices[0].message.content);
+            console.log(data.text)
+            // setApiResponse(data.text);
             console.log(apiResponse);
             
         } catch (error) {
@@ -60,23 +63,24 @@ const CadastraIniciativa = (props) => {
             // fetchOpenAIResponse(descricao)
             // Simulação de uma resposta da API
             setApiResponse([
-                { id: 1, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", modulo: "Módulo 05 - Engenharia de Software", nomeModulo: "Desenvolvimento de plataforma em Cloud", solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 1", tema: "Fluxo de Caixa", mvp: ["Item 1", "Item 2"] },
-                { id: 2, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", modulo: "Módulo 02 - Ciclo Básico", nomeModulo: "Desenvolvimento de plataforma Web", solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 2", tema: "RH - Gestão de Pessoas", mvp: ["Item 3", "Item 4"]  },
-                { id: 3, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", modulo: "Módulo 08 - Sistemas de Informação", nomeModulo: "Integração, gerenciamento e análise de big data",solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 3", tema: "Gestão de Projetos", mvp: ["Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação", "Formulário de entrada de propostas de projetos", "Dash de análise de Iniciativas / atribuição de ratings", "Dash de alocação de Projetos em  Módulos/Turmas"] },
-                { id: 4, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", modulo: "Módulo 06 - Engenharia de Software", nomeModulo: "Elaboração de aplicação para dispositivos móveis", solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 4", tema: "Gestão de Projetos", mvp: ["Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação", "Formulário de entrada de propostas de projetos", "Dash de análise de Iniciativas / atribuição de ratings", "Dash de alocação de Projetos em  Módulos/Turmas"] },
+                { id: 1, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", curso: "es", modulo: "Módulo 05 - Engenharia de Software", nomeModulo: "Desenvolvimento de plataforma em Cloud", solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 1", tema: "Fluxo de Caixa", mvp: ["Item 1", "Item 2"] },
+                { id: 2, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", curso: "cb", modulo: "Módulo 02 - Ciclo Básico", nomeModulo: "Desenvolvimento de plataforma Web", solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 2", tema: "RH - Gestão de Pessoas", mvp: ["Item 3", "Item 4"]  },
+                { id: 3, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", curso: "si", modulo: "Módulo 08 - Sistemas de Informação", nomeModulo: "Integração, gerenciamento e análise de big data",solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 3", tema: "Gestão de Projetos", mvp: ["Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação", "Formulário de entrada de propostas de projetos", "Dash de análise de Iniciativas / atribuição de ratings", "Dash de alocação de Projetos em  Módulos/Turmas"] },
+                { id: 4, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", curso: "es", modulo: "Módulo 06 - Engenharia de Software", nomeModulo: "Elaboração de aplicação para dispositivos móveis", solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 4", tema: "Gestão de Projetos", mvp: ["Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação", "Formulário de entrada de propostas de projetos", "Dash de análise de Iniciativas / atribuição de ratings", "Dash de alocação de Projetos em  Módulos/Turmas"] },
                 // { id: 5, problema: "O projeto visa atuar em dois problemas: a escassez de mão de obra nos canteiros, algo que é relatado por todo setor da construção civil; e a contratação manual e lenta de empreiteiros devido a todas as particularidades de uma empresa que atua em todo o território nacional.", solucao: "A proposta é a criação de uma plataforma self-service de captação e contratação de empreiteiros e profissionais autônomos, conectando a demanda de obra (MRV) com as ofertas de prestadores de serviço.", tema: "Gestão de Pessoas", mvp: ["Aplicação web capaz de disponibilizar as oportunidades de trabalho para os prestadores de serviço (com as informações de prazo, preço e disponibilidade)", "criar uma base de dados com contatos de todos os empreiteiros que se interessarem pela vaga integrada à referida aplicação."] }        
             ])
         }
     }, [problemaEnviado]);
-
+    
     return (
         <>
             <Navbar/>
+            <ModalSucesso mensagem={nomeModulo} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
             {problemaEnviado ? 
             <div className={styles.principal2}>
                 <div className={styles.paiCard}>
                     {apiResponse.map((cardData, index) => (
-                        <Card key={index} modulo={cardData.modulo} nomeModulo={cardData.nomeModulo} className={cardData === selectedCard ? styles.cardSelected : ''} onClick={() => setSelectedCard(cardData)}/>
+                        <Card key={index} icone={cardData.curso} modulo={cardData.modulo} nomeModulo={cardData.nomeModulo} className={cardData === selectedCard ? styles.cardSelected : ''} onClick={() => setSelectedCard(cardData)}/>
 
                     ))}
 
@@ -118,10 +122,11 @@ const CadastraIniciativa = (props) => {
                 </div>
                 <div className={styles.botao}>
                     <button onClick={() => fetchOpenAIResponse(descricao)}>BOTÂO PARA ACESSAR A API DO GEPETAS</button>
-                    <ButtonUsage enviaIniciativa={true} selectedCard={selectedCard} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
+                    <ButtonUsage setNomeModulo={setNomeModulo} setIsModalOpen={setIsModalOpen} enviaIniciativa={true} selectedCard={selectedCard} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
 
                 </div>
             </div>
+
             :
             <div className={styles.principal}>
                 <div className={styles.header}>
@@ -153,9 +158,9 @@ const CadastraIniciativa = (props) => {
                         <h4>Descrição do problema:</h4>
                         
                         <TextField multiline maxRows={Infinity} className={styles.TextField}
-                        required
+                        
                         id="outlined-required"
-                        label="Descrição"
+                        // label="Descrição"
                         value={descricao}
                         onChange={handleDescricaoChange}
                         defaultValue=" "

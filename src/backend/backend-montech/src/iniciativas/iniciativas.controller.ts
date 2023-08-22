@@ -23,6 +23,8 @@ export class IniciativasController {
 
     @Post()
     async create(@Body() criaIniciativaDto: CriaIniciativaDto) {
-        return 'Você criou uma iniciativa'
+        return {
+            message: `Você criou uma iniciativa para o ${criaIniciativaDto.modulo}`
+        }
     }
 }

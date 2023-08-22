@@ -3,16 +3,17 @@ import { Controller, Get, Post, Put, Delete, Body, Query, Param } from "@nestjs/
 // O que está dentro do parênteses da Controller é o conjunto de url a ser acessado, ou seja, o back está disponível na url: 127.0.0.1:3000
 //Para acessar os endpoints dessa tabela, acesse a url: 127.0.0.1:3000/tabelaGenerica
 
-@Controller('parceiro')
-export class ParceiroController {
+@Controller('modulos')
+export class ModulosController {
 
     //Cria o Get universal de acesso a url
     @Get()
     nomeDaFuncao() {
         const json = {
-            id: 4969
+            id: 69,
+            text: "Voce acessou o GET de modulos"
         }
-        return json.id
+        return json.text
     }
 
     //127.0.0.1:3000/parceiro/<conteudo>
@@ -26,7 +27,7 @@ export class ParceiroController {
 
     @Post()
     async create(@Body() any: any) {
-        return 'Você criou um(a) Parceiro'
+        return 'Você criou um(a) Modulo'
     }
 }
 

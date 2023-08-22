@@ -16,10 +16,10 @@ export class ParceiroController {
     }
 
     //127.0.0.1:3000/parceiro/<conteudo>
-    @Get(':nome')
-    nomeDaFuncao2(@Param('nome') nome: string) {
+    @Get(':parametro')
+    nomeDaFuncao2(@Param('parametro') parametro: string) {
         const json = {
-            conteudoMockado: `Aqui você acessa apenas o parceiro de parametro = ${nome}`
+            conteudoMockado: `Aqui você acessa apenas o parceiro de parametro = ${parametro}`
         }
         return json
     }

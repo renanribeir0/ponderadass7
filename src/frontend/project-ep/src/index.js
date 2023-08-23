@@ -4,11 +4,13 @@ import CadastraIniciativa from './pages/OI/cadastraIniciativa/index.jsx'
 import React from 'react'
 import { createRoot } from "react-dom/client"
 import styles from './global.module.scss'
+import DashIniciativa from './pages/EP/dashIniciativa'
 
 const router = createBrowserRouter([
 
     { path:"/", element: (<App />),},
     { path:"iniciativas", element: (<CadastraIniciativa/>)},
+    { path:"dashIniciativas", element: (<DashIniciativa/>)}
 
 ]);
 

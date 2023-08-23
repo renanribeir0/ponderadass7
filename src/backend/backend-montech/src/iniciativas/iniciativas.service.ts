@@ -11,7 +11,9 @@ export class IniciativasService {
         this.prisma = new PrismaClient()
     }
 
-    private readonly iniciativas: Iniciativa[] = []
+    // private readonly iniciativas: Iniciativa[] = []
+    private readonly iniciativas: any[] = []
+
     
     retornaMockado() {
         const iniciativaMockada = {
@@ -32,7 +34,7 @@ export class IniciativasService {
         return iniciativaMockada;
     }
 
-    async findById(id: number): Promise<Iniciativa> {
+    async findById(id: number): Promise<any> {
         return this.prisma.iniciativa.findUnique({
             where: { id: id },
             include: {
@@ -42,12 +44,12 @@ export class IniciativasService {
         });
     }
 
-    findAll(): Iniciativa[] {
+    findAll(): any[] {
         return this.iniciativas
     }
 
     // create(iniciativa: Iniciativa): Promise<Iniciativa> {
-    create(iniciativa: Iniciativa) {
+    create(iniciativa: any) {
         return this.prisma.iniciativa.create({
             data: iniciativa as any,
             include: {

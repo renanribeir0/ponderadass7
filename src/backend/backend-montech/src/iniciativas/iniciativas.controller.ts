@@ -14,19 +14,16 @@ export class IniciativasController {
     async findAll() {
         
         // return this.iniciativaService.findAll();
-        return {
-            id: 1,
-            modulo: "06 - Engenharia de Software"
-        }
+        return this.iniciativaService.retornaMockado()
     }
 
 
-    // @Get(':id')
-    // // async findById(@Param('id') id: number): Promise<IniciativaModel> {
-    // async findById(@Param('id') id: number) {
+    @Get(':id')
+    // async findById(@Param('id') id: number): Promise<IniciativaModel> {
+    async findById(@Param('id') id: number) {
         
-    //     return this.iniciativaService.findById(id)
-    // }
+        return this.iniciativaService.findById(id)
+    }
 
     @Post()
     async create(@Body() any: any) {

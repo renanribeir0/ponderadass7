@@ -35,13 +35,14 @@ export class IniciativasService {
     }
 
     async findById(id: number): Promise<any> {
-        return this.prisma.iniciativa.findUnique({
-            where: { id: id },
-            include: {
-                modulo: true,
-                parceiro: true
-            }
-        });
+        // return this.prisma.iniciativa.findUnique({
+        //     where: { id: id },
+        //     include: {
+        //         modulo: true,
+        //         parceiro: true
+        //     }
+        // });
+        return `Você acessou no BD a Iniciativa de id: ${id}`
     }
 
     findAll(): any[] {

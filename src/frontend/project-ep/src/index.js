@@ -1,7 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import { Route, RouterProvider, Routes, createBrowserRouter } from 'react-router-dom'
+import App from "./App"
+import CadastraIniciativa from './pages/OI/cadastraIniciativa/index.jsx'
+import React from 'react'
+import { createRoot } from "react-dom/client"
+import styles from './global.module.scss'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+const router = createBrowserRouter([
 
+    { path:"/", element: (<App />),},
+    { path:"iniciativas", element: (<CadastraIniciativa/>)},
+
+]);
+
+createRoot(document.getElementById("root")).render(
+    <RouterProvider router={router} />
+)

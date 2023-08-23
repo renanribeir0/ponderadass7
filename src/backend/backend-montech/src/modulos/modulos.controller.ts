@@ -9,25 +9,28 @@ export class ModulosController {
     //Cria o Get universal de acesso a url
     @Get()
     nomeDaFuncao() {
-        const json = {
+        const modulo = {
             id: 69,
-            text: "Voce acessou o GET de modulos"
+            descricao: "Construção de lógica para predição com inteligência artificial",
+            competencias: ["Interpretar e elaborar planos de negócios: 'Planos de negócios'", "Traduzir a estratégia em planos de marketing e comunicação: 'Branding e comunicação'", "Idealizar estruturas organizacionais: 'Cultura organizacional'", "Idealizar estruturas organizacionais: 'Governança corporativa'", "Decidir sobre investimentos, financiamentos e gestão de recursos: 'Ciclo de funding em startups'"],
+            iniciativasId: 0 
         }
-        return json.text
+        return modulo
     }
 
     //127.0.0.1:3000/parceiro/<conteudo>
-    @Get(':nome')
-    nomeDaFuncao2(@Param('nome') nome: string) {
-        const json = {
-            conteudoMockado: `Aqui você acessa apenas o parceiro de parametro = ${nome}`
-        }
-        return json
+    @Get(':id')
+    nomeDaFuncao2(@Param('id') id: string) {
+        
+        return `Você acessou no BD o Módulo de id: ${id}`    
     }
 
     @Post()
     async create(@Body() any: any) {
-        return 'Você criou um(a) Modulo'
+        return {
+            message: `Você criou um Módulo com id ${any.id}`
+
+        }
     }
 }
 

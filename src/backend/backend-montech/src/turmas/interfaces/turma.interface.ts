@@ -1,6 +1,6 @@
-import { Iniciativa } from "@prisma/client";
+// import { Iniciativa } from "@prisma/client";
 
-export interface Turma {
-    id: number;
-    iniciativas: Iniciativa[];
-}
+// export interface Turma {
+//     id: number;
+//     iniciativas: Iniciativa[];
+// }

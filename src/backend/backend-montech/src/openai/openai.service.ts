@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import OpenAI from 'openai'
 import { lastValueFrom } from 'rxjs';
 
-require('dotenv').config();
+// require('dotenv').config();
 
 // import  Configuration from "openai";
 // import OpenAIApi from 'openai';

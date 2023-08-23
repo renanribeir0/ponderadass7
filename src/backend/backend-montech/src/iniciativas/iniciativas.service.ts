@@ -1,10 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { Iniciativa } from 'src/iniciativas/interfaces/iniciativa.interface';
+import { Prisma, PrismaClient } from '@prisma/client';
+
 
 @Injectable()
 export class IniciativasService {
+    private prisma: PrismaClient;
+
+    constructor() {
+        this.prisma = new PrismaClient()
+    }
+
     private readonly iniciativas: Iniciativa[] = []
-    findById() {
+    
+    retornaMockado() {
         const iniciativaMockada = {
         id: 0,
         createdAt: 20000,
@@ -23,7 +32,29 @@ export class IniciativasService {
         return iniciativaMockada;
     }
 
+    async findById(id: number): Promise<Iniciativa> {
+        return this.prisma.iniciativa.findUnique({
+            where: { id: id },
+            include: {
+                modulo: true,
+                parceiro: true
+            }
+        });
+    }
+
+    findAll(): Iniciativa[] {
+        return this.iniciativas
+    }
+
+    // create(iniciativa: Iniciativa): Promise<Iniciativa> {
     create(iniciativa: Iniciativa) {
-        this.iniciativas.push(iniciativa)
+        return this.prisma.iniciativa.create({
+            data: iniciativa as any,
+            include: {
+                modulo: true,
+                parceiro: true,
+                turma: true
+            }
+        })
     }
 }

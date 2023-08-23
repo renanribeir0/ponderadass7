@@ -18,7 +18,7 @@ require('dotenv').config();
 
 // const { Configuration, OpenAIApi } = require("openai")
 
-const openai = new OpenAI();
+// const openai = new OpenAI({ apiKey: $OPEN_AI_KEY});
 
 // const configuration = new Configuration({
 //   apiKey: process.env.OPEN_AI_KEY,
@@ -28,7 +28,7 @@ const openai = new OpenAI();
 
 @Injectable()
 export class OpenAIService {
-  private readonly OPENAI_ENDPOINT = 'https://api.openai.com/v1/chat/completions'; // URL da API do OpenAI
+  private readonly OPENAI_ENDPOINT = 'https://api.openai.com/v1/completions'; // URL da API do OpenAI
 
   constructor(private httpService: HttpService) {}
 
@@ -51,47 +51,47 @@ export class OpenAIService {
     };
 
     const body = {
-      model: "gpt-3.5-turbo",
-      prompt: `Dado o problema a seguir, classifique a relevância das 6 competências de cada módulo de projeto em termos de sua importância para a solução. As opções de classificação são: Muito Baixa, Baixa, Média, Alta, Muito Alta e Perfeita. Retorne um json com a competência e a classificação dela, separadas por Módulo. Para a Ferramenta Tecnológica, analise se o problema pode ser resolvido através dessa Ferramenta, seja bem criterioso e só classifique como Perfeita, se a ferramenta conseguir resolver o problema da melhor forma possível, para as competências restantes, avalie o quão fácil os alunos enxergarão esse tema no projeto que desenvolvem.
+      model: "text-davinci-003",
+      prompt: `Dado o problema a seguir, classifique a relevância das 6 competências do módulo de projeto em termos de sua importância para a solução. As opções de classificação são: Muito Baixa, Baixa, Média, Alta, Muito Alta e Perfeita. Retorne um json com a competência e a classificação dela. Para a Ferramenta Tecnológica, analise se o problema pode ser resolvido através dessa Ferramenta, seja bem criterioso e só classifique como Perfeita, se a ferramenta conseguir resolver o problema da melhor forma possível, para as competências restantes, avalie o quão fácil os alunos enxergarão esse tema no projeto que desenvolvem.
 
       Problema: "${problemDescription}"
       
-      Módulo 1 {
-        Ferramenta Tecnológica: "Desenvolvimento de um Jogo",
-        Identificar tendências e oportunidades de mercado: "Análise de cenário",
-        Identificar tendências e oportunidades de mercado: "Matriz SWOT e Riscos",
-        Identificar tendências e oportunidades de mercado: "Diferenciação, posicionamento e segmentação",
-        Identificar tendências e oportunidades de mercado: "Product Box e Value Proposition Canvas",
-        Identificar tendências e oportunidades de mercado: "Qualidade, PDCA, 6SIGMA, 5S"
-      }
+      // Módulo 3 {
+      //   Ferramenta Tecnológica: "Desenvolvimento de predição com Inteligência Artificial",
+      //   Interpretar e elaborar planos de negócios: "Planos de negócios",
+      //   Traduzir a estratégia em planos de marketing e comunicação: "Branding e comunicação",
+      //   Idealizar estruturas organizacionais: "Cultura organizacional",
+      //   Idealizar estruturas organizacionais: "Governança corporativa",
+      //   Decidir sobre investimentos, financiamentos e gestão de recursos: "Ciclo de funding em startups"
+  
+      // }
+    }`,
+    // Módulo 1 {
+    //   Ferramenta Tecnológica: "Desenvolvimento de um Jogo",
+    //   Identificar tendências e oportunidades de mercado: "Análise de cenário",
+    //   Identificar tendências e oportunidades de mercado: "Matriz SWOT e Riscos",
+    //   Identificar tendências e oportunidades de mercado: "Diferenciação, posicionamento e segmentação",
+    //   Identificar tendências e oportunidades de mercado: "Product Box e Value Proposition Canvas",
+    //   Identificar tendências e oportunidades de mercado: "Qualidade, PDCA, 6SIGMA, 5S"
 
-      Módulo 2 {
-        Ferramenta Tecnológica: "Desenvolvimento de uma plataforma Web",
-        Identificar tendências e oportunidades de mercado: "Frameworks(Oceano Azul, 5 forças, 4P's, 6D",
-        Interpretar e elaborar planos de negócios : "Incubadoras e ecossistema de Startups",
-        Traduzir a estratégia em planos de marketing e comunicação: "Pesquisa de mercado e tendências",
-        Elaborar orçamentos e  fluxos de caixa: "Fluxo de Caixa, juros simples e compostos"
-        Elaborar orçamentos e  fluxos de caixa: "Taxa de desconto, IRR, NPV, PV e FV"
-      }
+    // Módulo 2 {
+    //   Ferramenta Tecnológica: "Desenvolvimento de uma plataforma Web",
+    //   Identificar tendências e oportunidades de mercado: "Frameworks(Oceano Azul, 5 forças, 4P's, 6D",
+    //   Interpretar e elaborar planos de negócios : "Incubadoras e ecossistema de Startups",
+    //   Traduzir a estratégia em planos de marketing e comunicação: "Pesquisa de mercado e tendências",
+    //   Elaborar orçamentos e  fluxos de caixa: "Fluxo de Caixa, juros simples e compostos"
+    //   Elaborar orçamentos e  fluxos de caixa: "Taxa de desconto, IRR, NPV, PV e FV"
+    // }
 
-      Módulo 3 {
-        Ferramenta Tecnológica: "Desenvolvimento de predição com Inteligência Artificial",
-        Interpretar e elaborar planos de negócios: "Planos de negócios",
-        Traduzir a estratégia em planos de marketing e comunicação: "Branding e comunicação",
-        Idealizar estruturas organizacionais: "Cultura organizacional",
-        Idealizar estruturas organizacionais: "Governança corporativa",
-        Decidir sobre investimentos, financiamentos e gestão de recursos: "Ciclo de funding em startups"
 
-      }
-
-      Módulo 4 {
-        Ferramenta Tecnológica: "Prototipação de solução para IoT",
-        Interpretar e elaborar planos de negócios : "Startup pitches",
-        Idealizar estruturas organizacionais: "Diversidade, inclusão e acessibilidade",
-        Idealizar estruturas organizacionais: "Design organizacional",
-        Aplicar técnicas e ferramentas para gerenciamento de projetos: "PMI, PMBok e Agile",
-        Aplicar técnicas e ferramentas para gerenciamento de projetos: "Sistemas para gerenciamento de projetos"
-      }`,
+      // Módulo 4 {
+      //   Ferramenta Tecnológica: "Prototipação de solução para IoT",
+      //   Interpretar e elaborar planos de negócios : "Startup pitches",
+      //   Idealizar estruturas organizacionais: "Diversidade, inclusão e acessibilidade",
+      //   Idealizar estruturas organizacionais: "Design organizacional",
+      //   Aplicar técnicas e ferramentas para gerenciamento de projetos: "PMI, PMBok e Agile",
+      //   Aplicar técnicas e ferramentas para gerenciamento de projetos: "Sistemas para gerenciamento de projetos"
+      // }`,
 
     //   Aqui segue um exemplo de análise para o problema: "A evolução do câncer de mama e sua resposta a tratamentos convencionais é muito variável. Conseguimos identificar padrões preditivos dessa variabilidade a partir de dados clínicos e do seguimento desses pacientes?"
 

@@ -1,9 +1,17 @@
+import { Modulo } from "@prisma/client";
+import { Parceiro } from "@prisma/client";
+import { Turma } from "@prisma/client"
+
 export interface Iniciativa {
-    id:         number,
-    problema:   string
-    modulo:     string;
-    nomeModulo: string,
-    solucao:    string,
-    tema:       string;
-    mvp:        string[];
-  }
+  updatedAt: Date;
+  modulo: Modulo;
+  moduloId: number;
+  parceiro: Parceiro;
+  parceiroId: number;
+  problema: string;
+  escopo: string;
+  mvp: string;
+  tema: string;
+  turma?: Turma;
+  turmaId?: number;
+}

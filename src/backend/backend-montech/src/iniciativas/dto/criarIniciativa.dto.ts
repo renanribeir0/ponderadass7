@@ -1,9 +1,17 @@
+import { Modulo, Parceiro, Turma } from "@prisma/client";
+
 export class CriaIniciativaDto {
-    id:         number;
-    problema:   string;
-    modulo:     string;
-    nomeModulo: string;
-    solucao:    string;
-    tema:       string;
-    mvp:        string[];
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  modulo: Modulo;
+  moduloId: number;
+  parceiro: Parceiro;
+  parceiroId: number;
+  problema: string;
+  escopo: string;
+  mvp: string;
+  tema: string;
+  turma?: Turma;
+  turmaId?: number;
 }

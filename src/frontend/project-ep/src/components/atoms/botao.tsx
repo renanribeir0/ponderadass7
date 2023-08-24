@@ -19,7 +19,7 @@ const ButtonUsage = (props) => {
         });
 
         const data = await response.json();
-        console.log("Resposta da API:", data);
+        console.log("Resposta da API:", data.message);
     } catch (error) {
         console.error("Erro ao enviar cardData:", error);
     }
@@ -29,6 +29,7 @@ const ButtonUsage = (props) => {
     if (props.enviaIniciativa) {
 
       sendCardData()
+      props.setIsModalOpen(true)
     }
     else {
       props.setProblemaEnviado(true)

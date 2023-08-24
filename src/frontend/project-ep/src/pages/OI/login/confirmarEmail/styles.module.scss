@@ -1,0 +1,41 @@
+/* Login.scss */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    background-image: url('../../../../assets/fundointeli.jpg'); 
+  }
+  
+  .topo2 {
+    background-color: #2e2640;
+    height: 72px;
+  }
+  
+  .form{
+    background-color: #f3f3f3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 320px;
+    border-radius: 10px;
+    margin: 40px auto 0;
+  }
+  
+  .email{
+    position: absolute
+  }
+  
+  .password{
+    margin-top: 40px;
+  }
+  .inputs{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

@@ -1,15 +1,14 @@
 import React from 'react';
-import LogoIcone  from '../icone/index';
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
+import logo from '../../../assets/logo3.png';
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
-    <div className={styles.navbar}>
-      <LogoIcone />
-      <div className=''>
+    <>
+      <div className={styles.navbar}>
+        <img className={styles.imagens} src={logo}/>
       </div>
-    
-    </div>
+    </>
   );
 
 }

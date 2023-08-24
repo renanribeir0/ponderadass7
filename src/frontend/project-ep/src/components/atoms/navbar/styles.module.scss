@@ -1,6 +1,15 @@
 .navbar {
     background-color: rgb(35, 0, 35);
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    width: 100vw;
+    height: 12vh;
+    position:fixed;
+    z-index: 1;
+}
+
+.imagens {
+    height: 8vh;
+    position: absolute;
+    top:50%;
+    left:2%;
+    transform: translateY(-50%);
 }

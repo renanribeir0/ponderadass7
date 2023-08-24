@@ -1,48 +1,48 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
 
-generator client {
-  provider = "prisma-client-js"
-}
+// generator client {
+//   provider = "prisma-client-js"
+// }
 
-model Parceiro {
-  id               Int      @id @default(autoincrement())
-  createdAt        DateTime @default(now())
-  nomeEmpresa      String?
-  mercado          String?
-  nomeContato      String?
-  email            String   @unique
-  telefone         String
-  nota             Int      
-  iniciativas      Iniciativa[]
-}
+// model Parceiro {
+//   id               Int      @id @default(autoincrement())
+//   createdAt        DateTime @default(now())
+//   nomeEmpresa      String?
+//   mercado          String?
+//   nomeContato      String?
+//   email            String   @unique
+//   telefone         String
+//   nota             Int      
+//   iniciativas      Iniciativa[]
+// }
 
-model Iniciativa {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  modulo    Modulo   @relation(fields: [moduloId], references: [id])
-  moduloId  Int
-  parceiro  Parceiro    @relation(fields: [parceiroId], references: [id])
-  parceiroId Int
-  problema   String
-  escopo     String
-  mvp        String
-  tema       String
-  turma      Turma?      @relation(fields: [turmaId], references: [id])
-  turmaId    Int?
-}
+// model Iniciativa {
+//   id        Int      @id @default(autoincrement())
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   modulo    Modulo   @relation(fields: [moduloId], references: [id])
+//   moduloId  Int
+//   parceiro  Parceiro    @relation(fields: [parceiroId], references: [id])
+//   parceiroId Int
+//   problema   String
+//   escopo     String
+//   mvp        String
+//   tema       String
+//   turma      Turma?      @relation(fields: [turmaId], references: [id])
+//   turmaId    Int?
+// }
 
-model Modulo {
-    id          Int     @id @default(autoincrement())
-    descricao   String?
-    competencias String[]
-    iniciativas Iniciativa[]
-}
+// model Modulo {
+//     id          Int     @id @default(autoincrement())
+//     descricao   String?
+//     competencias String[]
+//     iniciativas Iniciativa[]
+// }
 
-model Turma {
-    id      Int     @id @default(autoincrement())
-    iniciativas Iniciativa[]
-}
+// model Turma {
+//     id      Int     @id @default(autoincrement())
+//     iniciativas Iniciativa[]
+// }

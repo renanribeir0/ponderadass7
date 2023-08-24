@@ -1,9 +1,17 @@
 $backgroundColor: #f2f2f2;
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
 .principal {
     background-color: $backgroundColor;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-top: 12vh;
+    height: 100vh;
 
 }
 
@@ -94,10 +102,12 @@ $backgroundColor: #f2f2f2;
 }
 
 .principal2 {
-    height: 89.5vh;
+    height: 100vh;
     display: flex;
     flex-wrap: wrap;
     background-color: $backgroundColor;
+    padding-top: 12vh;
+
 }
 
 .paiCard {

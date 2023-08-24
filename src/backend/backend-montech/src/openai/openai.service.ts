@@ -49,40 +49,40 @@ export class OpenAIService {
       'Authorization': `Bearer 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`,
       // 'Authorization': `Bearer <openai_key>`,
     };
-
+    
     const body = {
       model: "text-davinci-003",
       prompt: `Dado o problema a seguir, classifique a relevância das 6 competências do módulo de projeto em termos de sua importância para a solução. As opções de classificação são: Muito Baixa, Baixa, Média, Alta, Muito Alta e Perfeita. Retorne um json com a competência e a classificação dela. Para a Ferramenta Tecnológica, analise se o problema pode ser resolvido através dessa Ferramenta, seja bem criterioso e só classifique como Perfeita, se a ferramenta conseguir resolver o problema da melhor forma possível, para as competências restantes, avalie o quão fácil os alunos enxergarão esse tema no projeto que desenvolvem.
 
       Problema: "${problemDescription}"
       
-      // Módulo 3 {
-      //   Ferramenta Tecnológica: "Desenvolvimento de predição com Inteligência Artificial",
-      //   Interpretar e elaborar planos de negócios: "Planos de negócios",
-      //   Traduzir a estratégia em planos de marketing e comunicação: "Branding e comunicação",
-      //   Idealizar estruturas organizacionais: "Cultura organizacional",
-      //   Idealizar estruturas organizacionais: "Governança corporativa",
-      //   Decidir sobre investimentos, financiamentos e gestão de recursos: "Ciclo de funding em startups"
-  
+       Módulo 2 {
+           Ferramenta Tecnológica: "Desenvolvimento de uma plataforma Web",
+       Identificar tendências e oportunidades de mercado: "Frameworks(Oceano Azul, 5 forças, 4P's, 6D",
+       Interpretar e elaborar planos de negócios : "Incubadoras e ecossistema de Startups",
+       Traduzir a estratégia em planos de marketing e comunicação: "Pesquisa de mercado e tendências",
+       Elaborar orçamentos e  fluxos de caixa: "Fluxo de Caixa, juros simples e compostos"
+       Elaborar orçamentos e  fluxos de caixa: "Taxa de desconto, IRR, NPV, PV e FV"
+     }
+      
       // }
     }`,
     // Módulo 1 {
-    //   Ferramenta Tecnológica: "Desenvolvimento de um Jogo",
-    //   Identificar tendências e oportunidades de mercado: "Análise de cenário",
-    //   Identificar tendências e oportunidades de mercado: "Matriz SWOT e Riscos",
-    //   Identificar tendências e oportunidades de mercado: "Diferenciação, posicionamento e segmentação",
-    //   Identificar tendências e oportunidades de mercado: "Product Box e Value Proposition Canvas",
-    //   Identificar tendências e oportunidades de mercado: "Qualidade, PDCA, 6SIGMA, 5S"
-
-    // Módulo 2 {
-    //   Ferramenta Tecnológica: "Desenvolvimento de uma plataforma Web",
-    //   Identificar tendências e oportunidades de mercado: "Frameworks(Oceano Azul, 5 forças, 4P's, 6D",
-    //   Interpretar e elaborar planos de negócios : "Incubadoras e ecossistema de Startups",
-    //   Traduzir a estratégia em planos de marketing e comunicação: "Pesquisa de mercado e tendências",
-    //   Elaborar orçamentos e  fluxos de caixa: "Fluxo de Caixa, juros simples e compostos"
-    //   Elaborar orçamentos e  fluxos de caixa: "Taxa de desconto, IRR, NPV, PV e FV"
-    // }
-
+      //   Ferramenta Tecnológica: "Desenvolvimento de um Jogo",
+      //   Identificar tendências e oportunidades de mercado: "Análise de cenário",
+      //   Identificar tendências e oportunidades de mercado: "Matriz SWOT e Riscos",
+      //   Identificar tendências e oportunidades de mercado: "Diferenciação, posicionamento e segmentação",
+      //   Identificar tendências e oportunidades de mercado: "Product Box e Value Proposition Canvas",
+      //   Identificar tendências e oportunidades de mercado: "Qualidade, PDCA, 6SIGMA, 5S"
+      
+    
+    // Módulo 3 {
+    //   Ferramenta Tecnológica: "Desenvolvimento de predição com Inteligência Artificial",
+    //   Interpretar e elaborar planos de negócios: "Planos de negócios",
+    //   Traduzir a estratégia em planos de marketing e comunicação: "Branding e comunicação",
+    //   Idealizar estruturas organizacionais: "Cultura organizacional",
+    //   Idealizar estruturas organizacionais: "Governança corporativa",
+    //   Decidir sobre investimentos, financiamentos e gestão de recursos: "Ciclo de funding em startups"
 
       // Módulo 4 {
       //   Ferramenta Tecnológica: "Prototipação de solução para IoT",

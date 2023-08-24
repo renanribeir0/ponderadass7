@@ -1,0 +1,53 @@
+/* Novasenha.scss */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    background-image: url('../../../../assets/fundointeli.jpg'); 
+  }
+  
+  .form{
+    background-color: #f3f3f3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 320px;
+    border-radius: 10px;
+    margin: 40px auto 0;
+  }
+  
+  .novasenha{
+    position: absolute,
+    
+  }
+  
+  .confirmarnovasneha{
+    margin-top: 40px;
+  }
+  .inputs{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .botaoconfirmar{
+    background-color: #a183e3;
+    border-radius: 4px;
+    border-color: #a183e3;
+    position: absolute;
+    width: 95px;
+    height: 27px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+
+  
+  }
+  

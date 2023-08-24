@@ -16,12 +16,12 @@ export class OpenAIController {
   }
   
   @Post()
-  async complete(@Body('description') description: string, @Res() res: Response) {
+  async complete(@Body('description') description: string, @Body('modulos') modulos: any[], @Res() res: Response) {
   console.log("description");
   console.log(description);
 
   try {
-    const observableResult = await this.openAIService.complete(description); 
+    const observableResult = await this.openAIService.complete(description, modulos); 
     // const result = await lastValueFrom(observableResult);
     // console.log(observableResult);
     // console.log("observableResult.data.choices[0]")

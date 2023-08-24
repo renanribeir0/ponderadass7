@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 // import { Iniciativa } from 'src/iniciativas/interfaces/iniciativa.interface';
-import { Prisma, PrismaClient } from '@prisma/client';
+// import { Prisma, PrismaClient } from '@prisma/client';
 
 
 @Injectable()
 export class IniciativasService {
-    private prisma: PrismaClient;
+    // private prisma: PrismaClient;
 
     constructor() {
-        this.prisma = new PrismaClient()
+        // this.prisma = new PrismaClient()
     }
 
     // private readonly iniciativas: Iniciativa[] = []
@@ -50,14 +50,14 @@ export class IniciativasService {
     }
 
     // create(iniciativa: Iniciativa): Promise<Iniciativa> {
-    create(iniciativa: any) {
-        return this.prisma.iniciativa.create({
-            data: iniciativa as any,
-            include: {
-                modulo: true,
-                parceiro: true,
-                turma: true
-            }
-        })
-    }
+    // create(iniciativa: any) {
+    //     return this.prisma.iniciativa.create({
+    //         data: iniciativa as any,
+    //         include: {
+    //             modulo: true,
+    //             parceiro: true,
+    //             turma: true
+    //         }
+    //     })
+    // }
 }

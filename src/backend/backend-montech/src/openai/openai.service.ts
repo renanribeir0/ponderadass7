@@ -32,7 +32,7 @@ export class OpenAIService {
 
   constructor(private httpService: HttpService) {}
 
-  async complete(problemDescription: string) {
+  async complete(problemDescription: string, modulos: any[]) {
 
     // const completion = await openai.completions.create({
     //   model: "text-davinci-003",

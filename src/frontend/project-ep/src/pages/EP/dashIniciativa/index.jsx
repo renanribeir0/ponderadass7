@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../../components/atoms/navbar/index.jsx";
 import Menu from "../../../components/atoms/menu/index.jsx";
 import icon from '../../../assets/down-arrow.png'
-import ModalSucesso from '../../../components/molecules/modalSucesso/index.jsx';
+import ModalCard from '../../../components/molecules/modalCard/index.jsx';
 
 const DashIniciativa = (props) => {
 
@@ -13,10 +13,11 @@ const DashIniciativa = (props) => {
 
     useEffect(() => {
         // fetch('54.242.178.170:3001/iniciativas')
-        fetch('localhost:3001/iniciativas')
+        fetch('http://127.0.0.1:3001/iniciativas')
         .then((response) => response.json())
         .then((data) => {
             setIniciativas(data)
+            console.log(data)
         })
         .catch((err) => {
             console.log(err.message)
@@ -58,10 +59,17 @@ const DashIniciativa = (props) => {
                                         <h2>Pré Iniciativa</h2>
                                     </div>
                                     <div className={styles.etapasBoxBodyCards}>
-                                        {iniciativas.map((iniciativa, index) => (
-                                            <div key={index} className={styles.etapasCard} iniciativa={iniciativa} onClick={openModal}>{iniciativa.turma}</div>
-
-                                        ))}
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        
+                                        {/* {iniciativas.map((iniciativa, index) => (
+                                            <div key={index} className={styles.etapasCard} iniciativa={iniciativa} onClick={() => setIsModalOpen(true)}>{iniciativa.modulo}</div>
+                                        ))} */}
                                     </div>
                                     
                                 </div>
@@ -70,9 +78,9 @@ const DashIniciativa = (props) => {
                                         <h2>Iniciativa</h2>
                                     </div>
                                     <div className={styles.etapasBoxBodyCards}>
-                                        <div className={styles.etapasCard}></div>
-                                        <div className={styles.etapasCard}></div>
-                                        <div className={styles.etapasCard}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
                                     </div>
                                 </div>
                                 <div className={styles.etapasContBox}>
@@ -80,7 +88,8 @@ const DashIniciativa = (props) => {
                                         <h2>Negociação</h2>
                                     </div>
                                     <div className={styles.etapasBoxBodyCards}>
-                                        <div className={styles.etapasCard}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
                                     </div>
                                 </div>
                                 <div className={styles.etapasContBox}>
@@ -88,14 +97,16 @@ const DashIniciativa = (props) => {
                                         <h2>Preparado</h2>
                                     </div>
                                     <div className={styles.etapasBoxBodyCards}>
-                                        <div className={styles.etapasCard}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
             </div>
-            <ModalSucesso isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+            <ModalCard isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
         </>
     )
 }

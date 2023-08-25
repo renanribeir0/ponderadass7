@@ -35,6 +35,7 @@ export class IniciativasService {
             id: 0,
             createdAt: 20000,
             updatedAt: null,
+            problema: "A evolução do câncer de mama e sua resposta a tratamentos convencionais é muito variável. Conseguimos identificar padrões preditivos dessa variabilidade a partir de dados clínicos e do seguimento desses pacientes?",
             modulo: 'Modulo 03 - Ciclo Básico',
             moduloId: 5,
             parceiro: "Faculdade Medicina Da USP",

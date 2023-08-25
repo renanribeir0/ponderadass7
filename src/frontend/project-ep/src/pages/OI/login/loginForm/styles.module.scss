@@ -1,17 +1,21 @@
-/* Login.scss */
 
 * {
-  box-sizing: border-box;
-}
-
-body {
   margin: 0;
-  background-image: url('../../../assets/fundointeli.jpg'); 
+  padding: 0;
 }
 
-.topo2 {
-  background-color: #2e2640;
-  height: 72px;
+.formGeral{
+    margin: 0;
+    background-image: url('../../../../assets/fundointeli.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding-top: 12vh;
+    width: 100vw;/* Tamanho da tela em largura */
+    height: 100vh;/* Tamanho da tela em altura */
 }
 
 .form{
@@ -24,11 +28,12 @@ body {
   height: 320px;
   border-radius: 10px;
   margin: 40px auto 0;
+  align-items: center;
 }
 
-.email{
-  position: absolute
-}
+// .email{
+//   position: absolute
+// }
 
 .password{
   margin-top: 40px;
@@ -40,7 +45,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.campo_senha{
+.campoSenha{
   position: absolute;
   top: 50%;
   left: 50%;

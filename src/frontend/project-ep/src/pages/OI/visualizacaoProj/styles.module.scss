@@ -1,10 +1,16 @@
 
+.visualGeral{
+    padding-top: 12vh;
+    // background-color: #007bff;
+}
+
 .kanbanContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
+    height: 75vh;
 }
 
 .kanbanColumn {
@@ -29,7 +35,7 @@
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
-    cursor: pointer;
+    // cursor: pointer;
     font-weight: bold;
 }
 
@@ -49,12 +55,16 @@
 }
 
 .newProjectButton {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #A183E3;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    // // display: block;
+    // margin: 20px auto;
+    // padding: 10px 20px; //Atualizar pra vh e vw
+    // background-color: #A183E3;
+    // color: #fff;
+    // border: none;
+    // border-radius: 5px;
+    // cursor: pointer;
+    height: 50px !important;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
 }

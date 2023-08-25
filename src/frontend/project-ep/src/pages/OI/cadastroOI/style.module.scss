@@ -1,25 +1,46 @@
-
-.cadastroGeral{
-    background-image: url('../../../assets/fundointeli.jpg');
+* {
     margin: 0;
-    margin-top: -12px;
-    background-size: auto;
+    padding: 0;
+}
+.cadastroGeral{
+    background-image: url('../../../assets/fundointeli.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
-    width: 100%;
-    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Tamanho da tela em largura */
+    height: 100vh; /* Tamanho da tela em altura */
+    padding-top: 12vh;
 }
 
-.teste{
-    background-color: rgb(126, 126, 255);
-    width: 300px;
-    height: 300px;
+.formulario{
+    border-radius: 10px;
+    padding: 30px;
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #ffffff;
 }
 
 .botao {
-
-    height: 70px !important;
+    height: 50px !important;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-right: 5%;
+}
 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.TextField {
+    margin-top: 3% !important;
+    height: 50%;
+    width: 90%;
 }

@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.cadastroGeral{
+    background-image: url('../../../assets/fundointeli.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Tamanho da tela em largura */
+    height: 100vh; /* Tamanho da tela em altura */
+    padding-top: 12vh;
+}
+
+.formulario{
+    border-radius: 10px;
+    padding: 30px;
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #ffffff;
+}
+
+.botao {
+    height: 50px !important;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.TextField {
+    margin-top: 3% !important;
+    height: 50%;
+    width: 90%;
+}

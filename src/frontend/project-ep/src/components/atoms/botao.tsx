@@ -10,7 +10,7 @@ const ButtonUsage = (props) => {
     }
 
     try {
-        const response = await fetch('http://127.0.0.1:3000/iniciativas', {
+        const response = await fetch('http://127.0.0.1:3001/iniciativas', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,6 +33,7 @@ const ButtonUsage = (props) => {
     }
     else {
       props.setProblemaEnviado(true)
+      props.iteraModulos(props.descricao)
     }
   }} disabled={props.disabled}>Confirmar</Button>;
   

@@ -53,15 +53,16 @@ const CadastraIniciativa = (props) => {
             console.log("data.text")
             console.log(data.text)
 
-            const objeto = JSON.parse(data.text);
-            console.log("objeto")
-            console.log(objeto)
-            console.log("data.text.Ferramenta_Tecnologica")
-            console.log(objeto.Ferramenta_Tecnologica)
 
-            if(objeto.Ferramenta_Tecnologica === "Muito Alta" || objeto.Ferramenta_Tecnologica === "Perfeita") {
+            const objetoIniciativa = JSON.parse(data.text);
+            console.log("objetoIniciativa")
+            console.log(objetoIniciativa)
+            console.log("data.text.Ferramenta_Tecnologica")
+            console.log(objetoIniciativa.Ferramenta_Tecnologica)
+
+            if(objetoIniciativa.Ferramenta_Tecnologica === "Muito Alta" || objetoIniciativa.Ferramenta_Tecnologica === "Perfeita") {
                 console.log("AGORA A RESPOSTA DO ENDPOINT ")
-                console.log(objeto)
+                console.log(objetoIniciativa)
                 let iniciativa = {
                     id: 2,
                     problema: descricao,
@@ -103,10 +104,39 @@ const CadastraIniciativa = (props) => {
         }
         
         
-        setApiResponse(tempIniciativas);
+
+        // setApiResponse(tempIniciativas);
+        setApiResponse([
+            {
+                id: 2,
+                problema: descricao,
+                solucao: "Automatizar o processo de contratação, garantindo acessibilidade para todos os prestadores de serviço em seus locais de origem. Criar um ambiente de fácil acesso com disponibilização de oportunidades de trabalho para prestadores de serviços locais.",
+                tema: "Gestão Operacional",
+                curso: "cb",
+                nomeModulo: "Módulo 02 - Ciclo Básico",
+                descricao: "Desenvolvimento de uma Plataforma Web",
+                mvp: ["Aplicação web capaz de disponibilizar as oportunidades de trabalho para os prestadores de serviço (com as informações de prazo, preço e disponibilidade), assim como criar uma base de dados com contatos de todos os empreiteiros que se interessarem pela vaga integrada à referida aplicação."]
+            },
+            {
+                id: 2,
+                problema: descricao,
+                solucao: "Criação de modelos preditivos a partir de coortes de pacientes acompanhadas em projetos de pesquisa do Instituto do Câncer do Estado de São Paulo/Faculdade de Medicina da Universidade de São Paulo.",
+                tema: "Saúde",
+                curso: "cb",
+                nomeModulo: "Módulo 03 - Ciclo Básico",
+                descricao: "Construção de lógica para predição com inteligência artificial",
+                mvp: [
+                    "Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação",
+                    "Formulário de entrada de propostas de projetos",
+                    "Dash de análise de Iniciativas / atribuição de ratings",
+                    "Dash de alocação de Projetos em  Módulos/Turmas"
+                ]
+            }
+        ])
 
         // console.log("arrayIniciativas")
-        // console.log(arrayIniciativas)
+        console.log("tempIniciativas")
+        console.log(tempIniciativas)
         
     }
 
@@ -132,6 +162,9 @@ const CadastraIniciativa = (props) => {
         .then((response) => response.json())
         .then((data) => {
             setModulos(data)
+
+            console.log("Modulos")
+            console.log(modulos)
         })
         .catch((err) => {
             console.log(err.message)
@@ -224,7 +257,8 @@ const CadastraIniciativa = (props) => {
                 </div>
                 <div className={styles.botao}>
                     {/* <button onClick={() => iteraModulos(descricao)}>BOTÂO PARA ACESSAR A API DO GEPETAS</button> */}
-                    <ButtonUsage setNomeModulo={setNomeModulo} setIsModalOpen={setIsModalOpen} enviaIniciativa={true} selectedCard={selectedCard} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
+
+                    <ButtonUsage tipo="envia Iniciativa" conteudo="CONFIRMAR" setNomeModulo={setNomeModulo} setIsModalOpen={setIsModalOpen} enviaIniciativa={true} selectedCard={selectedCard} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
 
                 </div>
             </div>
@@ -273,7 +307,8 @@ const CadastraIniciativa = (props) => {
 
                     <div className={styles.botao}>
 
-                        <ButtonUsage descricao={descricao} iteraModulos={iteraModulos} enviaIniciativa={false} disabled={!descricao.trim()} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
+
+                        <ButtonUsage tipo="envia Problema" conteudo="CONFIRMAR" descricao={descricao} iteraModulos={iteraModulos} enviaIniciativa={false} disabled={!descricao.trim()} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
                     </div>
                  
 

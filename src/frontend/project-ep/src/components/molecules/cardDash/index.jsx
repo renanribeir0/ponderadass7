@@ -18,6 +18,7 @@ const CardDash = (props) => {
             <div className={styles.cardModulo}>
               <h3>Modulo:</h3>
               <p>{props.iniciativa.modulo}</p>
+
             </div>
           </div>
         </div>

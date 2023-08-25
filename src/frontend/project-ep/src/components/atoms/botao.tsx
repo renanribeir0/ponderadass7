@@ -1,5 +1,6 @@
 import React from "react";
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 const ButtonUsage = (props) => {
 
@@ -25,17 +26,28 @@ const ButtonUsage = (props) => {
     }
   };
 
+  const navigate = useNavigate();
+
   return <Button variant="contained" onClick={() => {
-    if (props.enviaIniciativa) {
+    if (props.tipo == "envia Iniciativa") {
 
       sendCardData()
       props.setIsModalOpen(true)
     }
-    else {
+    else if(props.tipo == "envia Problema") {
       props.setProblemaEnviado(true)
       props.iteraModulos(props.descricao)
     }
-  }} disabled={props.disabled}>Confirmar</Button>;
+    else if(props.tipo == "confirma Login"){
+      navigate("/Home")
+    }
+    else if(props.tipo == "confirma Cadastro"){
+      navigate('/Home')
+    }
+    else if(props.tipo == "novo Projeto") {
+      navigate('/iniciativas')
+    }
+  }} disabled={props.disabled}>{props.conteudo}</Button>;
   
 }
 

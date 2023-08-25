@@ -20,6 +20,7 @@ export class IniciativasService {
             id: 0,
             createdAt: 20000,
             updatedAt: null,
+
             modulo: '05',
             curso: 'Engenharia de Software',
             moduloId: 5,
@@ -71,6 +72,7 @@ export class IniciativasService {
             mvp: ["Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação", "Formulário de entrada de propostas de projetos", "Dash de análise de Iniciativas / atribuição de ratings", "Dash de alocação de Projetos em  Módulos/Turmas"],
             tema: "Games",
             turma: "T03"
+
         }
 
         ]

@@ -64,6 +64,7 @@ const DashIniciativa = (props) => {
                                         {iniciativas.map((iniciativa, index) => (
                                             <CardDash key={index} iniciativa={iniciativa} onClick={() => setIsModalOpen(true,index, iniciativa)}/>
                                         ))}
+
                                     </div>
                                     
                                 </div>

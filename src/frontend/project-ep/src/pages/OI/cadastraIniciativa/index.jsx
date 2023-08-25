@@ -53,6 +53,7 @@ const CadastraIniciativa = (props) => {
             console.log("data.text")
             console.log(data.text)
 
+
             const objetoIniciativa = JSON.parse(data.text);
             console.log("objetoIniciativa")
             console.log(objetoIniciativa)
@@ -103,6 +104,7 @@ const CadastraIniciativa = (props) => {
         }
         
         
+
         // setApiResponse(tempIniciativas);
         setApiResponse([
             {
@@ -160,6 +162,7 @@ const CadastraIniciativa = (props) => {
         .then((response) => response.json())
         .then((data) => {
             setModulos(data)
+
             console.log("Modulos")
             console.log(modulos)
         })
@@ -254,6 +257,7 @@ const CadastraIniciativa = (props) => {
                 </div>
                 <div className={styles.botao}>
                     {/* <button onClick={() => iteraModulos(descricao)}>BOTÂO PARA ACESSAR A API DO GEPETAS</button> */}
+
                     <ButtonUsage tipo="envia Iniciativa" conteudo="CONFIRMAR" setNomeModulo={setNomeModulo} setIsModalOpen={setIsModalOpen} enviaIniciativa={true} selectedCard={selectedCard} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
 
                 </div>
@@ -302,6 +306,7 @@ const CadastraIniciativa = (props) => {
                     </div>
 
                     <div className={styles.botao}>
+
 
                         <ButtonUsage tipo="envia Problema" conteudo="CONFIRMAR" descricao={descricao} iteraModulos={iteraModulos} enviaIniciativa={false} disabled={!descricao.trim()} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
                     </div>

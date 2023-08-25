@@ -11,6 +11,8 @@ const DashIniciativa = (props) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [iniciativas, setIniciativas] = useState([]);
+    const [selectedCard, setSelectedCard] = useState(null); // Estado para armazenar o Card selecionado
+    const [cardIndex, setCardIndex] = useState(null);
 
 
     useEffect(() => {
@@ -62,7 +64,11 @@ const DashIniciativa = (props) => {
                                     </div>
                                     <div className={styles.etapasBoxBodyCards}>                                        
                                         {iniciativas.map((iniciativa, index) => (
-                                            <CardDash key={index} iniciativa={iniciativa} onClick={() => setIsModalOpen(true,index, iniciativa)}/>
+                                            <CardDash key={index} iniciativa={iniciativa} onClick={() => {
+                                                setSelectedCard(iniciativa);
+                                                setIsModalOpen(true);
+                                                setCardIndex(index);
+                                            }}/>
                                         ))}
 
                                     </div>
@@ -101,10 +107,18 @@ const DashIniciativa = (props) => {
                         </div>
                     </div>
             </div>
-            
-            <ModalCard isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+            {/* {selectedCard && (
+                <ModalCard isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+            )} */}
 
-            {/* <ModalCard key={index} iniciativa={iniciativa} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/> */}
+            {/* {selectedCard && (
+                <ModalCard isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+                // {selectedCard.map((item, index) => (
+                //     <ModalCard key={index} iniciativa={item} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+                // ))}
+            )} */}
+
+            <ModalCard key={cardIndex} iniciativa={selectedCard} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
             
         </>
     )

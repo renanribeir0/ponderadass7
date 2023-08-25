@@ -1,8 +1,8 @@
-import { Iniciativa } from "@prisma/client";
+// import { Iniciativa } from "@prisma/client";
 
-export interface Modulo {
-    id: number;
-    descricao: String;
-    competencias: String[];
-    iniciativas: Iniciativa[]
-}
+// export interface Modulo {
+//     id: number;
+//     descricao: String;
+//     competencias: String[];
+//     iniciativas: Iniciativa[]
+// }

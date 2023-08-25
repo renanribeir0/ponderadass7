@@ -9,6 +9,9 @@ import Login from './pages/OI/login/loginForm/index.jsx';
 import ConfirmEmail from './pages/OI/login/confirmarEmail/index.jsx';
 import NovaSenha from './pages/OI/login/novasenha/index.jsx';
 import HomeOI from './pages/OI/visualizacaoProj/index.jsx';
+import styles from './global.module.scss'
+import DashIniciativa from './pages/EP/dashIniciativa'
+
 
 const router = createBrowserRouter([
 
@@ -19,6 +22,8 @@ const router = createBrowserRouter([
     { path: "Home", element:(<HomeOI/>)},
     { path:"iniciativas", element: (<CadastraIniciativa/>)},
     { path:"cadastro", element: (<Cadastro/>)}
+    { path:"dashIniciativas", element: (<DashIniciativa/>)}
+
 
 ]);
 

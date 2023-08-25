@@ -1,0 +1,193 @@
+$backgroundColor: #d70909;
+
+h1{
+    font-size: 38px;
+    font-weight: bold;
+    color: rgb(46, 38, 64);
+}
+h2{
+    font-size: 24px;
+    font-weight:bold;
+    color: rgb(46, 38, 64);
+}
+h3{
+    font-size: 36px;
+    font-weight: bold;
+    color: rgb(46, 38, 64);
+}
+
+.body{
+    background-color:rgb(242, 242, 242);
+    padding-top: 12vh;
+    width: 100vw;
+}
+
+.bodyRight{
+    // background-color: pink;
+    width: 100vw;
+    padding-left: 5vw;
+    padding-top: 8vh;
+}
+
+.titulo{
+    // background-color: blue;
+    width:92vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    padding-left: 1vw;
+}
+
+.etapas{
+    // background-color: green;
+    position:relative;
+    padding-bottom: 8vh;
+}
+
+.etapasHeader{
+    background: rgb(232, 74, 74);
+    width: 92vw;
+    height: 12vh;
+    position: relative;
+    margin-top: 7vh;
+    left:50%;
+    transform: translateX(-50%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 6px;
+    z-index: 1;
+}
+
+.dropdown {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.dropdownButton {
+    background: rgb(46, 38, 64);
+    height: 4vh;
+    width: 12vw;
+    font-size: 17px;
+    font-weight:600;
+    color: rgb(242, 242, 242);
+    margin-left: 1.5vw;
+    border-radius: 10px;
+    border:none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 1vh 1vw;
+    cursor: pointer;
+    display: flex;
+    font-weight:normal;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;
+}
+
+.arrow{
+    margin-left:0.5vw;
+    height: 2vh;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: rgb(232, 74, 74);
+    width: 7vw;
+    // padding-left: 1vw;
+    margin-left: 6vw;
+    margin-top: 2vh;
+    box-shadow:rgba(0, 0, 0, 0.1) 5px 5px 5px 5px;
+    border-radius: 10px;
+    z-index: 3;
+}
+
+.dropdownContent a {
+    color: rgb(242, 242, 242);
+    padding: 0.75vh 0 0.75vh 1vw;
+    text-decoration: none;
+    display: block;
+    font-weight:normal;
+    cursor: pointer;
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+.dropdown:hover .dropdownButton{
+    opacity: 85%;
+}
+
+.dropdownContent a:hover{
+    background-color: rgb(206, 54, 54);
+}
+
+.etapasModulo{
+    // background: rgb(122, 61, 61);
+    background-color: white;
+    width: 92vw;
+    height: 12vh;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 6px;
+}
+
+.etapasModulo h1{
+    padding-left: 1.5vw;
+    position:absolute;
+    bottom: 0;
+    font-size: 36px;
+}
+
+.etapasCont{
+    background-color: white;
+    position: relative;
+    display:flex;
+    width: 92vw;
+    left:50%;
+    transform: translateX(-50%);
+    padding: 0 1vw;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    // z-index: 0;
+}
+
+.etapasContBox{
+    background-color: rgb(242, 242, 242);
+    width: 21.5vw;
+    margin: 5vh 0.5vw 10vh;
+    border-radius: 10px;
+}
+
+.etapasContBoxTitle{
+    // background-color: #d70909;
+    height: 10vh;
+    margin: 0 1vw;
+    position:relative;
+}
+
+.etapasContBoxTitle h2{
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.etapasBoxBodyCards{
+    // background-color: rgb(201, 29, 195);
+    margin: 0 1vw;
+    position:relative;
+}
+
+.etapasCard{
+    width: 17.5vw;
+    height: 14vh;
+    background-color: white;
+    margin: 1vh 1vw 3vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;
+}

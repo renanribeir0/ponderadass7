@@ -9,24 +9,32 @@ export class ParceiroController {
     //Cria o Get universal de acesso a url
     @Get()
     nomeDaFuncao() {
-        const json = {
-            id: 4969
+        const parceiro = {
+            id: 4969,
+            createdAt: "20-08-2023",
+            nomeEmpresa: "BTG Pactual",
+            mercado: "Mercado Financeiro",
+            nomeContato: "Mauricio Felicissimo",
+            email: "Mauricio.felicissimo@btg.com",
+            telefone: "3299939-2807",
+            nota: 9.5,
+            iniciativas: ["Iniciativa1", "Iniciativa2"]
         }
-        return json.id
+        return parceiro
     }
 
     //127.0.0.1:3000/parceiro/<conteudo>
-    @Get(':nome')
-    nomeDaFuncao2(@Param('nome') nome: string) {
-        const json = {
-            conteudoMockado: `Aqui você acessa apenas o parceiro de parametro = ${nome}`
-        }
-        return json
+    @Get(':id')
+    nomeDaFuncao2(@Param('id') id: string) {
+        return `Você acessou no BD o Parceiro de id: ${id}`
     }
 
     @Post()
     async create(@Body() any: any) {
-        return 'Você criou um(a) Parceiro'
+        return {
+            message: `Você criou um(a) Parceiro com id: ${any.id}`
+        
+        }
     }
 }
 

@@ -16,12 +16,13 @@ export class OpenAIController {
   }
   
   @Post()
-  async complete(@Body('description') description: string, @Res() res: Response) {
+  // async classificaModulo(@Body('description') description: string, @Res() res: Response) {
+  async classificaModulo(@Body('description') description: string, @Body('modulo') modulo: any, @Res() res: Response) {
   console.log("description");
   console.log(description);
 
   try {
-    const observableResult = await this.openAIService.complete(description); 
+    const observableResult = await this.openAIService.classificaModulo(description, modulo); 
     // const result = await lastValueFrom(observableResult);
     // console.log(observableResult);
     // console.log("observableResult.data.choices[0]")
@@ -31,6 +32,19 @@ export class OpenAIController {
     console.error('Erro ao acessar a API do OpenAI:', error);
     res.status(500).send('Erro ao processar a solicitação');
   }
-}
+
+  }
+
+  async geraTapi(@Body('iniciativa') iniciativa: any, @Res() res: Response) {
+    console.log(iniciativa)
+
+    try {
+      const observableResult = await this.openAIService.geraTapi(iniciativa);
+      res.json(observableResult.data.choices[0]);
+    } catch (error) {
+      console.error('Erro ao acessar a API do OpenAI:', error);
+      res.status(500).send('Erro ao processar a solicitação');
+    }
+  }
 
 }

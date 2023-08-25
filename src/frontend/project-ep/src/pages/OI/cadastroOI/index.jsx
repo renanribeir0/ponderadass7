@@ -74,7 +74,7 @@ export const Cadastro = (props) => {
               onChange={(e) => setSenha(e.target.value)}
             />
             <div className={style.botao}>
-              <ButtonUsage tipo="confirma Cadastro" />
+              <ButtonUsage conteudo="CADASTRAR-SE" tipo="confirma Cadastro" />
             </div>
           </form>
         </div>

@@ -1,0 +1,77 @@
+// .etapaCard{
+//     height: 88vh;
+//     width:5vw;
+//     background-color: #412B74;
+//     position:fixed;
+// }
+
+.cardEP{
+    width: 17.5vw;
+    height: 14vh;
+    background-color: white;
+    margin: 1vh 1vw 3vh;
+    border-radius: 10px;
+    padding: 2vh 1vw;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;
+}
+
+.cardParceiro{
+    height: 5vh;
+    // background-color: aqua;
+}
+
+.cardCurso{
+    height: 3vh;
+    // background-color: pink;
+}
+
+.cardModulo{
+    height: 1.5vh;
+    width: 7.75vw;
+    // background-color: rgb(0, 255, 68);
+    display: flex;
+}
+
+.cardTema{
+    height: 1.5vh;
+    width: 7.75vw;
+    // background-color: rgb(225, 255, 0);
+}
+
+.cardBottom{
+    // background-color: beige;
+    padding-top: 0.5vh;
+    display: flex;
+}
+///////////////////////////////////////////////////////////
+.cardParceiro h1{
+    font-size: 1.1vw;
+    font-weight: normal;
+    position:relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.cardCurso h2{
+    font-size: 0.9vw;
+    // font-weight: normal;
+    position:relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.cardTema h3{
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.cardModulo h3{
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.cardModulo p{
+    font-size: 12px;
+    margin-left:0.5vw;
+    font-weight: normal;
+}

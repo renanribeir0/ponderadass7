@@ -4,6 +4,8 @@ import Navbar from "../../../components/atoms/navbar/index.jsx";
 import Menu from "../../../components/atoms/menu/index.jsx";
 import icon from '../../../assets/down-arrow.png'
 import ModalCard from '../../../components/molecules/modalCard/index.jsx';
+import CardDash from '../../../components/molecules/cardDash/index.jsx';
+
 
 const DashIniciativa = (props) => {
 
@@ -59,12 +61,7 @@ const DashIniciativa = (props) => {
                                         <h2>Pré Iniciativa</h2>
                                     </div>
                                     <div className={styles.etapasBoxBodyCards}>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
+                                        <CardDash onClick={() => setIsModalOpen(true)}/>
                                         <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
                                         
                                         {/* {iniciativas.map((iniciativa, index) => (

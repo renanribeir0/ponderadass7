@@ -254,7 +254,7 @@ const CadastraIniciativa = (props) => {
                 </div>
                 <div className={styles.botao}>
                     {/* <button onClick={() => iteraModulos(descricao)}>BOTÂO PARA ACESSAR A API DO GEPETAS</button> */}
-                    <ButtonUsage setNomeModulo={setNomeModulo} setIsModalOpen={setIsModalOpen} enviaIniciativa={true} selectedCard={selectedCard} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
+                    <ButtonUsage tipo="envia Iniciativa" conteudo="CONFIRMAR" setNomeModulo={setNomeModulo} setIsModalOpen={setIsModalOpen} enviaIniciativa={true} selectedCard={selectedCard} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
 
                 </div>
             </div>
@@ -303,7 +303,7 @@ const CadastraIniciativa = (props) => {
 
                     <div className={styles.botao}>
 
-                        <ButtonUsage descricao={descricao} iteraModulos={iteraModulos} enviaIniciativa={false} disabled={!descricao.trim()} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
+                        <ButtonUsage tipo="envia Problema" conteudo="CONFIRMAR" descricao={descricao} iteraModulos={iteraModulos} enviaIniciativa={false} disabled={!descricao.trim()} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
                     </div>
                  
 

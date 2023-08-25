@@ -2,10 +2,15 @@ import React from "react";
 import styles from './styles.module.scss';
 import sucessoIcone from   '../../../assets/sucessoIcone.png'
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+
 
 // import ButtonUsage from "../atoms/botao";
 
 const ModalSucesso = (props) => {
+
+  const navigate = useNavigate();
+
 
     if(props.isOpen){
     
@@ -29,7 +34,10 @@ const ModalSucesso = (props) => {
                     </div>
 
                     <div className={styles.paiBotao}>
-                        <Button className={styles.botao} onClick={() => props.setIsModalOpen(false)} size="large">OK</Button>
+                        <Button className={styles.botao} onClick={() => {
+                            navigate('/Home')
+                            props.setIsModalOpen(false)
+                        }} size="large">OK</Button>
 
                     </div>
 

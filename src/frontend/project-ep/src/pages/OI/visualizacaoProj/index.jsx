@@ -12,7 +12,7 @@ const HomeOI = () => {
       <br />
       <div className={styles.visualGeral}>
         <div className={styles.newProjectButton}>
-          <ButtonUsage />
+          <ButtonUsage conteudo="+ Novo Projeto" tipo="novo Projeto" />
         </div>
         <div className={styles.kanbanContainer}>
           <div className={styles.kanbanColumn}>

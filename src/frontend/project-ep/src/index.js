@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     { path: 'novasenha', element: (<NovaSenha/>)},
     { path: "Home", element:(<HomeOI/>)},
     { path:"iniciativas", element: (<CadastraIniciativa/>)},
-    { path:"cadastro", element: (<Cadastro/>)}
+    { path:"cadastro", element: (<Cadastro/>)},
     { path:"dashIniciativas", element: (<DashIniciativa/>)}
 
 

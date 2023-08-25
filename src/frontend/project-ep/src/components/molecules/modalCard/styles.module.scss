@@ -11,7 +11,14 @@
     z-index: 1000;
 }
 
+.parceiro h1{
+    font-size: 4vh;
+}
+.modulo h2{
+    font-size: 3vh;
+}
 h4{
+    font-size: 1.6vh;
     margin-right: 1vw;
 }
 
@@ -97,7 +104,7 @@ h4{
     padding: 1vh 0;
 }
 .descricao h2{
-    font-size: 20px;
+    font-size: 2vh;
     margin-bottom: 0.5vh;
     letter-spacing: 1px;
 }
@@ -105,7 +112,7 @@ h4{
     padding: 1vh 0;
 }
 .escopo h2{
-    font-size: 20px;
+    font-size: 2vh;
     margin-bottom: 0.5vh;
     margin-top:2vh;
     letter-spacing: 1px;
@@ -114,7 +121,7 @@ h4{
     padding: 1vh 0;
 }
 .mvp h2{
-    font-size: 20px;
+    font-size: 2vh;
     margin-bottom: 0.5vh;
     margin-top:2vh;
     letter-spacing: 1px;
@@ -123,6 +130,7 @@ p{
     color: rgb(136, 136, 136);
     font-weight: normal;
     letter-spacing: 1px;
+    font-size: 1.6vh;
 }
 
 .footer{

@@ -6,18 +6,18 @@ const CardDash = (props) => {
       <>
         <div className={styles.cardEP} onClick={props.onClick}>
           <div className={styles.cardParceiro}>
-            <h1>Instituto de Tecnologia e Liderança</h1>
+            <h1>{props.iniciativa.parceiro}</h1>
           </div>
           <div className={styles.cardCurso}>
-            <h2>Engenharia de Software</h2>
+            <h2>{props.iniciativa.curso}</h2>
           </div>
           <div className={styles.cardBottom}>
             <div className={styles.cardTema}>
-              <h3>Gestão Operacional</h3>
+              <h3>{props.iniciativa.tema}</h3>
             </div>
             <div className={styles.cardModulo}>
               <h3>Modulo:</h3>
-              <p>05</p>
+              <p>{props.iniciativa.modulo}</p>
             </div>
           </div>
         </div>

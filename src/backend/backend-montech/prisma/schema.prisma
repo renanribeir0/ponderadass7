@@ -37,6 +37,7 @@
 
 // model Modulo {
 //     id          Int     @id @default(autoincrement())
+//     nomeModulo  String
 //     descricao   String?
 //     competencias String[]
 //     iniciativas Iniciativa[]

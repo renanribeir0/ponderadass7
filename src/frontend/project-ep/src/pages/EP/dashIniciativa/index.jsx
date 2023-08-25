@@ -41,7 +41,7 @@ const DashIniciativa = (props) => {
                             <div className={styles.etapasHeader}>
                                 <div className={styles.dropdown}>
                                     <button className={styles.dropdownButton}>
-                                        Selecionar Modulo
+                                        <h6>Selecionar Modulo</h6>
                                         <img className={styles.arrow} src={icon}/>
                                     </button>
                                     <div class={styles.dropdownContent}>
@@ -60,13 +60,11 @@ const DashIniciativa = (props) => {
                                     <div className={styles.etapasContBoxTitle}>
                                         <h2>Pré Iniciativa</h2>
                                     </div>
-                                    <div className={styles.etapasBoxBodyCards}>
-                                        <CardDash onClick={() => setIsModalOpen(true)}/>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        
-                                        {/* {iniciativas.map((iniciativa, index) => (
-                                            <div key={index} className={styles.etapasCard} iniciativa={iniciativa} onClick={() => setIsModalOpen(true)}>{iniciativa.modulo}</div>
-                                        ))} */}
+                                    <div className={styles.etapasBoxBodyCards}>                                        
+                                        {iniciativas.map((iniciativa, index) => (
+                                            <CardDash key={index} iniciativa={iniciativa} onClick={() => setIsModalOpen(true,index, iniciativa)}/>
+                                        ))}
+
                                     </div>
                                     
                                 </div>
@@ -103,7 +101,11 @@ const DashIniciativa = (props) => {
                         </div>
                     </div>
             </div>
+            
             <ModalCard isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+
+            {/* <ModalCard key={index} iniciativa={iniciativa} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/> */}
+            
         </>
     )
 }

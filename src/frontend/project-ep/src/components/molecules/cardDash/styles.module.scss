@@ -45,7 +45,8 @@
 }
 ///////////////////////////////////////////////////////////
 .cardParceiro h1{
-    font-size: 1.1vw;
+    font-size: 1.8vh;
+
     font-weight: normal;
     position:relative;
     top:50%;
@@ -53,7 +54,8 @@
 }
 
 .cardCurso h2{
-    font-size: 0.9vw;
+    font-size: 1.5vh;
+
     // font-weight: normal;
     position:relative;
     top:50%;
@@ -61,17 +63,20 @@
 }
 
 .cardTema h3{
-    font-size: 12px;
+    font-size: 1.2vh;
+
     font-weight: normal;
 }
 
 .cardModulo h3{
-    font-size: 12px;
+    font-size: 1.2vh;
+
     font-weight: normal;
 }
 
 .cardModulo p{
-    font-size: 12px;
+    font-size: 1.2vh;
+
     margin-left:0.5vw;
     font-weight: normal;
 }

@@ -27,7 +27,7 @@ const ModalCard = (props) => {
 
                     <div className={styles.body}>
                         <div className={styles.bodyTop}>
-                            <div className={styles.data}>
+                            {/* <div className={styles.data}>
                                 <div className={styles.dataInicio}>
                                     <h4>Data Inicio:</h4>
                                     <p>03/08/2022</p>
@@ -36,10 +36,16 @@ const ModalCard = (props) => {
                                     <h4>Data Fim:</h4>
                                     <p>17/10/2022</p>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className={styles.turma}>
                                 <h4>Turma:</h4>
                                 <p>{props.iniciativa.turma}</p>
+                            </div>
+                            <div className={styles.statusDiv}>
+                                <div className={styles.status}>
+                                    <h5>Pre Analise</h5>
+                                </div>
+
                             </div>
                         </div>
                         <div className={styles.bodyBottom}>

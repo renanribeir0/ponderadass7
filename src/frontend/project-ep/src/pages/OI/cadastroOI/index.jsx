@@ -22,7 +22,7 @@ export const Cadastro = (props) => {
   const sendParceiroData = async () => {
     try {
 
-      const response = await fetch('http://127.0.0.1:3001/parceiro', {
+      const response = await fetch('http://34.234.67.1:3001/parceiro', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -37,7 +37,7 @@ const CadastraIniciativa = (props) => {
 
     const classificaModulo = async (problemDescription, modulo) => {
         try {
-            const response = await fetch('http://127.0.0.1:3001/openai',
+            const response = await fetch('http://34.234.67.1:3001/openai',
             {
                 method: 'POST',
                 headers: {
@@ -158,7 +158,7 @@ const CadastraIniciativa = (props) => {
     }, [problemaEnviado]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:3001/modulos')
+        fetch('http://34.234.67.1:3001/modulos')
         .then((response) => response.json())
         .then((data) => {
             setModulos(data)

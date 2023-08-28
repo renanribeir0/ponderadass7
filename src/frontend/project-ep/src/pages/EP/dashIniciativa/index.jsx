@@ -17,7 +17,7 @@ const DashIniciativa = (props) => {
 
     useEffect(() => {
         // fetch('54.242.178.170:3001/iniciativas')
-        fetch('http://127.0.0.1:3001/iniciativas')
+        fetch('http://34.234.67.1:3001/iniciativas')
         .then((response) => response.json())
         .then((data) => {
             setIniciativas(data)

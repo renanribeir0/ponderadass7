@@ -26,7 +26,7 @@ const DashIniciativa = (props) => {
         .catch((err) => {
             console.log(err.message)
         })
-    });
+    }, []);
 
 
     return(

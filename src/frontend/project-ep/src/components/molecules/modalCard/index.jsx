@@ -18,16 +18,16 @@ const ModalCard = (props) => {
                             <img className={styles.fechar} src={fechar}/>
                         </div>
                         <div className={styles.parceiro}>
-                            <h1>Instituto de Tecnologia e Liderança</h1>
+                            <h1>{props.iniciativa.parceiro}</h1>
                         </div>
                         <div className={styles.modulo}>
-                            <h2>Modulo 05 - Engenharia de Software</h2>
+                            <h2>Modulo {props.iniciativa.modulo} - {props.iniciativa.curso}</h2>
                         </div>
                     </div>
 
                     <div className={styles.body}>
                         <div className={styles.bodyTop}>
-                            <div className={styles.data}>
+                            {/* <div className={styles.data}>
                                 <div className={styles.dataInicio}>
                                     <h4>Data Inicio:</h4>
                                     <p>03/08/2022</p>
@@ -36,10 +36,16 @@ const ModalCard = (props) => {
                                     <h4>Data Fim:</h4>
                                     <p>17/10/2022</p>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className={styles.turma}>
                                 <h4>Turma:</h4>
-                                <p>06</p>
+                                <p>{props.iniciativa.turma}</p>
+                            </div>
+                            <div className={styles.statusDiv}>
+                                <div className={styles.status}>
+                                    <h5>Pre Analise</h5>
+                                </div>
+
                             </div>
                         </div>
                         <div className={styles.bodyBottom}>
@@ -49,11 +55,11 @@ const ModalCard = (props) => {
                             </div>
                             <div className={styles.escopo}>
                                 <h2>Escopo da Solução</h2>
-                                <p>Desenvolver uma plataforma web que centralize e otimize o gerenciamento e acompanhamento de parcerias de projetos entre empresas e o INTELI.</p>
+                                <p>{props.iniciativa.escopo}</p>
                             </div>
                             <div className={styles.mvp}>
                                 <h2>MVP</h2>
-                                <p>- Cadastro de módulos</p><p>- Contexto do Metaprojeto e o cronograma de operação</p><p>- Formulário de entrada de propostas de projetos</p><p>- Dash de análise de Iniciativas / atribuição de ratings</p><p>- Dash de alocação de Projetos em  Módulos/Turmas</p>
+                                <p>- {props.iniciativa.mvp[0]}</p><p>- {props.iniciativa.mvp[1]}</p><p>- {props.iniciativa.mvp[2]}</p><p>- {props.iniciativa.mvp[3]}</p>
                             </div>
                         </div>
                     </div>

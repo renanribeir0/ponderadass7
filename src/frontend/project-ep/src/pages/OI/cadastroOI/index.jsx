@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/atoms/navbar/index.jsx";
 import ButtonUsage from "../../../components/atoms/botao.tsx";
 import TextField from "@mui/material/TextField";
@@ -11,12 +11,69 @@ export const Cadastro = (props) => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  // const [cadastroEnviado, setCadastroEnviado] = useState(false);
 
   const handleSubmit = (event) => {
     // event.preventDefault();
     // setDescricao(event.target.value);
     console.log({ cnpj, nome, email, senha });
   };
+
+  const sendParceiroData = async () => {
+    try {
+
+      const response = await fetch('http://127.0.0.1:3001/parceiro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: 0, 
+          // cnpj: cnpj, 
+          // nome: nome, 
+          // empresa: empresa, 
+          // email: email, 
+          // senha: senha
+        })
+      });
+
+      const data = await response.json();
+      console.log("Resposta da API:", data.message)
+    }
+    catch (error) {
+      console.log("Erro ao cadastrar parceiro: ", error);
+    }
+  };
+
+  // const handleCNPJChange = (event) => {
+  //   console.log(event.target.value)
+  //   setDescricao(event.target.value);
+  //   console.log(process.env.OPENAI_API_KEY)
+  // };
+
+  // const handleEmpresaChange = (event) => {
+  //   console.log(event.target.value)
+  //   setDescricao(event.target.value);
+  //   console.log(process.env.OPENAI_API_KEY)
+  // };
+
+  // const handleNomeChange = (event) => {
+  //   console.log(event.target.value)
+  //   setDescricao(event.target.value);
+  //   console.log(process.env.OPENAI_API_KEY)
+  // };
+
+  // const handleEmailChange = (event) => {
+  //   console.log(event.target.value)
+  //   setDescricao(event.target.value);
+  //   console.log(process.env.OPENAI_API_KEY)
+  // };
+
+  // const handleSenhaChange = (event) => {
+  //   console.log(event.target.value)
+  //   setDescricao(event.target.value);
+  //   console.log(process.env.OPENAI_API_KEY)
+  // };
 
   return (
     <>
@@ -74,7 +131,7 @@ export const Cadastro = (props) => {
               onChange={(e) => setSenha(e.target.value)}
             />
             <div className={style.botao}>
-              <ButtonUsage conteudo="CADASTRAR-SE" tipo="confirma Cadastro" />
+              <ButtonUsage conteudo="CADASTRAR-SE" tipo="confirma CadastroOI" sendParceiroData={sendParceiroData} />
             </div>
           </form>
         </div>

@@ -41,7 +41,8 @@ const ButtonUsage = (props) => {
     else if(props.tipo == "confirma Login"){
       navigate("/Home")
     }
-    else if(props.tipo == "confirma Cadastro"){
+    else if(props.tipo == "confirma CadastroOI"){
+      props.sendParceiroData()
       navigate('/Home')
     }
     else if(props.tipo == "novo Projeto") {

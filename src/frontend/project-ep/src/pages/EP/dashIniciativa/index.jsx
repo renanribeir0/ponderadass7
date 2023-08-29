@@ -1,6 +1,7 @@
 import styles from '../dashIniciativa/styles.module.scss';
 import React, { useState, useEffect } from "react";
 import Navbar from "../../../components/atoms/navbar/index.jsx";
+import NavbarEP from "../../../components/atoms/navbar-ep/index.jsx"
 import Menu from "../../../components/atoms/menu/index.jsx";
 import icon from '../../../assets/down-arrow.png'
 import ModalCard from '../../../components/molecules/modalCard/index.jsx';
@@ -17,7 +18,8 @@ const DashIniciativa = (props) => {
 
     useEffect(() => {
         // fetch('54.242.178.170:3001/iniciativas')
-        fetch('http://34.234.67.1:3001/iniciativas')
+        // fetch('http://34.234.67.1:3001/iniciativas')
+        fetch('http://127.0.0.1:3001/iniciativas')
         .then((response) => response.json())
         .then((data) => {
             setIniciativas(data)
@@ -26,87 +28,103 @@ const DashIniciativa = (props) => {
         .catch((err) => {
             console.log(err.message)
         })
-    }, []);
+    });
 
 
     return(
         <>
-            <Navbar/>
+            
             <div className={styles.body}>
-                    <Menu/>
+                    <NavbarEP/>
                     <div className={styles.bodyRight}>
-                        <div className={styles.titulo}>
-                            <h1>Análise de Iniciativas</h1>
+                        <div className={styles.gapTop}></div>
+                        <div>
+                            <div className={styles.titulo}>
+                                <div className={styles.tituloLeft}>
+                                    <h2 className={styles.tituloMain}>Analise de Iniciativas</h2>
+                                </div>
+                            </div>
                         </div>
                         
                         <div className={styles.etapas}>
                             <div className={styles.etapasHeader}>
                                 <div className={styles.dropdown}>
-                                    <button className={styles.dropdownButton}>
-                                        <h6>Selecionar Modulo</h6>
+                                    <button className={styles.dropdownButton} >
+                                        {/* <h6>Selecionar Modulo</h6> */}
+                                        Selecionar Modulo
                                         <img className={styles.arrow} src={icon}/>
                                     </button>
                                     <div class={styles.dropdownContent}>
-                                        <a>Option 1</a>
-                                        <a>Option 2</a>
-                                        <a>Option 3</a>
+                                        <a>ES</a>
+                                        <a>EC</a>
+                                        <a>CC</a>
+                                        <a>SI</a>
                                     </div>
                                 </div>
                             </div>
+                            <div className={styles.etapasBody}>
+                                <h2 className={styles.etapasModulo}>M5 - ES</h2>
+                            
+                                <div className={styles.etapasCont}>
 
-                            <div className={styles.etapasModulo}>
-                                <h1>M5 - ES</h1>
-                            </div>
-                            <div className={styles.etapasCont}>
-                                <div className={styles.etapasContBox}>
-                                    <div className={styles.etapasContBoxTitle}>
-                                        <h2>Pré Iniciativa</h2>
+                                    <div className={styles.etapasContBox}>
+                                        <div className={styles.boxCol}>
+                                            <div className={styles.colCont}>
+                                                <div className={styles.colTitle}>
+                                                    <h6 className={styles.colTitleText}>Análise</h6>
+                                                </div>
+                                                {iniciativas.map((iniciativa, index) => (
+                                                    <CardDash key={index} iniciativa={iniciativa} onClick={() => {
+                                                        setSelectedCard(iniciativa);
+                                                        setIsModalOpen(true);
+                                                        setCardIndex(index);
+                                                    }}/>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className={styles.etapasBoxBodyCards}>                                        
-                                        {iniciativas.map((iniciativa, index) => (
-                                            <CardDash key={index} iniciativa={iniciativa} onClick={() => {
-                                                setSelectedCard(iniciativa);
-                                                setIsModalOpen(true);
-                                                setCardIndex(index);
-                                            }}/>
-                                        ))}
 
+                                    <div className={styles.etapasContBox}>
+                                        <div className={styles.boxCol}>
+                                            <div className={styles.colCont}>
+                                                <div className={styles.colTitle}>
+                                                    <h6 className={styles.colTitleText}>Negociação</h6>
+                                                </div>
+                                                {iniciativas.map((iniciativa, index) => (
+                                                    <CardDash key={index} iniciativa={iniciativa} onClick={() => {
+                                                        setSelectedCard(iniciativa);
+                                                        setIsModalOpen(true);
+                                                        setCardIndex(index);
+                                                    }}/>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                </div>
-                                <div className={styles.etapasContBox}>
-                                    <div className={styles.etapasContBoxTitle}>
-                                        <h2>Iniciativa</h2>
+
+                                    <div className={styles.etapasContBox}>
+                                        <div className={styles.boxCol}>
+                                            <div className={styles.colCont}>
+                                                <div className={styles.colTitle}>
+                                                    <h6 className={styles.colTitleText}>Pronto</h6>
+                                                </div>
+                                                {iniciativas.map((iniciativa, index) => (
+                                                    <CardDash key={index} iniciativa={iniciativa} onClick={() => {
+                                                        setSelectedCard(iniciativa);
+                                                        setIsModalOpen(true);
+                                                        setCardIndex(index);
+                                                    }}/>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className={styles.etapasBoxBodyCards}>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                    </div>
-                                </div>
-                                <div className={styles.etapasContBox}>
-                                    <div className={styles.etapasContBoxTitle}>
-                                        <h2>Negociação</h2>
-                                    </div>
-                                    <div className={styles.etapasBoxBodyCards}>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                    </div>
-                                </div>
-                                <div className={styles.etapasContBox}>
-                                    <div className={styles.etapasContBoxTitle}>
-                                        <h2>Preparado</h2>
-                                    </div>
-                                    <div className={styles.etapasBoxBodyCards}>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                        <div className={styles.etapasCard} onClick={() => setIsModalOpen(true)}></div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
             </div>
+            <Menu/>
             {/* {selectedCard && (
                 <ModalCard isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
             )} */}

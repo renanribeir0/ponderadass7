@@ -1,3 +1,20 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: Poppins, sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: rgb(243, 243, 243);
+    font-family: Poppins, sans-serif;
+}
+
 // .etapaCard{
 //     height: 88vh;
 //     width:5vw;
@@ -5,19 +22,99 @@
 //     position:fixed;
 // }
 
+.etapasBoxBodyCards{
+    // background-color: rgb(201, 29, 195);
+    // margin: 0 1vw;
+    // position:relative;
+    user-select: none;
+    margin: 0px 0px 1.6rem;
+    min-height: 50px;
+    color: rgb(46, 38, 64);
+}
+
 .cardEP{
-    width: 17.5vw;
-    height: 14vh;
-    background-color: white;
-    margin: 1vh 1vw 3vh;
-    border-radius: 10px;
-    padding: 2vh 1vw;
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;
+    // width: 17.5vw;
+    // height: 14vh;
+    // background-color: white;
+    // // margin: 1vh 1vw 3vh;
+    // border-radius: 10px;
+    // padding: 2vh 1vw;
+    // box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;
+    // margin: 0px 0px 1.6rem;
+    // min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+    width: 100%;
+    height: 100%;
+    // height: 150px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0.4rem 0.4rem 1.2rem;
+    border-radius: 1.6rem;
+    cursor: pointer;
 }
 
 .cardParceiro{
-    height: 5vh;
-    // background-color: aqua;
+    // height: 5vh;
+    // // background-color: aqua;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    padding: 1.6rem 1.6rem 0px;
+    gap: 1rem;
+}
+
+.parceiroName{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 4.8rem;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 150%;
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    color: rgb(46, 38, 64);
+    font-size: 1.6rem;
+}
+
+.cardBottom{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 1.6rem;
+    height: 100%;
+}
+
+.cardDate{
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.dateIcon{
+    display: inline;
+}
+
+.dateIcon2{
+    display:inline;
+}
+
+.cardDate p{
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    color: rgb(46, 38, 64);
+    font-size: 1.4rem;
 }
 
 .cardCurso{
@@ -44,13 +141,20 @@
     display: flex;
 }
 ///////////////////////////////////////////////////////////
-.cardParceiro h1{
-    font-size: 1.8vh;
+.parceiroName{
+    // font-size: 1.8vh;
 
-    font-weight: normal;
-    position:relative;
-    top:50%;
-    transform: translateY(-50%);
+    // font-weight: normal;
+    // position:relative;
+    // top:50%;
+    // transform: translateY(-50%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 4.8rem;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 150%;
 }
 
 .cardCurso h2{

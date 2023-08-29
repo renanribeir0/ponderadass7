@@ -1,18 +1,16 @@
 import { Injectable } from '@nestjs/common';
-// import { Iniciativa } from 'src/iniciativas/interfaces/iniciativa.interface';
-// import { Prisma, PrismaClient } from '@prisma/client';
+import { IniciativaRepository } from './iniciativas.repository'
+import { Iniciativa } from 'src/iniciativas/interfaces/iniciativa.interface';
+import { Prisma, PrismaClient } from '@prisma/client';
+import { CriaIniciativaDto } from './dto/criarIniciativa.dto';
 
 
 @Injectable()
 export class IniciativasService {
-    // private prisma: PrismaClient;
 
-    constructor() {
-        // this.prisma = new PrismaClient()
-    }
+    constructor(private iniciativaRepository: IniciativaRepository) {}
 
     // private readonly iniciativas: Iniciativa[] = []
-    private readonly iniciativas: any[] = []
 
     
     retornaMockado() {
@@ -74,21 +72,18 @@ export class IniciativasService {
         return iniciativaMockada;
     }
 
-    async findById(id: number): Promise<any> {
-        // return this.prisma.iniciativa.findUnique({
-        //     where: { id: id },
-        //     include: {
-        //         modulo: true,
-        //         parceiro: true
-        //     }
-        // });
-        return `Você acessou no BD a Iniciativa de id: ${id}`
+    async findById(id: number): Promise<Iniciativa> {
+        return this.iniciativaRepository.findIniciativaById(id);
     }
 
-    findAll(): any[] {
-        return this.iniciativas
+    async findAll(): Promise<Iniciativa[]> {
+        return this.iniciativaRepository.findAll();
+        // return this.prisma
     }
 
+    async create(iniciativa: CriaIniciativaDto): Promise<Iniciativa> {
+        return this.iniciativaRepository.create(iniciativa)
+    }
     // create(iniciativa: Iniciativa): Promise<Iniciativa> {
     // create(iniciativa: any) {
     //     return this.prisma.iniciativa.create({
@@ -100,4 +95,12 @@ export class IniciativasService {
     //         }
     //     })
     // }
+
+    async update(id: number, data: CriaIniciativaDto): Promise<void> {
+        await this.iniciativaRepository.update(id, data)
+    }
+
+    async delete(id: number): Promise<void> {
+        await this.iniciativaRepository.delete(id)
+    }
 }

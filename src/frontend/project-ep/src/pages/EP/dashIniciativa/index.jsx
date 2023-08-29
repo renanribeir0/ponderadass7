@@ -51,14 +51,19 @@ const DashIniciativa = (props) => {
                                 <div className={styles.dropdown}>
                                     <button className={styles.dropdownButton} >
                                         {/* <h6>Selecionar Modulo</h6> */}
-                                        Selecionar Modulo
+                                        Selecionar Parceiro
                                         <img className={styles.arrow} src={icon}/>
                                     </button>
                                     <div class={styles.dropdownContent}>
-                                        <a>ES</a>
+                                        {/* <a>ES</a>
                                         <a>EC</a>
                                         <a>CC</a>
-                                        <a>SI</a>
+                                        <a>SI</a> */}
+                                        {iniciativas.map((iniciativa, index) => (
+                                            <a key={index} iniciativa={iniciativa}>
+                                                {iniciativa.parceiro}
+                                            </a>
+                                        ))}
                                     </div>
                                 </div>
                             </div>

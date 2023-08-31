@@ -11,12 +11,12 @@ const ButtonUsage = (props) => {
     }
 
     try {
-        const response = await fetch('http://34.234.67.1:3001/iniciativas', {
+        const response = await fetch('http://127.0.0.1:3001/iniciativas', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(props.selectedCard)
+            body: JSON.stringify(props.selectedIniciativa)
         });
 
         const data = await response.json();

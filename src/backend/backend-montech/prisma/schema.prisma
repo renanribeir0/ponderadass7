@@ -19,7 +19,8 @@ model Parceiro {
   id               Int      @id @default(autoincrement())
   createdAt        DateTime @default(now()) //
   nomeEmpresa      String          
-  mercado          String                  
+  mercado          String        
+  senha            String          
   cnpj             String
   nomeContato      String
   cpf              String                   //

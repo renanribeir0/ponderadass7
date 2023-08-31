@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IniciativaRepository } from './iniciativas.repository'
-import { Iniciativa } from 'src/iniciativas/interfaces/iniciativa.interface';
-import { Prisma, PrismaClient } from '@prisma/client';
+// import { Iniciativa } from 'src/iniciativas/interfaces/iniciativa.interface';
+import { Prisma, PrismaClient, Iniciativa } from '@prisma/client';
 import { CriaIniciativaDto } from './dto/criarIniciativa.dto';
 
 

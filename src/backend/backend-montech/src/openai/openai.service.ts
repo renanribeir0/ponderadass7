@@ -52,7 +52,7 @@ export class OpenAIService {
     
     const body = {
       model: "text-davinci-003",
-      prompt: `Dado o problema a seguir, classifique a relevância das 6 competências do ${modulo.nomeModulo} de projeto em termos de sua importância para a solução. As opções de classificação são: Muito Baixa, Baixa, Média, Alta, Muito Alta e Perfeita. Retorne um json com a competência e a classificação dela. Para a Ferramenta_Tecnologica, analise se o problema pode ser resolvido através dessa Ferramenta, seja bem criterioso e só classifique como Perfeita, se a ferramenta conseguir resolver o problema da melhor forma possível, para as competências restantes, avalie o quão fácil os alunos enxergarão esse tema no projeto que desenvolvem.
+      prompt: `Dado o problema a seguir, classifique a relevância das 6 competências do ${modulo.nomeModulo} para a solução. As opções de classificação são: Muito Baixa, Baixa, Média, Alta, Muito Alta e Perfeita. Retorne um json com a competência e a classificação dela. Para a Ferramenta_Tecnologica, analise se o problema pode ser resolvido através dessa Ferramenta, seja bem criterioso e só classifique como Perfeita, se a ferramenta conseguir resolver o problema da melhor forma possível, para as competências restantes, avalie o quão fácil os alunos enxergarão esse tema no projeto que desenvolvem.
 
       Problema: "${problemDescription}"
       
@@ -62,9 +62,16 @@ export class OpenAIService {
         `competencia_${index}: ${competencia}`})},
        
      }
-      
-      // }
-    }`,
+     
+     A resposta deve seguir o seguinte molde:
+     {
+      "Ferramenta_Tecnologica: <Classificação>,
+      "Competencia_1": <Classificação>,
+      "Competencia_2": <Classificação>,
+      "Competencia_3": <Classificação>,
+      "Competencia_4": <Classificação>,
+      "Competencia_5": <Classificação>,
+     }`,
     // Módulo 1 {
       //   Ferramenta Tecnológica: "Desenvolvimento de um Jogo",
       //   Identificar tendências e oportunidades de mercado: "Análise de cenário",
@@ -92,7 +99,7 @@ export class OpenAIService {
       // }`,
 
     //  
-      max_tokens: 1500,
+      max_tokens: 2500,
       temperature: 0.3
     };
 

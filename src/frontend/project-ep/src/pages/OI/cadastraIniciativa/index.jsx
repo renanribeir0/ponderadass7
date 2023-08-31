@@ -20,24 +20,28 @@ const CadastraIniciativa = (props) => {
     const [problemaEnviado, setProblemaEnviado] = useState(false);
     const [descricao, setDescricao] = useState("");  // Novo estado para armazenar a descrição
     const [selectedCard, setSelectedCard] = useState(null); // Estado para armazenar o Card selecionado
+    const [selectedIniciativa, setSelectedIniciativa] = useState(null)
     const [apiResponse, setApiResponse] = useState([]); // Simulação da resposta da API
     const [isModalOpen, setIsModalOpen] = useState(false); //Controla Modal
     const [nomeModulo, setNomeModulo] = useState('')
     const [modulos, setModulos] = useState([])
-    const [arrayIniciativas, setArrayIniciativas] = useState([]);
+    // const [modulosFiltrados, setModulosFiltrados] = useState([])
+    // const [arrayIniciativas, setArrayIniciativas] = useState([]);
+    // const [requestedModules, setRequestedModules] = useState([]);
 
-    // let arrayIniciativas = []
+    let arrayIniciativas = []
+    let modulosFiltrados = []
+    let requestedModules = []
 
     // Função para lidar com a mudança no TextField
     const handleDescricaoChange = (event) => {
         console.log(event.target.value)
         setDescricao(event.target.value);
-        console.log(process.env.OPENAI_API_KEY)
     };
 
     const classificaModulo = async (problemDescription, modulo) => {
         try {
-            const response = await fetch('http://34.234.67.1:3001/openai',
+            const response = await fetch('http://127.0.0.1:3001/openai',
             {
                 method: 'POST',
                 headers: {
@@ -52,9 +56,11 @@ const CadastraIniciativa = (props) => {
 
             console.log("data.text")
             console.log(data.text)
-
-
+            console.log("AQUI FUNCIONA PPRT")
+            
             const objetoIniciativa = JSON.parse(data.text);
+            console.log("AQUI FUNCIONA PPRT")
+            console.log("data.text")
             console.log("objetoIniciativa")
             console.log(objetoIniciativa)
             console.log("data.text.Ferramenta_Tecnologica")
@@ -63,22 +69,27 @@ const CadastraIniciativa = (props) => {
             if(objetoIniciativa.Ferramenta_Tecnologica === "Muito Alta" || objetoIniciativa.Ferramenta_Tecnologica === "Perfeita") {
                 console.log("AGORA A RESPOSTA DO ENDPOINT ")
                 console.log(objetoIniciativa)
-                let iniciativa = {
-                    id: 2,
+                console.log(modulo)
+                modulosFiltrados.push(modulo)
+                console.log("modulosFiltrados")
+                console.log(modulosFiltrados)
+                // setApiResponse(prevState => [...prevState, objetoIniciativa]);
+                const iniciativa = {
+                    moduloId: modulo.id,
+                    parceiroId: 1,
                     problema: descricao,
-                    solucao: "Descrição de solução Mockada",
+                    escopo: "Descrição de solução Mockada",
+                    // curso: "es",
                     tema: "Tema do problema informado",
-                    curso: "es",
-                    nomeModulo: modulo.nomeModulo,
-                    descricao: modulo.descricao,
                     mvp: ["MVP1 - Mockado", "MVP2 - Mockado", "MVP3 - Mockado"]
                 }
-
-                return iniciativa
-                // setApiResponse(prevState => [...prevState, iniciativa]);
-                // arrayIniciativas.push(iniciativa)
+                
+                // return iniciativa
+                // const aIniciativa = [arrayIniciativas, iniciativa]
+                arrayIniciativas.push(iniciativa)
                 // setApiResponse(data.text);
-                // console.log(arrayIniciativas);
+                console.log("arrayIniciativas");
+                console.log(arrayIniciativas);
             }
             return null
             // Processar a resposta aqui, por exemplo:
@@ -91,54 +102,70 @@ const CadastraIniciativa = (props) => {
 
     const iteraModulos = async (problemDescription) => {
 
-        let tempIniciativas = [];
 
         for (const modulo of modulos) {
 
-            console.log("modulo")
-            console.log(modulo)
-            const iniciativa = await classificaModulo(problemDescription, modulo)
-            if (iniciativa) {
-                tempIniciativas.push(iniciativa);
-            }
+            // if (!requestedModules.includes(modulo.id)) {
+                console.log("modulo");
+                console.log(modulo);
+                await classificaModulo(problemDescription, modulo);
+                requestedModules.push(modulo.id);
+                console.log("requestedModules")
+                console.log(requestedModules)
+            // }
+
+            // console.log("modulo")
+            // console.log(modulo)
+            // await classificaModulo(problemDescription, modulo)
+            // if (iniciativa) {
+            //     tempIniciativas.push(iniciativa);
+            // }
         }
         
         
 
         // setApiResponse(tempIniciativas);
-        setApiResponse([
-            {
-                id: 2,
-                problema: descricao,
-                solucao: "Automatizar o processo de contratação, garantindo acessibilidade para todos os prestadores de serviço em seus locais de origem. Criar um ambiente de fácil acesso com disponibilização de oportunidades de trabalho para prestadores de serviços locais.",
-                tema: "Gestão Operacional",
-                curso: "cb",
-                nomeModulo: "Módulo 02 - Ciclo Básico",
-                descricao: "Desenvolvimento de uma Plataforma Web",
-                mvp: ["Aplicação web capaz de disponibilizar as oportunidades de trabalho para os prestadores de serviço (com as informações de prazo, preço e disponibilidade), assim como criar uma base de dados com contatos de todos os empreiteiros que se interessarem pela vaga integrada à referida aplicação."]
-            },
-            {
-                id: 2,
-                problema: descricao,
-                solucao: "Criação de modelos preditivos a partir de coortes de pacientes acompanhadas em projetos de pesquisa do Instituto do Câncer do Estado de São Paulo/Faculdade de Medicina da Universidade de São Paulo.",
-                tema: "Saúde",
-                curso: "cb",
-                nomeModulo: "Módulo 03 - Ciclo Básico",
-                descricao: "Construção de lógica para predição com inteligência artificial",
-                mvp: [
-                    "Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação",
-                    "Formulário de entrada de propostas de projetos",
-                    "Dash de análise de Iniciativas / atribuição de ratings",
-                    "Dash de alocação de Projetos em  Módulos/Turmas"
-                ]
-            }
-        ])
+        // setApiResponse([
+        //     {
+        //         id: 2,
+        //         problema: descricao,
+        //         solucao: "Automatizar o processo de contratação, garantindo acessibilidade para todos os prestadores de serviço em seus locais de origem. Criar um ambiente de fácil acesso com disponibilização de oportunidades de trabalho para prestadores de serviços locais.",
+        //         tema: "Gestão Operacional",
+        //         curso: "cb",
+        //         nomeModulo: "Módulo 02 - Ciclo Básico",
+        //         descricao: "Desenvolvimento de uma Plataforma Web",
+        //         mvp: ["Aplicação web capaz de disponibilizar as oportunidades de trabalho para os prestadores de serviço (com as informações de prazo, preço e disponibilidade), assim como criar uma base de dados com contatos de todos os empreiteiros que se interessarem pela vaga integrada à referida aplicação."]
+        //     },
+        //     {
+        //         id: 2,
+        //         problema: descricao,
+        //         solucao: "Criação de modelos preditivos a partir de coortes de pacientes acompanhadas em projetos de pesquisa do Instituto do Câncer do Estado de São Paulo/Faculdade de Medicina da Universidade de São Paulo.",
+        //         tema: "Saúde",
+        //         curso: "cb",
+        //         nomeModulo: "Módulo 03 - Ciclo Básico",
+        //         descricao: "Construção de lógica para predição com inteligência artificial",
+        //         mvp: [
+        //             "Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação",
+        //             "Formulário de entrada de propostas de projetos",
+        //             "Dash de análise de Iniciativas / atribuição de ratings",
+        //             "Dash de alocação de Projetos em  Módulos/Turmas"
+        //         ]
+        //     }
+        // ])
 
         // console.log("arrayIniciativas")
-        console.log("tempIniciativas")
-        console.log(tempIniciativas)
+        // console.log("tempIniciativas")
+        // console.log(tempIniciativas)
         
     }
+
+    useEffect(() => {
+        arrayIniciativas.map((iniciativa) => {
+            if(selectedCard.id === iniciativa.id) {
+                setSelectedIniciativa(iniciativa)
+            }
+        })
+    }, [selectedCard])
 
     useEffect(() => {
         if (problemaEnviado) {
@@ -158,7 +185,7 @@ const CadastraIniciativa = (props) => {
     }, [problemaEnviado]);
 
     useEffect(() => {
-        fetch('http://34.234.67.1:3001/modulos')
+        fetch('http://127.0.0.1:3001/modulos')
         .then((response) => response.json())
         .then((data) => {
             setModulos(data)
@@ -214,8 +241,8 @@ const CadastraIniciativa = (props) => {
             {problemaEnviado ? 
             <div className={styles.principal2}>
                 <div className={styles.paiCard}>
-                    {apiResponse.map((cardData, index) => (
-                        <Card key={index} icone={cardData.curso} modulo={cardData.nomeModulo} nomeModulo={cardData.descricao} className={cardData === selectedCard ? styles.cardSelected : ''} onClick={() => setSelectedCard(cardData)}/>
+                    {modulosFiltrados.map((modulo, index) => (
+                        <Card key={index} modulo={modulo.nomeModulo} nomeModulo={modulo.descricao} className={modulo === selectedCard ? styles.cardSelected : ''} onClick={() => setSelectedCard(modulo)}/>
 
                     ))}
 
@@ -258,7 +285,7 @@ const CadastraIniciativa = (props) => {
                 <div className={styles.botao}>
                     {/* <button onClick={() => iteraModulos(descricao)}>BOTÂO PARA ACESSAR A API DO GEPETAS</button> */}
 
-                    <ButtonUsage tipo="envia Iniciativa" conteudo="CONFIRMAR" setNomeModulo={setNomeModulo} setIsModalOpen={setIsModalOpen} enviaIniciativa={true} selectedCard={selectedCard} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
+                    <ButtonUsage tipo="envia Iniciativa" conteudo="CONFIRMAR" setNomeModulo={setNomeModulo} setIsModalOpen={setIsModalOpen} enviaIniciativa={true} selectedIniciativa={selectedIniciativa} problemaEnviado={problemaEnviado} setProblemaEnviado={setProblemaEnviado}/>
 
                 </div>
             </div>

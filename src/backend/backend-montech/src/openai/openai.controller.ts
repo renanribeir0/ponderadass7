@@ -28,6 +28,8 @@ export class OpenAIController {
     // console.log("observableResult.data.choices[0]")
     // console.log(res.json(observableResult.data.choices[0]))
     res.json(observableResult.data.choices[0]);
+    console.log("observableResult.data.choices[0]")
+    console.log(observableResult.data.choices[0])
   } catch (error) {
     console.error('Erro ao acessar a API do OpenAI:', error);
     res.status(500).send('Erro ao processar a solicitação');

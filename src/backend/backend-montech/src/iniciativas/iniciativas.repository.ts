@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
-import { Iniciativa } from './interfaces/iniciativa.interface';
+import { PrismaClient, Iniciativa } from '@prisma/client';
+// import { Iniciativa } from './interfaces/iniciativa.interface';
 import { CriaIniciativaDto } from './dto/criarIniciativa.dto';
 
 

@@ -37,12 +37,38 @@ export class OpenAIController {
 
   }
 
-  async geraTapi(@Body('iniciativa') iniciativa: any, @Res() res: Response) {
-    console.log(iniciativa)
+  // async geraTapi(@Body('iniciativa') iniciativa: any, @Res() res: Response) {
+  //   console.log(iniciativa)
+
+  //   try {
+  //     const observableResult = await this.openAIService.geraTapi(iniciativa);
+  //     res.json(observableResult.data.choices[0]);
+  //   } catch (error) {
+  //     console.error('Erro ao acessar a API do OpenAI:', error);
+  //     res.status(500).send('Erro ao processar a solicitação');
+  //   }
+  // }
+
+}
+
+@Controller('geraTapi')
+export class GeraTapiController {
+  constructor(private readonly openAIService: OpenAIService) {}
+
+  @Get()
+  funcao() {
+    return {
+        message: "O GET geratapi FUNCIONA"
+    }
+  }
+
+  @Post()
+  async geraTapi(@Body('description') description: string, @Body('contexto') contexto: string, @Res() res: Response) {
 
     try {
-      const observableResult = await this.openAIService.geraTapi(iniciativa);
+      const observableResult = await this.openAIService.geraTapi(description, contexto);
       res.json(observableResult.data.choices[0]);
+
     } catch (error) {
       console.error('Erro ao acessar a API do OpenAI:', error);
       res.status(500).send('Erro ao processar a solicitação');
@@ -50,3 +76,4 @@ export class OpenAIController {
   }
 
 }
+

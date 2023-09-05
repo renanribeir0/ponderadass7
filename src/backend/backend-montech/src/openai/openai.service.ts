@@ -65,40 +65,14 @@ export class OpenAIService {
      
      A resposta deve seguir o seguinte molde:
      {
-      "Ferramenta_Tecnologica: <Classificação>,
+      "moduloId": <${modulo.id}>
+      "Ferramenta_Tecnologica": <Classificação>,
       "Competencia_1": <Classificação>,
       "Competencia_2": <Classificação>,
       "Competencia_3": <Classificação>,
       "Competencia_4": <Classificação>,
       "Competencia_5": <Classificação>,
-     }`,
-    // Módulo 1 {
-      //   Ferramenta Tecnológica: "Desenvolvimento de um Jogo",
-      //   Identificar tendências e oportunidades de mercado: "Análise de cenário",
-      //   Identificar tendências e oportunidades de mercado: "Matriz SWOT e Riscos",
-      //   Identificar tendências e oportunidades de mercado: "Diferenciação, posicionamento e segmentação",
-      //   Identificar tendências e oportunidades de mercado: "Product Box e Value Proposition Canvas",
-      //   Identificar tendências e oportunidades de mercado: "Qualidade, PDCA, 6SIGMA, 5S"
-      
-    
-    // Módulo 3 {
-    //   Ferramenta Tecnológica: "Desenvolvimento de predição com Inteligência Artificial",
-    //   Interpretar e elaborar planos de negócios: "Planos de negócios",
-    //   Traduzir a estratégia em planos de marketing e comunicação: "Branding e comunicação",
-    //   Idealizar estruturas organizacionais: "Cultura organizacional",
-    //   Idealizar estruturas organizacionais: "Governança corporativa",
-    //   Decidir sobre investimentos, financiamentos e gestão de recursos: "Ciclo de funding em startups"
-
-      // Módulo 4 {
-      //   Ferramenta Tecnológica: "Prototipação de solução para IoT",
-      //   Interpretar e elaborar planos de negócios : "Startup pitches",
-      //   Idealizar estruturas organizacionais: "Diversidade, inclusão e acessibilidade",
-      //   Idealizar estruturas organizacionais: "Design organizacional",
-      //   Aplicar técnicas e ferramentas para gerenciamento de projetos: "PMI, PMBok e Agile",
-      //   Aplicar técnicas e ferramentas para gerenciamento de projetos: "Sistemas para gerenciamento de projetos"
-      // }`,
-
-    //  
+     }`, 
       max_tokens: 2500,
       temperature: 0.3
     };
@@ -110,7 +84,7 @@ export class OpenAIService {
     
   }
 
-  async geraTapi(iniciativa: any) {
+  async geraTapi(descricao: string, contexto: string) {
     const headers = {
       // 'Content-Type': 'application/json',
       'Authorization': `Bearer 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`,
@@ -118,23 +92,29 @@ export class OpenAIService {
     };
     const body = {
       model: "text-davinci-003",
-      prompt: `Dado  problema a seguir, classifique a relevância das 6 competências do módulo de projeto em termos de sua importância para a solução. As opções de classificação são: Muito Baixa, Baixa, Média, Alta, Muito Alta e Perfeita. Retorne um json com a competência e a classificação dela. Para a Ferramenta Tecnológica, analise se o problema pode ser resolvido através dessa Ferramenta, seja bem criterioso e só classifique como Perfeita, se a ferramenta conseguir resolver o problema da melhor forma possível, para as competências restantes, avalie o quão fácil os alunos enxergarão esse tema no projeto que desenvolvem.
+      prompt: `Dado  problema a seguir, e o contexto do módulo a seguir, que indica a ferramenta tecnológica a ser utilizada, retorne um json no seguinte molde:
+      {
+        "escopo": "<conteudo>",
+        "tema": "<conteudo>",
+        "mvp": "1. <conteudo> \n2. <conteudo> ..."
+      }
 
-      Problema: "${iniciativa}"
-      
-       Módulo 2 {
-           Ferramenta Tecnológica: "Desenvolvimento de uma plataforma Web",
-       Identificar tendências e oportunidades de mercado: "Frameworks(Oceano Azul, 5 forças, 4P's, 6D)",
-       Interpretar e elaborar planos de negócios : "Incubadoras e ecossistema de Startups",
-       Traduzir a estratégia em planos de marketing e comunicação: "Pesquisa de mercado e tendências",
-       Elaborar orçamentos e  fluxos de caixa: "Fluxo de Caixa, juros simples e compostos"
-       Elaborar orçamentos e  fluxos de caixa: "Taxa de desconto, IRR, NPV, PV e FV"
-     }
-      
-      // }
-    }`,
-    max_Tokens: 2500,
-    temperature: 0.3
+      Para isso, você deve idealizar um escopo de solução, ou seja, uma explicação de como o problema deve ser resolvido em um parágrafo curto. 
+      Após isso, identificar o Tema do Projeto, como por exemplo: Fluxo de Caixa, Gestão de Pessoas, Gestão de Projetos, etc.
+      Por fim, crie um MVP com 3 a 8 funcionalidades mínimas do produto para que a dor seja solucionada, exemplo de um problema para gestão de projetos:
+      1. Cadastro de módulos / contexto do Metaprojeto 
+      2. Cronograma de operação
+      3. Formulário de entrada de propostas de projetos; 
+      4. Dash de análise de Iniciativas  
+      5. Atribuição de ratings; 
+      6. Dash de alocação de Projetos em  Módulos/Turmas;
+.
+      Aqui segue o Problema e o contexto tecnológico:
+
+      Problema: "${descricao}"
+      Contexto: "${contexto}"`,
+      max_tokens: 2500,
+      temperature: 0.3
     };
 
     const observableResponse = this.httpService.post(this.OPENAI_ENDPOINT, body, { headers: headers })

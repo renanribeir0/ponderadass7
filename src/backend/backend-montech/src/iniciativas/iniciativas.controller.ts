@@ -12,7 +12,6 @@ export class IniciativasController {
 
     @Get()
     async findAll(): Promise<Iniciativa[]> {
-        
         return this.iniciativaService.findAll()
     }
 

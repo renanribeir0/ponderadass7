@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const ButtonUsage = (props) => {
 
   const sendCardData = async () => {
-    if (!props.selectedCard) {
+    if (!props.selectedIniciativa) {
         alert("Nenhum card selecionado!");
         return;
     }

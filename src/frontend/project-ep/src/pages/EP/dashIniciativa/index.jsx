@@ -7,11 +7,14 @@ import icon from '../../../assets/down-arrow.png'
 import ModalCard from '../../../components/molecules/modalCard/index.jsx';
 import CardDash from '../../../components/molecules/cardsDashIniciativa/cardIniciativa/index.jsx';
 
+const url = 'http://127.0.0.1:3001/'
+
 
 const DashIniciativa = (props) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [iniciativas, setIniciativas] = useState([]);
+    const [modulos, setModulos] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null); // Estado para armazenar o Card selecionado
     const [cardIndex, setCardIndex] = useState(null);
 
@@ -19,7 +22,7 @@ const DashIniciativa = (props) => {
     useEffect(() => {
         // fetch('54.242.178.170:3001/iniciativas')
         // fetch('http://34.234.67.1:3001/iniciativas')
-        fetch('http://127.0.0.1:3001/iniciativas')
+        fetch(url+'iniciativas')
         .then((response) => response.json())
         .then((data) => {
             setIniciativas(data)
@@ -28,7 +31,23 @@ const DashIniciativa = (props) => {
         .catch((err) => {
             console.log(err.message)
         })
-    });
+    }, []);
+
+    useEffect(() => {
+        // fetch('54.242.178.170:3001/iniciativas')
+        // fetch('http://34.234.67.1:3001/iniciativas')
+        fetch(url+'modulos')
+        .then((response) => response.json())
+        .then((data) => {
+            setModulos(data)
+            console.log(data)
+        })
+        .catch((err) => {
+            console.log(err.message)
+        })
+    }, []);
+
+
 
 
     return(
@@ -51,7 +70,7 @@ const DashIniciativa = (props) => {
                                 <div className={styles.dropdown}>
                                     <button className={styles.dropdownButton} >
                                         {/* <h6>Selecionar Modulo</h6> */}
-                                        Selecionar Parceiro
+                                        Selecionar Módulo
                                         <img className={styles.arrow} src={icon}/>
                                     </button>
                                     <div class={styles.dropdownContent}>
@@ -59,9 +78,9 @@ const DashIniciativa = (props) => {
                                         <a>EC</a>
                                         <a>CC</a>
                                         <a>SI</a> */}
-                                        {iniciativas.map((iniciativa, index) => (
-                                            <a key={index} iniciativa={iniciativa}>
-                                                {iniciativa.parceiro}
+                                        {modulos.map((modulo, index) => (
+                                            <a key={index} modulo={modulo}>
+                                                {modulo.nomeModulo}
                                             </a>
                                         ))}
                                     </div>

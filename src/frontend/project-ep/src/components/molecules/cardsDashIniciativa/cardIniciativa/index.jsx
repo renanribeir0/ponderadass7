@@ -8,6 +8,12 @@ const CardDash = (props) => {
           <div className={styles.cardEP} onClick={props.onClick}>
             <div className={styles.cardParceiro}>
               <span className={styles.parceiroName}>{props.iniciativa.parceiro}</span>
+              <span className={styles.parceiroMercado}>Mercado automobilistico</span>
+              {/* <span className={styles.parceiroName}>Instituto de Tecnologia e Liderança da cidade de sao paulo eh a proxima mit e sla mais oq escrever mas tem q deixar cumprido</span> */}
+            </div>
+            <div className={styles.cardModulo}>
+              <span className={styles.moduloName}>M05 - Engenharia de Software</span>
+              <span className={styles.moduloTema}><strong>Tema: </strong>Blockchain</span>
             </div>
             <div className={styles.cardBottom}>
               <div className={styles.cardDate}>
@@ -20,21 +26,9 @@ const CardDash = (props) => {
                     </div>
                   </div>
                 </div>
-                <p>23/08/2023 - 14:00h</p>
+                <p>23/08/2023</p>
               </div>
             </div>
-            {/* <div className={styles.cardCurso}>
-              <h2>{props.iniciativa.curso}</h2>
-            </div>
-            <div className={styles.cardBottom}>
-              <div className={styles.cardTema}>
-                <h3>{props.iniciativa.tema}</h3>
-              </div>
-              <div className={styles.cardModulo}>
-                <h3>Modulo:</h3>
-                <p>{props.iniciativa.modulo}</p>
-              </div>
-            </div> */}
           </div>
         </div>
       </>

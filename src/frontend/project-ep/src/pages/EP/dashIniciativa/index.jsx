@@ -5,7 +5,7 @@ import NavbarEP from "../../../components/atoms/navbar-ep/index.jsx"
 import Menu from "../../../components/atoms/menu/index.jsx";
 import icon from '../../../assets/down-arrow.png'
 import ModalCard from '../../../components/molecules/modalCard/index.jsx';
-import CardDash from '../../../components/molecules/cardDash/index.jsx';
+import CardDash from '../../../components/molecules/cardsDashIniciativa/cardIniciativa/index.jsx';
 
 
 const DashIniciativa = (props) => {

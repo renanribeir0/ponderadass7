@@ -18,10 +18,10 @@ const ModalCard = (props) => {
                             <img className={styles.fechar} src={fechar} />
                         </div>
                         <div className={styles.parceiro}>
-                            <h1>{props.iniciativa.parceiro}</h1>
+                            <h1>{props.iniciativa.nomeEmpresa}</h1>
                         </div>
                         <div className={styles.parceiroCNPJ}>
-                            <h2><strong>CNPJ: </strong>7457348752385734</h2>
+                            <h2><strong>CNPJ: </strong>{props.iniciativa.cnpj}</h2>
                         </div>
                     </div>
 
@@ -33,12 +33,12 @@ const ModalCard = (props) => {
                         </div>
                         <div className={styles.contatoInfo}>
                             <div className={styles.contatoBody}>
-                                <h3><strong>Nome: </strong>Mauricio Trapnell Felicissimo</h3>
-                                <h3><strong>Cargo: </strong>Vice presidente da empresa</h3>
+                                <h3><strong>Nome: </strong>{props.iniciativa.nome}</h3>
+                                {/* <h3><strong>Cargo: </strong>Vice presidente da empresa</h3> */}
                             </div>
                             <div className={styles.contatoBody}>
-                                <h3><strong>Email: </strong>maufelicissimo@gmail.com</h3>
-                                <h3><strong>Telefone: </strong>+55 (11) 95655-1907</h3>
+                                <h3><strong>Email: </strong>{props.iniciativa.email}</h3>
+                                <h3><strong>Telefone: </strong>{props.iniciativa.telefone}</h3>
                             </div>
                         </div>
                     </div>
@@ -46,19 +46,19 @@ const ModalCard = (props) => {
                     <div className={styles.infoIniciativa}>
                         <div className={styles.infoDesc}>
                             <h2>Descrição do Problema:</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>{props.iniciativa.problema}</p>
                         </div>
                         <div className={styles.infoModulo}>
-                            <h2><strong>Modulo: </strong>M05 - Engenharia de Software</h2>
+                            <h2><strong>Modulo: </strong>{props.iniciativa.nomeModulo}</h2>
                         </div>
                         <div className={styles.infoTAPI}>
                             <div className={styles.escopo}>
                                 <h2>Escopo:</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p>{props.iniciativa.escopo}</p>
                             </div>
                             <div className={styles.infoMVP}>
                                 <h2>MVP:</h2>
-                                <p>gfcvgtfgvhyghyghgyhbgyhb</p>
+                                <p>{props.iniciativa.mvp}</p>
                             </div>
                         </div>
                     </div>

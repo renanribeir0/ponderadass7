@@ -8,12 +8,12 @@ const CardDash = (props) => {
           <div className={styles.cardEP} onClick={props.onClick}>
             <div className={styles.cardParceiro}>
               <span className={styles.parceiroName}>{props.iniciativa.parceiro}</span>
-              <span className={styles.parceiroMercado}>Mercado automobilistico</span>
+              <span className={styles.parceiroMercado}>{props.iniciativa.mercado}</span>
               {/* <span className={styles.parceiroName}>Instituto de Tecnologia e Liderança da cidade de sao paulo eh a proxima mit e sla mais oq escrever mas tem q deixar cumprido</span> */}
             </div>
             <div className={styles.cardModulo}>
-              <span className={styles.moduloName}>M05 - Engenharia de Software</span>
-              <span className={styles.moduloTema}><strong>Tema: </strong>Blockchain</span>
+              <span className={styles.moduloName}>{props.iniciativa.nomeModulo}</span>
+              <span className={styles.moduloTema}><strong>Tema: </strong>{props.iniciativa.tema}</span>
             </div>
             <div className={styles.cardBottom}>
               <div className={styles.cardDate}>

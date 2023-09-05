@@ -13,7 +13,8 @@ export class IniciativaRepository {
     }
 
     async findAll(): Promise<Iniciativa[]> {
-      return this.prisma.$queryRaw`SELECT * FROM "Iniciativa"`;
+      // return this.prisma.$queryRaw`SELECT * FROM "Iniciativa"`;
+      return this.prisma.$queryRaw`SELECT "Iniciativa".*, "Parceiro".*, "Modulo".*, "Turma".* FROM "Iniciativa" INNER JOIN "Parceiro" ON "Iniciativa"."parceiroId" = "Parceiro".id INNER JOIN "Modulo" ON "Iniciativa"."moduloId" = "Modulo".id LEFT JOIN "Turma" ON "Iniciativa"."turmaId" = "Turma".id`;
     }
 
     async findIniciativaById(id: number): Promise<Iniciativa> {

@@ -77,6 +77,7 @@ const CadastraIniciativa = (props) => {
                 // console.log(modulo);
                 modulosFiltrados.push(modulo);
                 setModulosFiltradosState(modulosFiltrados);
+                // setSelectedCard(modulo)
                 // console.log("modulosFiltrados");
                 // console.log(modulosFiltrados);
                 // console.log(modulosFiltradosState);
@@ -133,23 +134,24 @@ const CadastraIniciativa = (props) => {
             console.log(data.text)
 
             // const jsonString = data.text.replace("Resposta: ", "");
-            const jsonString = data.text
-            .replace("Resposta: ", "")
-            .replace(/\n/g, "\\n")
-            .replace(/\r/g, "\\r")
-            .replace(/\t/g, "\\t");
-
+            const jsonString = data.text.replace("Resposta: ", "");
             console.log("jsonString")
             console.log(jsonString)
+
+              // Convertendo a string restante para um objeto JSON
             const objetoTapi = JSON.parse(jsonString);
 
-            // const objetoTapi = JSON.parse(data.text);
-            console.log("objetoTapi")
-            // console.log(objetoTapi)
-            console.log(objetoTapi)
-            console.log(objetoTapi.escopo)
-            console.log(objetoTapi.tema)
-            console.log(objetoTapi.mvp)
+            // // Agora você pode manipular os valores dentro do objetoTapi como strings normais
+            // objetoTapi.escopo = objetoTapi.escopo.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
+            // objetoTapi.tema = objetoTapi.tema.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
+            // objetoTapi.mvp = objetoTapi.mvp.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
+
+            console.log("objetoTapi", objetoTapi);
+            console.log("objetoTapi.escopo", objetoTapi.escopo);
+            console.log("objetoTapi.tema", objetoTapi.tema);
+            console.log("objetoTapi.mvp", objetoTapi.mvp);
+
+            
             setEscopo(objetoTapi.escopo)
             setTema(objetoTapi.tema)
             setMvp(objetoTapi.mvp)
@@ -224,6 +226,17 @@ const CadastraIniciativa = (props) => {
     }
 
     useEffect(() => {
+        if (selectedCard) {
+            setSelectedIniciativa(prevState => ({
+                ...prevState,
+                escopo: escopo,
+                tema: tema,
+                mvp: mvp
+            }));
+        };
+    }, [escopo, tema, mvp]);
+
+    useEffect(() => {
         arrayIniciativasState.map((iniciativa) => {
             // console.log("selectedCard")
             // console.log(selectedCard)
@@ -277,7 +290,7 @@ const CadastraIniciativa = (props) => {
                 <div className={styles.paiCard}>
                     {modulosFiltradosState.map((modulo, index) => (
                         <Card key={index} modulo={modulo.nomeModulo} nomeModulo={modulo.descricao} className={modulo === selectedCard ? styles.cardSelected : ''} onClick={() => setSelectedCard(modulo)}/>
-
+                        
                     ))}
 
 
@@ -300,7 +313,12 @@ const CadastraIniciativa = (props) => {
                             <div>
                                 <strong className={styles.titulo}>MVP</strong>
                             <div>
-                                <p>{selectedIniciativa.mvp}</p>
+                            {selectedIniciativa.mvp.map((item, index) => {
+                                if(item) {
+                                    return <p key={index}>{item}</p>;
+                                }
+                                return null;
+                            })}
                             </div>
                                 {/* <ol>
 

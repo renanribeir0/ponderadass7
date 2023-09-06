@@ -42,9 +42,9 @@ export class IniciativaRepository {
       console.log("objeto iniciativa para criar")
       console.log(iniciativa)
       const { moduloId, parceiroId, problema, escopo, status, mvp, tema, turmaId } = iniciativa;
-      const result = await this.prisma.$executeRaw`INSERT INTO "Iniciativa" ("moduloId", "parceiroId", "problema", "escopo", "status", "mvp", "tema", "turmaId") VALUES (${moduloId}, ${parceiroId}, ${problema}, ${escopo}, ${status} ${mvp}, ${tema}, ${turmaId}) RETURNING *`;
+      const result = await this.prisma.$executeRaw`INSERT INTO "Iniciativa" ("moduloId", "parceiroId", "problema", "escopo", "status", "mvp", "tema", "turmaId") VALUES (${moduloId}, ${parceiroId}, ${problema}, ${escopo}, ${status}, ${mvp}, ${tema}, ${turmaId}) RETURNING *`;
       return result[0];
-
+    }
 
       // try {
 
@@ -69,7 +69,7 @@ export class IniciativaRepository {
       //   throw new Error('Erro ao criar iniciativa');
       // }
 
-    } 
+    // } 
 
     async delete(id: number): Promise<void> {
       await this.prisma.$executeRaw`DELETE FROM "Iniciativa" WHERE id = ${id}`

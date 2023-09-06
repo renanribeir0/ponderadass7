@@ -46,7 +46,7 @@ export class OpenAIService {
 
     const headers = {
       // 'Content-Type': 'application/json',
-      'Authorization': `Bearer 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`,
+      'Authorization': `Bearer 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`,
       // 'Authorization': `Bearer <openai_key>`,
     };
     
@@ -66,12 +66,12 @@ export class OpenAIService {
      A resposta deve seguir o seguinte molde:
      {
       "moduloId": <${modulo.id}>
-      "Ferramenta_Tecnologica": <Classificação>,
-      "Competencia_1": <Classificação>,
-      "Competencia_2": <Classificação>,
-      "Competencia_3": <Classificação>,
-      "Competencia_4": <Classificação>,
-      "Competencia_5": <Classificação>,
+      "Ferramenta_Tecnologica": "<Classificação>",
+      "Competencia_1": "<Classificação>",
+      "Competencia_2": "<Classificação>",
+      "Competencia_3": "<Classificação>",
+      "Competencia_4": "<Classificação>",
+      "Competencia_5": "<Classificação>"
      }`, 
       max_tokens: 2500,
       temperature: 0.3
@@ -87,7 +87,7 @@ export class OpenAIService {
   async geraTapi(descricao: string, contexto: string) {
     const headers = {
       // 'Content-Type': 'application/json',
-      'Authorization': `Bearer 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`,
+      'Authorization': `Bearer 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`,
       // 'Authorization': `Bearer <openai_key>`,
     };
     const body = {
@@ -96,7 +96,7 @@ export class OpenAIService {
       {
         "escopo": "<conteudo>",
         "tema": "<conteudo>",
-        "mvp": "1. <conteudo> \n2. <conteudo> ..."
+        "mvp": ["1. <conteudo>", "2. <conteudo> ..."]
       }
 
       Para isso, você deve idealizar um escopo de solução, ou seja, uma explicação de como o problema deve ser resolvido em um parágrafo curto. 

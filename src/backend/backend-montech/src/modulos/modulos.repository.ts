@@ -35,8 +35,8 @@ export class ModuloRepository {
       //   }
       // }).join(", ");
       ;
-      console.log(`UPDATE "Modulo" SET nomeModulo = ${data.nomeModulo}, descricao = ${data.descricao}, competencias = ${data.competencias}, iniciativas = ${data.iniciativas} WHERE id = ${id}`)
-      await this.prisma.$executeRaw`UPDATE "Modulo" SET "nomeModulo" = ${data.nomeModulo}, "descricao" = ${data.descricao}, "competencias" = ${data.competencias}, "iniciativas" = ${data.iniciativas} WHERE id = ${id}`;
+      console.log(`UPDATE "Modulo" SET nomeModulo = ${data.nomeModulo}, descricao = ${data.descricao}, competencias = ${data.competencias} WHERE id = ${id}`)
+      await this.prisma.$executeRaw`UPDATE "Modulo" SET "nomeModulo" = ${data.nomeModulo}, "descricao" = ${data.descricao}, "competencias" = ${data.competencias} WHERE id = ${id}`;
       // await this.prisma.$executeRaw`UPDATE "Modulo" SET ${fieldsToUpdate} WHERE "id" = ${id} RETURNING *`;
       // await this.prisma.Modulo.update({
       //   where: { id: id },
@@ -48,9 +48,9 @@ export class ModuloRepository {
     
 
 
-    async create(Modulo: CriaModuloDto): Promise<Modulo> {
-      const { nomeModulo, descricao, competencias, iniciativa } = Modulo;
-      const result = await this.prisma.$executeRaw`INSERT INTO "Modulo" ("nomeModulo", "descricao", "competencias", "iniciativas") VALUES (${nomeModulo}, ${descricao}, ${competencias}, ${iniciativa}) RETURNING *`;
+    async create(modulo: CriaModuloDto): Promise<Modulo> {
+      const { nomeModulo, descricao, competencias } = modulo;
+      const result = await this.prisma.$executeRaw`INSERT INTO "Modulo" ("nomeModulo", "descricao", "competencias") VALUES (${nomeModulo}, ${descricao}, ${competencias}) RETURNING *`;
       return result[0];
 
     } 

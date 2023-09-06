@@ -1,12 +1,12 @@
 import { Controller, Get, Post, Put, Delete, Body, Query, Param } from "@nestjs/common";
 import { CriaModuloDto } from './dto/criarModulo.dto'
-import { TabelaGenericaService } from "./Modulo.service";
+import { ModuloService } from "./modulos.service";
 import { Modulo } from "@prisma/client"
 // O que está dentro do parênteses da Controller é o conjunto de url a ser acessado, ou seja, o back está disponível na url: 127.0.0.1:3000
 //Para acessar os endpoints dessa tabela, acesse a url: 127.0.0.1:3000/Modulo
 
 @Controller('modulos')
-export class ModulosController {
+export class ModuloController {
     constructor(private moduloService: ModuloService) {}
     //Cria o Get universal de acesso a url
     @Get()

@@ -2,18 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { ModuloRepository } from './modulos.repository'
 // import { Modulos } from 'src/Moduloss/interfaces/Modulos.interface';
 import { Prisma, PrismaClient, Modulo } from '@prisma/client';
-import { CriaModulosDto } from './dto/criarModulos.dto';
+import { CriaModuloDto } from './dto/criarModulo.dto';
 
 
 @Injectable()
-export class ModulossService {
+export class ModuloService {
 
-    constructor(private modulosRepository: ModulosRepository) {}
+    constructor(private modulosRepository: ModuloRepository) {}
 
     // private readonly Moduloss: Modulos[] = []
 
     async findById(id: number): Promise<Modulo> {
-        return this.modulosRepository.findModulosById(id);
+        return this.modulosRepository.findModuloById(id);
     }
 
     async findAll(): Promise<Modulo[]> {
@@ -21,7 +21,7 @@ export class ModulossService {
         // return this.prisma
     }
 
-    async create(Modulos: CriaModulosDto): Promise<Modulo> {
+    async create(Modulos: CriaModuloDto): Promise<Modulo> {
         return this.modulosRepository.create(Modulos)
     }
     // create(Modulos: Modulos): Promise<Modulo> {
@@ -36,7 +36,7 @@ export class ModulossService {
     //     })
     // }
 
-    async update(id: number, data: CriaModulosDto): Promise<void> {
+    async update(id: number, data: CriaModuloDto): Promise<void> {
         await this.modulosRepository.update(id, data)
     }
 

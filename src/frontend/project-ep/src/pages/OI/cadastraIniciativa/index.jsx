@@ -351,7 +351,7 @@ const CadastraIniciativa = (props) => {
                     <div className={styles.instrucoes}>
                         <h2>
                             Quer mais um <br></br>
-                            projeto com o Inteli?
+                            projeto com o Inteli? YURI
                         </h2>
                         <h5>
                             Detalhe a iniciativa a ser resolvida seguindo o modelo:

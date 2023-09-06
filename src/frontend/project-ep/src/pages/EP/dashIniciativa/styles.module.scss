@@ -1,87 +1,174 @@
 $backgroundColor: #d70909;
 
-h1{
-    font-size: 4vh;
-    font-weight: bold;
-    color: rgb(46, 38, 64);
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
-h2{
-    font-size: 2.8vh;
-    font-weight:bold;
-    color: rgb(46, 38, 64);
+
+:root {
+    font-family: Poppins, sans-serif;
+    font-size: 62.5%;
 }
-h6{
-    font-size: 1.6vh;
-    font-weight: normal;
-    color: white;
+
+body {
+    font-size: 1.6rem;
+    background-color: rgb(243, 243, 243);
+    font-family: Poppins, sans-serif;
 }
+
+// h1{
+//     font-size: 4vh;
+//     font-weight: bold;
+//     color: rgb(46, 38, 64);
+// }
+// h2{
+//     font-size: 2.8vh;
+//     font-weight:bold;
+//     color: rgb(46, 38, 64);
+// }
+// h6{
+//     font-size: 1.6vh;
+//     font-weight: normal;
+//     color: white;
+// }
 
 .body{
     background-color:rgb(242, 242, 242);
-    padding-top: 12vh;
-    width: 100vw;
+    margin-top: 15.8rem;
+    padding: 0px 3.2rem;
+    width: calc(100% - 9.6rem);
+    margin-left: 9.6rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .bodyRight{
     // background-color: pink;
-    width: 100vw;
-    padding-left: 5vw;
-    padding-top: 8vh;
+    // width: 100vw;
+    // padding-left: 5vw;
+    // padding-top: 8vh;
+    min-height: calc(995px - 38.1rem);
+    width: 100%;
+    max-width: 1920px;
+    margin: 0px auto;
+    position: relative;
+}
+
+.gapTop{
+    width: 100%;
+    margin-bottom: 4rem;
 }
 
 .titulo{
-    // background-color: blue;
-    width:92vw;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    padding-left: 1vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: wrap;
+    margin-top: -16px;
+    width: calc(100% + 16px);
+    margin-left: -16px;
+}
+
+.tituloLeft{
+    padding-left: 16px;
+    padding-top: 16px;
+    flex-basis: 66.6667%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 66.6667%;
+}
+
+.tituloMain{
+    margin: 0px;
+    margin-bottom: 4rem;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: rgb(46, 38, 64);
+    font-size: 3.2rem;
 }
 
 .etapas{
     // background-color: green;
-    position:relative;
-    padding-bottom: 8vh;
+    margin-top: 4rem;
 }
 
 .etapasHeader{
-    background: rgb(232, 74, 74);
-    width: 92vw;
-    height: 12vh;
-    position: relative;
-    margin-top: 7vh;
-    left:50%;
-    transform: translateX(-50%);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 6px;
+    // background: rgb(232, 74, 74);
+    // width: 92vw;
+    // height: 12vh;
+    // position: relative;
+    // margin-top: 7vh;
+    // left:50%;
+    // transform: translateX(-50%);
+    // border-top-left-radius: 10px;
+    // border-top-right-radius: 10px;
+    // box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 6px;
     z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 3.2rem 4rem;
+    gap: 3.2rem;
+    width: 100%;
+    height: 11rem;
+    background: rgb(232, 74, 74);
+    border-radius: 1.6rem 1.6rem 0rem 0rem;
 }
 
 .dropdown {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    // position: relative;
+    // top: 50%;
+    // transform: translateY(-50%);
     z-index: 2;
 }
 
 .dropdownButton {
-    background: rgb(46, 38, 64);
-    height: 4vh;
-    width: 12vw;
-    font-weight:600;
-    color: rgb(242, 242, 242);
-    margin-left: 1.5vw;
-    border-radius: 10px;
-    border:none;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 1vh 1vw;
-    cursor: pointer;
+    // background: rgb(46, 38, 64);
+    // height: 4vh;
+    // width: 12vw;
+    // font-weight:600;
+    // color: rgb(242, 242, 242);
+    // margin-left: 1.5vw;
+    // border-radius: 10px;
+    // border:none;
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // padding: 1vh 1vw;
+    // cursor: pointer;
+    // display: flex;
+    // font-weight:normal;
+    // box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;
     display: flex;
-    font-weight:normal;
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 6px;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0.8rem 1.6rem;
+    gap: 0.8rem;
+    color: rgb(255, 255, 255);
+    background: rgb(46, 38, 64);
+    border-radius: 0.8rem;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    min-width: 64px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 .arrow{
@@ -91,15 +178,31 @@ h6{
 
 .dropdownContent {
     display: none;
-    position: absolute;
-    background-color: rgb(232, 74, 74);
-    width: 7vw;
-    // padding-left: 1vw;
-    margin-left: 6vw;
-    margin-top: 2vh;
-    box-shadow:rgba(0, 0, 0, 0.1) 5px 5px 5px 5px;
-    border-radius: 10px;
+    // position: absolute;
+    // background-color: rgb(232, 74, 74);
+    // width: 7vw;
+    // // padding-left: 1vw;
+    // margin-left: 6vw;
+    // margin-top: 2vh;
+    // box-shadow:rgba(0, 0, 0, 0.1) 5px 5px 5px 5px;
+    // border-radius: 10px;
     z-index: 3;
+    opacity: 1;
+    transform: none;
+    transition: opacity 337ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 224ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    top: 513px;
+    left: 378px;
+    transform-origin: 0px 0px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+    min-width: 16px;
+    min-height: 16px;
+    max-width: calc(100% - 32px);
+    max-height: calc(100% - 32px);
+    outline: 0px;
+    background: rgb(232, 74, 74);
+    color: rgb(255, 255, 255);
+    padding: 6px 0;
 }
 
 .dropdownContent a {
@@ -107,80 +210,146 @@ h6{
     padding: 0.75vh 0 0.75vh 1vw;
     text-decoration: none;
     display: block;
-    font-weight:normal;
-    font-size: 1.5vh;
+    // font-weight:normal;
+    // font-size: 1.5vh;
     cursor: pointer;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    padding: 6px 16px;
 }
 
 .dropdown:hover .dropdownContent {
     display: block;
 }
 
-.dropdown:hover .dropdownButton{
-    opacity: 85%;
-}
+// .dropdown:hover .dropdownButton{
+//     opacity: 85%;
+// }
 
 .dropdownContent a:hover{
     background-color: rgb(206, 54, 54);
 }
 
-.etapasModulo{
-    // background: rgb(122, 61, 61);
-    background-color: white;
-    width: 92vw;
-    height: 12vh;
-    position: relative;
-    left:50%;
-    transform: translateX(-50%);
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 6px;
+.etapasBody{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4rem;
+    gap: 5.9rem;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    border-radius: 0px 0px 1.6rem 1.6rem;
 }
 
-.etapasModulo h1{
-    padding-left: 1.5vw;
-    position:absolute;
-    bottom: 0;
+.etapasModulo{
+    // background: rgb(122, 61, 61);
+    // background-color: white;
+    // width: 92vw;
+    // height: 12vh;
+    // position: relative;
+    // left:50%;
+    // transform: translateX(-50%);
+    // box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 6px;
+    margin-left: 0.7rem;
+    margin-bottom: -3rem;
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: rgb(46, 38, 64);
+    font-size: 3.2rem;
 }
 
 .etapasCont{
-    background-color: white;
-    position: relative;
-    display:flex;
-    width: 92vw;
-    left:50%;
-    transform: translateX(-50%);
-    padding: 0 1vw;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    // z-index: 0;
+    // background-color: white;
+    // position: relative;
+    // display:flex;
+    // width: 92vw;
+    // left:50%;
+    // transform: translateX(-50%);
+    // padding: 0 1vw;
+    // border-bottom-left-radius: 10px;
+    // border-bottom-right-radius: 10px;
+    // // z-index: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: wrap;
+    margin-top: -16px;
+    width: calc(100% + 16px);
+    margin-left: -16px;
 }
 
 .etapasContBox{
-    background-color: rgb(242, 242, 242);
-    width: 21.5vw;
-    margin: 5vh 0.5vw 10vh;
-    border-radius: 10px;
+    // background-color: rgb(242, 242, 242);
+    // width: 21.5vw;
+    // margin: 5vh 0.5vw 10vh;
+    // border-radius: 10px;
+    flex-basis: 33.3333%;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 33.3333%;
+    padding-left: 16px;
+    padding-top: 16px;
 }
 
-.etapasContBoxTitle{
+.boxCol{
+    height: 100%;
+}
+
+.colCont{
+    margin: 0.8rem;
+    background: rgb(242, 242, 242);
+    padding: 0px 3.2rem;
+    height: 100%;
+    gap: 3rem;
+    border-radius: 1.6rem;
+    border-bottom: 3.2rem solid rgb(242, 242, 242);
+    border-top: 3.2rem solid rgb(242, 242, 242);
+}
+
+.colTitle{
     // background-color: #d70909;
-    height: 10vh;
-    margin: 0 1vw;
-    position:relative;
+    // height: 10vh;
+    // margin: 0 1vw;
+    // position:relative;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 1.1rem;
 }
 
-.etapasContBoxTitle h2{
-    text-align: center;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.colTitleText{
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    line-height: 1.6;
+    color: rgb(46, 38, 64);
+    font-size: 2.4rem;
 }
 
-.etapasBoxBodyCards{
-    // background-color: rgb(201, 29, 195);
-    margin: 0 1vw;
-    position:relative;
-}
+// .etapasContBoxTitle h2{
+//     text-align: center;
+//     position: relative;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+// }
+
+// .etapasBoxBodyCards{
+//     // background-color: rgb(201, 29, 195);
+//     // margin: 0 1vw;
+//     // position:relative;
+//     user-select: none;
+//     margin: 0px 0px 1.6rem;
+//     min-height: 50px;
+//     color: white;
+// }
 
 .etapasCard{
     width: 17.5vw;

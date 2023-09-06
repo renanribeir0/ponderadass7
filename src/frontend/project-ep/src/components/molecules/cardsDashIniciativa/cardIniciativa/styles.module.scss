@@ -1,0 +1,138 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: Poppins, sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: rgb(243, 243, 243);
+    font-family: Poppins, sans-serif;
+}
+
+// .etapaCard{
+//     height: 88vh;
+//     width:5vw;
+//     background-color: #412B74;
+//     position:fixed;
+// }
+
+.etapasBoxBodyCards{
+    // background-color: rgb(201, 29, 195);
+    // margin: 0 1vw;
+    // position:relative;
+    user-select: none;
+    margin: 0px 0px 1.6rem;
+    min-height: 50px;
+    color: rgb(46, 38, 64);
+}
+
+.cardEP{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    max-height: 150px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0.4rem 0.4rem 1.2rem;
+    border-radius: 1.6rem;
+    cursor: pointer;
+}
+
+.cardParceiro{
+    // background-color: aqua;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1.6rem 1.6rem 0px;
+}
+
+.parceiroName{
+    // background-color: blue;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    color: rgb(46, 38, 64);
+    font-size: 1.6rem;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+.parceiroMercado{
+    // background-color: red;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    color: rgb(46, 38, 64);
+    font-size: 1.3rem;
+}
+
+.cardModulo{
+    // background-color: pink;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0 1.6rem;
+}
+
+.moduloName{
+    // background-color: red;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    color: rgb(232, 74, 74);
+    font-size: 1.4rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+.moduloTema{
+    // background-color: red;
+    font-family: Poppins, sans-serif;
+    color: rgb(46, 38, 64);
+    font-size: 1.2rem;
+}
+
+.cardBottom{
+    // background-color: purple;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 1.6rem;
+    height: 100%;
+}
+
+.cardDate{
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.dateIcon{
+    display: inline;
+}
+
+.dateIcon2{
+    display:inline;
+}
+
+.cardDate p{
+    margin: 0px;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    color: rgb(46, 38, 64);
+    font-size: 1.4rem;
+}

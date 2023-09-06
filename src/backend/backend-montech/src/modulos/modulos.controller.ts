@@ -1,64 +1,49 @@
 import { Controller, Get, Post, Put, Delete, Body, Query, Param } from "@nestjs/common";
-
+import { CriaModuloDto } from './dto/criarModulo.dto'
+import { ModuloService } from "./modulos.service";
+import { Modulo } from "@prisma/client"
 // O que está dentro do parênteses da Controller é o conjunto de url a ser acessado, ou seja, o back está disponível na url: 127.0.0.1:3000
-//Para acessar os endpoints dessa tabela, acesse a url: 127.0.0.1:3000/tabelaGenerica
+//Para acessar os endpoints dessa tabela, acesse a url: 127.0.0.1:3000/Modulo
 
 @Controller('modulos')
-export class ModulosController {
-
+export class ModuloController {
+    constructor(private moduloService: ModuloService) {}
     //Cria o Get universal de acesso a url
     @Get()
-    nomeDaFuncao() {
-        const modulos = [{
-            
-                id: 2,
-                nomeModulo: "Módulo 02 - Ciclo Básico",
-                descricao: "Desenvolvimento de uma plataforma Web",
-                competencias: [
-                    "Identificar_tendências e oportunidades de mercado: 'Frameworks(Oceano Azul, 5 forças, 4P's, 6D)'",
-                    "Interpretar_e_elaborar_planos_de_negócios : 'Incubadoras e ecossistema de Startups'",
-                    "Traduzir_a_estratégia_em_planos_de_marketing_e_comunicação: 'Pesquisa de mercado e tendências'",
-                    "Elaborar_orçamentos_e_fluxos_de_caixa: 'Fluxo de Caixa, juros simples e compostos'",
-                    "Elaborar_orçamentos_e_fluxos_de_caixa: 'Taxa de desconto, IRR, NPV, PV e FV'"
-    
-                ],
-            },
-
-            {
-                id: 3,
-                nomeModulo: "Módulo 03 - Ciclo Básico",
-                descricao: "Construção de lógica para predição com inteligência artificial",
-                competencias: [
-                "Interpretar e elaborar planos de negócios: 'Planos de negócios'", 
-                "Traduzir a estratégia em planos de marketing e comunicação: 'Branding e comunicação'", 
-                "Idealizar estruturas organizacionais: 'Cultura organizacional'", 
-                "Idealizar estruturas organizacionais: 'Governança corporativa'", 
-                "Decidir sobre investimentos, financiamentos e gestão de recursos: 'Ciclo de funding em startups'"
-                ],
-                
-                
-            },
+    async findAll(): Promise<Modulo[]> {
         
-        
-        ]
-        return modulos
+        return this.moduloService.findAll()
     }
 
     //127.0.0.1:3000/parceiro/<conteudo>
     @Get(':id')
-    nomeDaFuncao2(@Param('id') id: string) {
-        
-        return `Você acessou no BD o Módulo de id: ${id}`    
+    async findById(@Param('id') id: string): Promise<Modulo> {
+        const intId = parseInt(id);
+
+        return this.moduloService.findById(intId)
     }
 
-    @Post()
-    async create(@Body() any: any) {
-        return {
-            message: `Você criou um Módulo com id ${any.id}`
+    @Put(":id")
+    async update(@Param('id') id: string, @Body() modulo: CriaModuloDto): Promise<void> {
+        const intId = parseInt(id);
 
-        }
+        await this.moduloService.update(intId, modulo)
+    }
+
+
+    @Post()
+    async create(@Body() criaModuloDto: CriaModuloDto) {
+        return this.moduloService.create(criaModuloDto)
+        
+    }
+
+    @Delete(':id')
+    async delete(@Param('id') id: string) {
+        const intId = parseInt(id);
+        
+        return this.moduloService.delete(intId)
     }
 }
 
 //OBS:
-//O Endpoint não estará pronto até que app.module.ts import o tabelaGenerica.module.ts
+//O Endpoint não estará pronto até que app.module.ts import o Modulo.module.ts

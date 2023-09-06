@@ -14,20 +14,25 @@ import desenho from '../../../assets/desenho.png'
 // });
 // const openai = new OpenAIApi(configuration);
 
+const url = 'http://127.0.0.1:3001/'
+
 
 const CadastraIniciativa = (props) => {
 
     const [problemaEnviado, setProblemaEnviado] = useState(false);
     const [descricao, setDescricao] = useState("");  // Novo estado para armazenar a descrição
+    const [escopo, setEscopo] = useState("");
+    const [tema, setTema] = useState("");
+    const [mvp, setMvp] = useState("")
     const [selectedCard, setSelectedCard] = useState(null); // Estado para armazenar o Card selecionado
     const [selectedIniciativa, setSelectedIniciativa] = useState(null)
     const [apiResponse, setApiResponse] = useState([]); // Simulação da resposta da API
     const [isModalOpen, setIsModalOpen] = useState(false); //Controla Modal
     const [nomeModulo, setNomeModulo] = useState('')
     const [modulos, setModulos] = useState([])
-    // const [modulosFiltrados, setModulosFiltrados] = useState([])
-    // const [arrayIniciativas, setArrayIniciativas] = useState([]);
-    // const [requestedModules, setRequestedModules] = useState([]);
+    const [arrayIniciativasState, setArrayIniciativasState] = useState([]);
+    const [modulosFiltradosState, setModulosFiltradosState] = useState([]);
+    const [requestedModulesState, setRequestedModulesState] = useState([]);
 
     let arrayIniciativas = []
     let modulosFiltrados = []
@@ -41,7 +46,7 @@ const CadastraIniciativa = (props) => {
 
     const classificaModulo = async (problemDescription, modulo) => {
         try {
-            const response = await fetch('http://127.0.0.1:3001/openai',
+            const response = await fetch(url+'openai',
             {
                 method: 'POST',
                 headers: {
@@ -56,40 +61,49 @@ const CadastraIniciativa = (props) => {
 
             console.log("data.text")
             console.log(data.text)
-            console.log("AQUI FUNCIONA PPRT")
+            // console.log("AQUI FUNCIONA PPRT")
             
             const objetoIniciativa = JSON.parse(data.text);
-            console.log("AQUI FUNCIONA PPRT")
-            console.log("data.text")
+            // console.log("AQUI FUNCIONA PPRT")
+            // console.log("data.text")
             console.log("objetoIniciativa")
             console.log(objetoIniciativa)
-            console.log("data.text.Ferramenta_Tecnologica")
+            console.log("objetoIniciativa.Ferramenta_Tecnologica")
             console.log(objetoIniciativa.Ferramenta_Tecnologica)
 
             if(objetoIniciativa.Ferramenta_Tecnologica === "Muito Alta" || objetoIniciativa.Ferramenta_Tecnologica === "Perfeita") {
-                console.log("AGORA A RESPOSTA DO ENDPOINT ")
-                console.log(objetoIniciativa)
-                console.log(modulo)
-                modulosFiltrados.push(modulo)
-                console.log("modulosFiltrados")
-                console.log(modulosFiltrados)
+                console.log("AGORA A RESPOSTA DO ENDPOINT ");
+                console.log(objetoIniciativa);
+                // console.log(modulo);
+                modulosFiltrados.push(modulo);
+                setModulosFiltradosState(modulosFiltrados);
+                // console.log("modulosFiltrados");
+                // console.log(modulosFiltrados);
+                // console.log(modulosFiltradosState);
+
+                await geraTapi(descricao, modulo.descricao)
+
                 // setApiResponse(prevState => [...prevState, objetoIniciativa]);
                 const iniciativa = {
                     moduloId: modulo.id,
                     parceiroId: 1,
                     problema: descricao,
-                    escopo: "Descrição de solução Mockada",
+                    escopo: escopo,
+                    status: "Analise",
                     // curso: "es",
-                    tema: "Tema do problema informado",
-                    mvp: ["MVP1 - Mockado", "MVP2 - Mockado", "MVP3 - Mockado"]
+                    tema: tema,
+                    mvp: mvp
                 }
                 
-                // return iniciativa
+                console.log("iniciativa")
+                console.log(iniciativa)
                 // const aIniciativa = [arrayIniciativas, iniciativa]
                 arrayIniciativas.push(iniciativa)
+                setArrayIniciativasState(arrayIniciativas)
                 // setApiResponse(data.text);
                 console.log("arrayIniciativas");
                 console.log(arrayIniciativas);
+                console.log(arrayIniciativasState);
             }
             return null
             // Processar a resposta aqui, por exemplo:
@@ -100,6 +114,53 @@ const CadastraIniciativa = (props) => {
         }
     };
 
+    const geraTapi = async (problemDescription, contexto) => {
+        try {
+            const response = await fetch(url+'geraTapi',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ description: problemDescription, contexto: contexto })
+            }
+            );
+            
+
+            const data = await response.json();
+
+            console.log("data.text do geraTapi")
+            console.log(data.text)
+
+            // const jsonString = data.text.replace("Resposta: ", "");
+            const jsonString = data.text
+            .replace("Resposta: ", "")
+            .replace(/\n/g, "\\n")
+            .replace(/\r/g, "\\r")
+            .replace(/\t/g, "\\t");
+
+            console.log("jsonString")
+            console.log(jsonString)
+            const objetoTapi = JSON.parse(jsonString);
+
+            // const objetoTapi = JSON.parse(data.text);
+            console.log("objetoTapi")
+            // console.log(objetoTapi)
+            console.log(objetoTapi)
+            console.log(objetoTapi.escopo)
+            console.log(objetoTapi.tema)
+            console.log(objetoTapi.mvp)
+            setEscopo(objetoTapi.escopo)
+            setTema(objetoTapi.tema)
+            setMvp(objetoTapi.mvp)
+
+            
+        } catch (error) {
+            console.error("Erro ao acessar a API do OpenAI:", error);
+            return null
+        }
+    }
+
     const iteraModulos = async (problemDescription) => {
 
 
@@ -109,9 +170,12 @@ const CadastraIniciativa = (props) => {
                 console.log("modulo");
                 console.log(modulo);
                 await classificaModulo(problemDescription, modulo);
+                // await geraTapi(problemDescription, modulo.descricao)
                 requestedModules.push(modulo.id);
-                console.log("requestedModules")
-                console.log(requestedModules)
+                setRequestedModulesState(requestedModules)
+                // console.log("requestedModules")
+                // console.log(requestedModules)
+                // console.log(requestedModulesState)
             // }
 
             // console.log("modulo")
@@ -160,8 +224,10 @@ const CadastraIniciativa = (props) => {
     }
 
     useEffect(() => {
-        arrayIniciativas.map((iniciativa) => {
-            if(selectedCard.id === iniciativa.id) {
+        arrayIniciativasState.map((iniciativa) => {
+            // console.log("selectedCard")
+            // console.log(selectedCard)
+            if(selectedCard.id === iniciativa.moduloId) {
                 setSelectedIniciativa(iniciativa)
             }
         })
@@ -185,51 +251,19 @@ const CadastraIniciativa = (props) => {
     }, [problemaEnviado]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:3001/modulos')
+        fetch(url+'modulos')
         .then((response) => response.json())
         .then((data) => {
             setModulos(data)
 
-            console.log("Modulos")
-            console.log(modulos)
+            // console.log("Modulos")
+            // console.log(modulos)
         })
         .catch((err) => {
             console.log(err.message)
         })
 
-        // const samuboy = [{
-        //     Ferramenta_Tecnologica: "Perfeita",
-        //     problema: descricao,
-        //     solucao: "Descrição de solução Mockada",
-        //     tema: "Tema do problema informado",
-        //     curso: "es",
-        //     modulo: "Modulo 02 - Ciclo Básico",
-        //     nomeModulo: "Desenvolvimento de plataforma web",
-        //     mvp: ["MVP1 - Mockado", "MVP2 - Mockado", "MVP3 - Mockado"],
-        //     Gestão_de_Projetos: "Alta",
-        //     Metodologia_Científica: "Muito Alta",
-        //     Organização_de_Dados: "Muito Alta",
-        //     Planejamento_de_Experimentos: "Muito Alta",
-        //     Programação_de_Computadores: "Alta"
-        // },
-        // {
-        //     Ferramenta_Tecnologica: "Perfeita",
-        //     problema: descricao,
-        //     solucao: "Descrição de solução Mockada",
-        //     tema: "Tema do problema informado",
-        //     curso: "es",
-        //     modulo: "nhaaa",
-        //     nomeModulo: "Módulo Samuboy",
-        //     mvp: ["MVP1 - Samuboy", "Samu", "boy"],
-        //     Gestão_de_Projetos: "Alta",
-        //     Metodologia_Científica: "Muito Alta",
-        //     Organização_de_Dados: "Muito Alta",
-        //     Planejamento_de_Experimentos: "Muito Alta",
-        //     Programação_de_Computadores: "Alta"
-        // }]
-
         
-        // setModulos(samuboy)
 
 
     }, [])
@@ -241,7 +275,7 @@ const CadastraIniciativa = (props) => {
             {problemaEnviado ? 
             <div className={styles.principal2}>
                 <div className={styles.paiCard}>
-                    {modulosFiltrados.map((modulo, index) => (
+                    {modulosFiltradosState.map((modulo, index) => (
                         <Card key={index} modulo={modulo.nomeModulo} nomeModulo={modulo.descricao} className={modulo === selectedCard ? styles.cardSelected : ''} onClick={() => setSelectedCard(modulo)}/>
 
                     ))}
@@ -251,29 +285,32 @@ const CadastraIniciativa = (props) => {
                 
                 <div className={styles.margem}>
 
-                    {selectedCard && (
+                    {selectedIniciativa && (
 
                         <div className={styles.infoModulo}>
                             <strong className={styles.titulo}>Problema:</strong>
-                            <p>{selectedCard.problema}</p>
+                            <p>{descricao}</p>
                             <strong className={styles.titulo}>Escopo da Solução:</strong>
-                            <p>{selectedCard.solucao}</p>
+                            <p>{selectedIniciativa.escopo}</p>
                             <div className={styles.tema}>
 
                                 <strong className={styles.tituloTema}>Tema:</strong>
-                                <p>     {selectedCard.tema}</p>
+                                <p>     {selectedIniciativa.tema}</p>
                             </div>
                             <div>
                                 <strong className={styles.titulo}>MVP</strong>
-                                <ol>
+                            <div>
+                                <p>{selectedIniciativa.mvp}</p>
+                            </div>
+                                {/* <ol>
 
-                                    {selectedCard.mvp.map((item, index) => (
+                                    {selectedIniciativa.mvp.map((item, index) => (
                                         <li key={index}>
                                             {item}
                                         </li>
 
                                     ))}
-                                </ol>
+                                </ol> */}
                             </div>
 
                         </div>

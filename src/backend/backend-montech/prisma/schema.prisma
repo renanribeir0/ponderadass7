@@ -39,6 +39,7 @@ model Iniciativa {
   parceiro  Parceiro    @relation(fields: [parceiroId], references: [id])
   parceiroId Int
   problema   String
+  status     String
   escopo     String
   mvp        String
   tema       String

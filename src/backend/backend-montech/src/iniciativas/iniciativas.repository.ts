@@ -13,7 +13,8 @@ export class IniciativaRepository {
     }
 
     async findAll(): Promise<Iniciativa[]> {
-      return this.prisma.$queryRaw`SELECT * FROM "Iniciativa"`;
+      // return this.prisma.$queryRaw`SELECT * FROM "Iniciativa"`;
+      return this.prisma.$queryRaw`SELECT "Iniciativa".*, "Parceiro".*, "Modulo".*, "Turma".* FROM "Iniciativa" INNER JOIN "Parceiro" ON "Iniciativa"."parceiroId" = "Parceiro".id INNER JOIN "Modulo" ON "Iniciativa"."moduloId" = "Modulo".id LEFT JOIN "Turma" ON "Iniciativa"."turmaId" = "Turma".id`;
     }
 
     async findIniciativaById(id: number): Promise<Iniciativa> {
@@ -29,36 +30,44 @@ export class IniciativaRepository {
     }
 
     async update(id: number, data: CriaIniciativaDto): Promise<void> {
-      // const fieldsToUpdate = Object.entries(data).map(([key, value]) => `${key} = '${value}'`).join(", ");
-      // const entries = Object.entries(data);
-      // console.log("entries")
-      // console.log(entries)
-      // const setString = entries.map(([key, value]) => {
-      //   if (typeof value === 'string') {
-      //     return `${key} = '${value}'`
-      //   }
-      //   else {
-      //     return `${key} = ${value}`
-      //   }
-      // }).join(", ");
-      ;
-      console.log(`UPDATE "Iniciativa" SET moduloId = ${data.moduloId}, parceiroId = ${data.parceiroId}, problema = ${data.problema}, escopo = ${data.escopo}, mvp = ${data.mvp}, tema = ${data.tema}, turmaId = ${data.turmaId} WHERE id = ${id}`)
+      
+      // console.log(`UPDATE "Iniciativa" SET moduloId = ${data.moduloId}, parceiroId = ${data.parceiroId}, problema = ${data.problema}, escopo = ${data.escopo}, mvp = ${data.mvp}, tema = ${data.tema}, turmaId = ${data.turmaId} WHERE id = ${id}`)
       await this.prisma.$executeRaw`UPDATE "Iniciativa" SET "moduloId" = ${data.moduloId}, "parceiroId" = ${data.parceiroId}, "problema" = ${data.problema}, "escopo" = ${data.escopo}, "mvp" = ${data.mvp}, "tema" = ${data.tema}, "turmaId" = ${data.turmaId} WHERE id = ${id}`;
-      // await this.prisma.$executeRaw`UPDATE "Iniciativa" SET ${fieldsToUpdate} WHERE "id" = ${id} RETURNING *`;
-      // await this.prisma.iniciativa.update({
-      //   where: { id: id },
-      //   data: data
-      // });
-      // return this.prisma.iniciativa.findUnique({ where: {id: id}});
     }
 
     
 
 
     async create(iniciativa: CriaIniciativaDto): Promise<Iniciativa> {
-      const { moduloId, parceiroId, problema, escopo, mvp, tema, turmaId } = iniciativa;
-      const result = await this.prisma.$executeRaw`INSERT INTO "Iniciativa" ("moduloId", "parceiroId", "problema", "escopo", "mvp", "tema", "turmaId") VALUES (${moduloId}, ${parceiroId}, ${problema}, ${escopo}, ${mvp}, ${tema}, ${turmaId}) RETURNING *`;
+      console.log("objeto iniciativa para criar")
+      console.log(iniciativa)
+      const { moduloId, parceiroId, problema, escopo, status, mvp, tema, turmaId } = iniciativa;
+      const result = await this.prisma.$executeRaw`INSERT INTO "Iniciativa" ("moduloId", "parceiroId", "problema", "escopo", "status", "mvp", "tema", "turmaId") VALUES (${moduloId}, ${parceiroId}, ${problema}, ${escopo}, ${status} ${mvp}, ${tema}, ${turmaId}) RETURNING *`;
       return result[0];
+
+
+      // try {
+
+      //   const modulo = await this.prisma.modulo.findUnique({ where: { id: iniciativa.moduloId } });
+      //   if (!modulo) {
+      //     throw new Error('moduloId não existe');
+      //   }
+      //   const newIniciativa = await this.prisma.iniciativa.create({
+      //     data: {
+      //       moduloId: iniciativa.moduloId,
+      //       parceiroId: iniciativa.parceiroId,
+      //       problema: iniciativa.problema,
+      //       escopo: iniciativa.escopo,
+      //       mvp: iniciativa.mvp,
+      //       tema: iniciativa.tema,
+      //       turmaId: iniciativa.turmaId,
+      //     },
+      //   });
+      //   return newIniciativa;
+      // } catch (error) {
+      //   console.error('Erro ao criar iniciativa:', error);
+      //   throw new Error('Erro ao criar iniciativa');
+      // }
 
     } 
 

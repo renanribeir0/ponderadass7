@@ -32,14 +32,15 @@ body {
 .main {
     // background-color: #7d3939;
     background-color: rgb(242, 242, 242);
-    width: 110rem;
+    // width: 110rem;
+    width: 60%;
     // height: 100%;
     border-radius: 16px;
     // padding: 0 1vw;
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .close{
@@ -110,8 +111,10 @@ body {
     padding: 4rem 2rem;
     display: flex;
     flex-direction: column;
+    // justify-content: space-between;
     gap:2rem;
     border-radius: 12px;
+    // flex-grow: 1;
 }
 
 .infoTAPI{

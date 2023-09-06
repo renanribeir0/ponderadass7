@@ -7,7 +7,7 @@ const CardDash = (props) => {
         <div className={styles.etapasBoxBodyCards}>
           <div className={styles.cardEP} onClick={props.onClick}>
             <div className={styles.cardParceiro}>
-              <span className={styles.parceiroName}>{props.iniciativa.parceiro}</span>
+              <span className={styles.parceiroName}>{props.iniciativa.nomeEmpresa}</span>
               <span className={styles.parceiroMercado}>{props.iniciativa.mercado}</span>
               {/* <span className={styles.parceiroName}>Instituto de Tecnologia e Liderança da cidade de sao paulo eh a proxima mit e sla mais oq escrever mas tem q deixar cumprido</span> */}
             </div>

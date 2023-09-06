@@ -1,4 +1,5 @@
 import { Iniciativa } from "@prisma/client";
+// import { Parceiro } from "@prisma/client";
 
 export interface Parceiro {
     id: number;
@@ -12,3 +13,4 @@ export interface Parceiro {
     iniciativas: Iniciativa[];
 }
 
+//senha??

@@ -1,13 +1,16 @@
-// import { Iniciativa } from "@prisma/client";
+import { Iniciativa } from "@prisma/client";
+// import { Parceiro } from "@prisma/client";
 
-// export interface Parceiro {
-//     id: number;
-//     createdAt: Date;
-//     nomeEmpresa: String;
-//     mercado: String;
-//     nomeContato: String;
-//     email: String;
-//     telefone: String;
-//     nota: number;
-//     iniciativas: Iniciativa[];
-// }
+export interface Parceiro {
+    id: number;
+    createdAt: Date;
+    nomeEmpresa: String;
+    mercado: String;
+    nomeContato: String;
+    email: String;
+    telefone: String;
+    nota: number;
+    iniciativas: Iniciativa[];
+}
+
+//senha??

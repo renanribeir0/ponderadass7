@@ -12,7 +12,7 @@ export class ParceiroRepository {
     }
 
     async findAll(): Promise<Parceiro[]> {
-        return this.prisma.$queryRaw`SELECT * FROM "Parceiros"`;
+        return this.prisma.$queryRaw`SELECT * FROM "Parceiro"`;
     }
     //Atualização conforme o banco de dados (verificar a tabela)
     async findParceiroById(id: number): Promise<Parceiro> {
@@ -33,13 +33,13 @@ export class ParceiroRepository {
     }
 
     async create(parceiro: CriaParceiroDto): Promise<Parceiro> {
-        const {nomeEmpresa, mercado, nomeContato, email, telefone, nota } = parceiro; //erro por cauda do Dto
-        const result = await this.prisma.$executeRaw`INSERT INTRO "Parceiro" ("nomeEmpresa", "mercado", "nomeContato", "email", "telefone", "nota") VALUES (${nomeEmpresa}, ${mercado}, ${nomeContato}, ${email}, ${telefone}, ${nota} ) RETURNING *`;
+        const {nomeEmpresa, mercado, senha, cnpj, nomeContato, cpf, email, telefone, nota } = parceiro; //erro por cauda do Dto
+        const result = await this.prisma.$executeRaw`INSERT INTO "Parceiro" ("nomeEmpresa", "mercado",  "senha", "cnpj", "nomeContato", "cpf", "email", "telefone", "nota") VALUES (${nomeEmpresa}, ${mercado}, ${senha}, ${cnpj}, ${nomeContato}, ${cpf}, ${email}, ${telefone}, ${nota} ) RETURNING *`;
         return result[0];
     }
 
     async delete(id: number): Promise<void> {
-        await this.prisma.$executeRaw`DELETE FROM "Parceiros" WHERE id = ${id}`
+        await this.prisma.$executeRaw`DELETE FROM "Parceiro" WHERE id = ${id}`
     }
 
 }

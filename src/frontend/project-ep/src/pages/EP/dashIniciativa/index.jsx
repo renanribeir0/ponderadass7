@@ -7,7 +7,7 @@ import icon from '../../../assets/down-arrow.png'
 import ModalCard from '../../../components/molecules/modalCard/index.jsx';
 import CardDash from '../../../components/molecules/cardsDashIniciativa/cardIniciativa/index.jsx';
 
-const url = 'http://54.172.245.227:3001/'
+const url = '54.172.245.227:3001/'
 
 
 const DashIniciativa = (props) => {

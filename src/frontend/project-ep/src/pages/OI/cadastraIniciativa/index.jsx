@@ -14,7 +14,7 @@ import desenho from '../../../assets/desenho.png'
 // });
 // const openai = new OpenAIApi(configuration);
 
-const url = 'http://54.172.245.227:3001/'
+const url = '54.172.245.227:3001/'
 
 
 const CadastraIniciativa = (props) => {
@@ -351,7 +351,7 @@ const CadastraIniciativa = (props) => {
                     <div className={styles.instrucoes}>
                         <h2>
                             Quer mais um <br></br>
-                            projeto com o Inteli? YURI
+                            projeto com o Inteli?
                         </h2>
                         <h5>
                             Detalhe a iniciativa a ser resolvida seguindo o modelo:

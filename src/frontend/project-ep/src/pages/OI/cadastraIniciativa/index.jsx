@@ -14,7 +14,7 @@ import desenho from '../../../assets/desenho.png'
 // });
 // const openai = new OpenAIApi(configuration);
 
-const url = '54.172.245.227:3001/'
+const url = 'http://127.0.0.1:3001/'
 
 
 const CadastraIniciativa = (props) => {

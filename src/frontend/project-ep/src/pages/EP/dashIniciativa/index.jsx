@@ -18,6 +18,35 @@ const DashIniciativa = (props) => {
     const [selectedCard, setSelectedCard] = useState(null); // Estado para armazenar o Card selecionado
     const [cardIndex, setCardIndex] = useState(null);
 
+    const handleEdit = async (iniciativa, status) => {
+        try {
+          console.log(iniciativa)
+          iniciativa.status = status 
+          console.log(iniciativa)
+          console.log(iniciativa.id)
+          const response = await fetch(`http://127.0.0.1:3001/iniciativas/${iniciativa.id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            // body: JSON.stringify({ iniciativa: iniciativa }),
+            body: JSON.stringify(iniciativa),
+
+          });
+    
+          if (!response.ok) {
+            throw new Error('Erro na requisição');
+          }
+    
+        //   const responseData = await response.json();
+    
+          // Atualize o estado com os novos dados retornados pela API
+        //   setData(prevData => prevData.map(item => item.id === id ? responseData : item));
+        } catch (error) {
+          console.error('Erro ao atualizar o status:', error);
+        }
+    }
+
 
     useEffect(() => {
         // fetch('54.242.178.170:3001/iniciativas')
@@ -97,13 +126,22 @@ const DashIniciativa = (props) => {
                                                 <div className={styles.colTitle}>
                                                     <h6 className={styles.colTitleText}>Análise</h6>
                                                 </div>
-                                                {iniciativas.map((iniciativa, index) => (
-                                                    <CardDash key={index} iniciativa={iniciativa} onClick={() => {
-                                                        setSelectedCard(iniciativa);
-                                                        setIsModalOpen(true);
-                                                        setCardIndex(index);
-                                                    }}/>
-                                                ))}
+                                                {iniciativas.map((iniciativa, index) => {
+                                                    console.log("iniciativa dentro do map")
+                                                    console.log(iniciativa)
+                                                    if(iniciativa.status == "Analise"){
+
+                                                        return (
+                                                        <CardDash key={index} iniciativa={iniciativa} onClick={() => {
+                                                            setSelectedCard(iniciativa);
+                                                            setIsModalOpen(true);
+                                                            setCardIndex(index);
+                                                        }}/>)
+                                                    }
+                                                    else {
+                                                        return null
+                                                    }
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -114,13 +152,18 @@ const DashIniciativa = (props) => {
                                                 <div className={styles.colTitle}>
                                                     <h6 className={styles.colTitleText}>Negociação</h6>
                                                 </div>
-                                                {iniciativas.map((iniciativa, index) => (
-                                                    <CardDash key={index} iniciativa={iniciativa} onClick={() => {
-                                                        setSelectedCard(iniciativa);
-                                                        setIsModalOpen(true);
-                                                        setCardIndex(index);
-                                                    }}/>
-                                                ))}
+                                                {iniciativas.map((iniciativa, index) => {
+                                                    if(iniciativa.status == "Negociacao"){
+                                                        return (
+                                                            <CardDash key={index} iniciativa={iniciativa} onClick={() => {
+                                                                setSelectedCard(iniciativa);
+                                                                setIsModalOpen(true);
+                                                                setCardIndex(index);
+                                                            }}/>
+
+                                                        );
+                                                    }
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -129,15 +172,20 @@ const DashIniciativa = (props) => {
                                         <div className={styles.boxCol}>
                                             <div className={styles.colCont}>
                                                 <div className={styles.colTitle}>
-                                                    <h6 className={styles.colTitleText}>Pronto</h6>
+                                                    <h6 className={styles.colTitleText}>Preparado</h6>
                                                 </div>
-                                                {iniciativas.map((iniciativa, index) => (
-                                                    <CardDash key={index} iniciativa={iniciativa} onClick={() => {
-                                                        setSelectedCard(iniciativa);
-                                                        setIsModalOpen(true);
-                                                        setCardIndex(index);
-                                                    }}/>
-                                                ))}
+                                                {iniciativas.map((iniciativa, index) => {
+                                                    if(iniciativa.status == "Preparado"){
+                                                        return (
+                                                            <CardDash key={index} iniciativa={iniciativa} onClick={() => {
+                                                                setSelectedCard(iniciativa);
+                                                                setIsModalOpen(true);
+                                                                setCardIndex(index);
+                                                            }}/>
+
+                                                        )
+                                                    }
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -160,7 +208,7 @@ const DashIniciativa = (props) => {
                 // ))}
             )} */}
 
-            <ModalCard key={cardIndex} iniciativa={selectedCard} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+            <ModalCard key={cardIndex} handleEdit={handleEdit} iniciativa={selectedCard} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
             
         </>
     )

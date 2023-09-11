@@ -112,10 +112,14 @@ const ModalCard = (props) => {
 
                     <div className={styles.footer}>
                         <div className={styles.paiBotao}>
-                            <Button className={styles.botaoRejeitar} size="large">Rejeitar</Button>
+                            <Button onClick={() => {
+                                props.handleEdit(props.iniciativa, "Rejeitado")
+                            }} className={styles.botaoRejeitar} size="large">Rejeitar</Button>
                         </div>
                         <div className={styles.paiBotao}>
-                            <Button className={styles.botaoAceitar} size="large">Aceitar</Button>
+                            <Button onClick={() => {
+                                props.handleEdit(props.iniciativa, "Negociacao")
+                            }} className={styles.botaoAceitar} size="large">Aceitar</Button>
                         </div>
                     </div>
                 </div>

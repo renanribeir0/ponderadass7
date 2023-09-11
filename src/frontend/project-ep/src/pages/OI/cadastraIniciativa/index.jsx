@@ -313,12 +313,13 @@ const CadastraIniciativa = (props) => {
                             <div>
                                 <strong className={styles.titulo}>MVP</strong>
                             <div>
-                            {selectedIniciativa.mvp.map((item, index) => {
+                                <p>{selectedIniciativa.mvp}</p>
+                            {/* {selectedIniciativa.mvp.map((item, index) => {
                                 if(item) {
                                     return <p key={index}>{item}</p>;
                                 }
                                 return null;
-                            })}
+                            })} */}
                             </div>
                                 {/* <ol>
 

@@ -36,8 +36,8 @@ export class IniciativasService {
     //     })
     // }
 
-    async update(id: number, data: CriaIniciativaDto): Promise<void> {
-        await this.iniciativaRepository.update(id, data)
+    async update(id: number, iniciativa: CriaIniciativaDto): Promise<void> {
+        await this.iniciativaRepository.update(id, iniciativa)
     }
 
     async delete(id: number): Promise<void> {

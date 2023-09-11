@@ -24,7 +24,7 @@ export class IniciativasController {
     }
 
     @Put(":id")
-    async update(@Param('id') id: string, @Body() iniciativa: CriaIniciativaDto): Promise<void> {
+    async update(@Param('id') id: string, @Body() iniciativa: any): Promise<void> {
         const intId = parseInt(id);
 
         await this.iniciativaService.update(intId, iniciativa)

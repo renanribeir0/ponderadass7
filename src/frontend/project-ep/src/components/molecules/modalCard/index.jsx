@@ -113,12 +113,39 @@ const ModalCard = (props) => {
                     <div className={styles.footer}>
                         <div className={styles.paiBotao}>
                             <Button onClick={() => {
-                                props.handleEdit(props.iniciativa, "Rejeitado")
+                                if(props.iniciativa.status == "Analise") {
+
+                                    props.handleEdit(props.iniciativa, "Rejeitado")
+                                    props.setIsModalOpen(false)
+                                }
+                                else if ( props.iniciativa.status == "Negociacao") {
+                                    
+                                    props.handleEdit(props.iniciativa, "Analise")
+                                    props.setIsModalOpen(false)
+
+                                }
+                                else if(props.iniciativa.status == "Preparado"){
+                                    
+                                    props.handleEdit(props.iniciativa, "Negociacao")
+                                    props.setIsModalOpen(false)
+
+                                }
                             }} className={styles.botaoRejeitar} size="large">Rejeitar</Button>
                         </div>
                         <div className={styles.paiBotao}>
                             <Button onClick={() => {
-                                props.handleEdit(props.iniciativa, "Negociacao")
+                                if(props.iniciativa.status == "Analise") {
+
+                                    props.handleEdit(props.iniciativa, "Negociacao")
+                                    props.setIsModalOpen(false)
+
+                                }
+                                else if(props.iniciativa.status == "Negociacao") {
+                                    
+                                    props.handleEdit(props.iniciativa, "Preparado")
+                                    props.setIsModalOpen(false)
+
+                                }
                             }} className={styles.botaoAceitar} size="large">Aceitar</Button>
                         </div>
                     </div>

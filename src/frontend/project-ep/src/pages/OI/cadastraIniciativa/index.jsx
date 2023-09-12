@@ -44,7 +44,75 @@ const CadastraIniciativa = (props) => {
         setDescricao(event.target.value);
     };
 
-    const classificaModulo = async (problemDescription, modulo) => {
+    // const classificaModulo = async (problemDescription, modulo) => {
+    //     try {
+    //         const response = await fetch(url+'openai',
+    //         {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify({ description: problemDescription, modulo: modulo })
+    //         }
+    //         );
+            
+
+    //         const data = await response.json();
+
+    //         console.log("data.text")
+    //         console.log(data.text)
+    //         // console.log("AQUI FUNCIONA PPRT")
+            
+    //         const objetoIniciativa = JSON.parse(data.text);
+    //         // console.log("AQUI FUNCIONA PPRT")
+    //         // console.log("data.text")
+    //         console.log("objetoIniciativa")
+    //         console.log(objetoIniciativa)
+            // console.log("objetoIniciativa.Ferramenta_Tecnologica")
+            // console.log(objetoIniciativa.Ferramenta_Tecnologica)
+
+            // if(objetoIniciativa.Ferramenta_Tecnologica === "Muito Alta" || objetoIniciativa.Ferramenta_Tecnologica === "Perfeita") {
+            //     console.log("AGORA A RESPOSTA DO ENDPOINT ");
+            //     console.log(objetoIniciativa);
+            //     // console.log(modulo);
+            //     modulosFiltrados.push(modulo);
+            //     setModulosFiltradosState(modulosFiltrados);
+            //     // setSelectedCard(modulo)
+            //     // console.log("modulosFiltrados");
+            //     // console.log(modulosFiltrados);
+            //     // console.log(modulosFiltradosState);
+
+            //     await geraTapi(descricao, modulo.descricao)
+
+            //     // setApiResponse(prevState => [...prevState, objetoIniciativa]);
+            //     const iniciativa = {
+            //         moduloId: modulo.id,
+            //         parceiroId: 1,
+            //         problema: descricao,
+            //         escopo: escopo,
+            //         status: "Analise",
+            //         // curso: "es",
+            //         tema: tema,
+            //         mvp: mvp
+            //     }
+                
+            //     console.log("iniciativa")
+            //     console.log(iniciativa)
+            //     // const aIniciativa = [arrayIniciativas, iniciativa]
+            //     arrayIniciativas.push(iniciativa)
+            //     setArrayIniciativasState(arrayIniciativas)
+            //     // setApiResponse(data.text);
+            //     console.log("arrayIniciativas");
+            //     console.log(arrayIniciativas);
+            //     console.log(arrayIniciativasState);
+            // }
+
+
+
+    // TESTE IMPORTANTE
+
+
+    const classificaModulo = async (problemDescription) => {
         try {
             const response = await fetch(url+'openai',
             {
@@ -52,7 +120,7 @@ const CadastraIniciativa = (props) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ description: problemDescription, modulo: modulo })
+                body: JSON.stringify({ description: problemDescription })
             }
             );
             
@@ -68,25 +136,31 @@ const CadastraIniciativa = (props) => {
             // console.log("data.text")
             console.log("objetoIniciativa")
             console.log(objetoIniciativa)
-            console.log("objetoIniciativa.Ferramenta_Tecnologica")
-            console.log(objetoIniciativa.Ferramenta_Tecnologica)
 
-            if(objetoIniciativa.Ferramenta_Tecnologica === "Muito Alta" || objetoIniciativa.Ferramenta_Tecnologica === "Perfeita") {
+            // console.log("objetoIniciativa")
+            // console.log(objetoIniciativa)
+
+            objetoIniciativa.map(async (classificacao, index) => {
+
+                if(classificacao == "Muito Alta" || classificacao == "Perfeita"){
+                    
                 console.log("AGORA A RESPOSTA DO ENDPOINT ");
                 console.log(objetoIniciativa);
-                // console.log(modulo);
-                modulosFiltrados.push(modulo);
+                console.log(index);
+                console.log(modulos[index])
+                modulosFiltrados.push(modulos[index]);
+                console.log(modulosFiltrados)
                 setModulosFiltradosState(modulosFiltrados);
                 // setSelectedCard(modulo)
                 // console.log("modulosFiltrados");
                 // console.log(modulosFiltrados);
-                // console.log(modulosFiltradosState);
+                console.log(modulosFiltradosState);
 
-                await geraTapi(descricao, modulo.descricao)
+                await geraTapi(descricao, modulos[index].descricao)
 
                 // setApiResponse(prevState => [...prevState, objetoIniciativa]);
                 const iniciativa = {
-                    moduloId: modulo.id,
+                    moduloId: modulos[index].id,
                     parceiroId: 1,
                     problema: descricao,
                     escopo: escopo,
@@ -105,7 +179,16 @@ const CadastraIniciativa = (props) => {
                 console.log("arrayIniciativas");
                 console.log(arrayIniciativas);
                 console.log(arrayIniciativasState);
-            }
+            
+                }
+            })
+
+
+
+
+
+
+
             return null
             // Processar a resposta aqui, por exemplo:
             
@@ -156,6 +239,10 @@ const CadastraIniciativa = (props) => {
             setTema(objetoTapi.tema)
             setMvp(objetoTapi.mvp)
 
+            console.log(escopo)
+            console.log(tema)
+            console.log(mvp)
+
             
         } catch (error) {
             console.error("Erro ao acessar a API do OpenAI:", error);
@@ -166,15 +253,15 @@ const CadastraIniciativa = (props) => {
     const iteraModulos = async (problemDescription) => {
 
 
-        for (const modulo of modulos) {
+        // for (const modulo of modulos) {
 
             // if (!requestedModules.includes(modulo.id)) {
-                console.log("modulo");
-                console.log(modulo);
-                await classificaModulo(problemDescription, modulo);
+                // console.log("modulo");
+                // console.log(modulo);
+                await classificaModulo(problemDescription);
+                // requestedModules.push(modulo.id);
+                // setRequestedModulesState(requestedModules)
                 // await geraTapi(problemDescription, modulo.descricao)
-                requestedModules.push(modulo.id);
-                setRequestedModulesState(requestedModules)
                 // console.log("requestedModules")
                 // console.log(requestedModules)
                 // console.log(requestedModulesState)
@@ -186,7 +273,7 @@ const CadastraIniciativa = (props) => {
             // if (iniciativa) {
             //     tempIniciativas.push(iniciativa);
             // }
-        }
+        // }
         
         
 
@@ -225,6 +312,7 @@ const CadastraIniciativa = (props) => {
         
     }
 
+    //UseEffect para renderizar novamente as informações após geraTapi
     useEffect(() => {
         if (selectedCard) {
             setSelectedIniciativa(prevState => ({
@@ -236,6 +324,7 @@ const CadastraIniciativa = (props) => {
         };
     }, [escopo, tema, mvp]);
 
+    //UseEffect para associar card a iniciativa
     useEffect(() => {
         arrayIniciativasState.map((iniciativa) => {
             // console.log("selectedCard")
@@ -246,6 +335,7 @@ const CadastraIniciativa = (props) => {
         })
     }, [selectedCard])
 
+    //UseEffect para iniciar reqs do gpt
     useEffect(() => {
         if (problemaEnviado) {
 
@@ -263,6 +353,8 @@ const CadastraIniciativa = (props) => {
         }
     }, [problemaEnviado]);
 
+
+    //UseEffect para saber os módulos registrados
     useEffect(() => {
         fetch(url+'modulos')
         .then((response) => response.json())

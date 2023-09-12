@@ -17,12 +17,12 @@ export class OpenAIController {
   
   @Post()
   // async classificaModulo(@Body('description') description: string, @Res() res: Response) {
-  async classificaModulo(@Body('description') description: string, @Body('modulo') modulo: any, @Res() res: Response) {
+  async classificaModulo(@Body('description') description: string, @Res() res: Response) {
   console.log("description");
   console.log(description);
 
   try {
-    const observableResult = await this.openAIService.classificaModulo(description, modulo); 
+    const observableResult = await this.openAIService.classificaModulo(description); 
     // const result = await lastValueFrom(observableResult);
     // console.log(observableResult);
     // console.log("observableResult.data.choices[0]")

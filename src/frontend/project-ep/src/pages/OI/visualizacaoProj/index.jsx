@@ -8,36 +8,46 @@ const url = 'http://127.0.0.1:3001/'
 const HomeOI = () => {
 
   const [iniciativas, setIniciativas] = useState([]);
-  const [parceiro, setParceiro] = useState();
+  const [parceiro, setParceiro] = useState({});
   const [iniciativasParceiro, setIniciativasParceiro] = useState([]);
 
   
-  const SalvarIniciativasParceiro = () => {
-    return iniciativas.filter(iniciativa => iniciativa.parceiroId === 1);
-  }
+  
+
+  useEffect(() => {
+    fetch(url+'parceiro/1')
+    .then((response) => response.json())
+    .then((data) => {
+      setParceiro(data[0]);
+      console.log(data[0]);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
 
   useEffect(() => {
     fetch(url+'iniciativas')
     .then((response) => response.json())
     .then((data) => {
         setIniciativas(data);
-        console.log(data)
-    })
-    .then(() => {
-    let iniciativasParceiro = iniciativas.filter(iniciativa => iniciativa.parceiroId === 1);
-    // SalvarIniciativasParceiro();
-    setIniciativasParceiro(iniciativasParceiro);
-
+        console.log(data);
     })
     .then(() => {
       console.log("SAMUBOYY")
       console.log(iniciativas)
-      console.log(iniciativasParceiro)
     })
     .catch((error) => {
       console.log(error)
     })
   }, [])
+
+  useEffect(() => {
+    console.log(iniciativas)
+    let iniciativasParceiro = iniciativas.filter(iniciativa => iniciativa.parceiroId == 1);
+    // SalvarIniciativasParceiro();
+    setIniciativasParceiro(iniciativasParceiro);
+  }, [iniciativas])
 
 
 
@@ -50,7 +60,7 @@ const HomeOI = () => {
           <ButtonUsage conteudo="+ Novo Projeto" tipo="novo Projeto" />
         </div>
         <div className={styles.welcomeMessage}>
-          <p>Olá <strong>João</strong>! Bem-vindo ao <strong>Kondo</strong></p>
+          <p>Olá, <strong>{parceiro.nomeContato}</strong>! Bem-vindo ao <strong>Kondo</strong></p>
           <h1>Suas Iniciativas</h1>
         </div>
         <div className={styles.kanbanContainer}>

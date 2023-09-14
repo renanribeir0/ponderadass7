@@ -8,10 +8,11 @@ import { OpenAIModule } from './openai/openai.module';
 // import { PrismaService } from './prisma.service';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseLoggerInterceptor } from './response-logger/response-logger.interceptor';
+import { TurmaModule } from './turmas/turma.module';
 
 
 @Module({
-  imports: [IniciativasModule, ParceiroModule, ModulosModule, OpenAIModule, UsuarioEPModule],
+  imports: [IniciativasModule, ParceiroModule, ModulosModule, OpenAIModule, UsuarioEPModule, TurmaModule],
   controllers: [],
   providers: [
     {

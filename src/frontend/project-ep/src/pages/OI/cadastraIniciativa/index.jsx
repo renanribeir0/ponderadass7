@@ -33,7 +33,7 @@ const CadastraIniciativa = (props) => {
     const [arrayIniciativasState, setArrayIniciativasState] = useState([]);
     const [modulosFiltradosState, setModulosFiltradosState] = useState([]);
     const [requestedModulesState, setRequestedModulesState] = useState([]);
-    const [forceRender, setForceRender] = useState(false);
+    // const [forceRender, setForceRender] = useState(false);
 
     
     
@@ -132,9 +132,11 @@ const CadastraIniciativa = (props) => {
             
             console.log("data.text")
             console.log(data.text)
+            const objetoIniciativaString = data.text.replace("Resposta: ", "");
+
             // console.log("AQUI FUNCIONA PPRT")
             
-            const objetoIniciativa = JSON.parse(data.text);
+            const objetoIniciativa = JSON.parse(objetoIniciativaString);
             // console.log("AQUI FUNCIONA PPRT")
             // console.log("data.text")
             console.log("objetoIniciativa")
@@ -145,7 +147,7 @@ const CadastraIniciativa = (props) => {
             
             objetoIniciativa.map(async (classificacao, index) => {
                 
-                if(classificacao == "Muito Alta" || classificacao == "Perfeita"){
+                if(classificacao == "Muito Alta" || classificacao == "Perfeita" || classificacao == "Alta" ){
                     
                     console.log("AGORA A RESPOSTA DO ENDPOINT ");
                     console.log(objetoIniciativa);
@@ -154,6 +156,7 @@ const CadastraIniciativa = (props) => {
                     modulosFiltrados.push(modulos[index]);
                     console.log(modulosFiltrados)
                     setModulosFiltradosState(modulosFiltrados);
+                    setSelectedIniciativa(null) 
                     // setSelectedCard(modulo)
                     // console.log("modulosFiltrados");
                     // console.log(modulosFiltrados);
@@ -201,7 +204,7 @@ const CadastraIniciativa = (props) => {
     }
 };
 
-const geraTapi = async (problemDescription, contexto) => {
+    const geraTapi = async (problemDescription, contexto) => {
         try {
             const response = await fetch(url+'geraTapi',
             {
@@ -245,9 +248,9 @@ const geraTapi = async (problemDescription, contexto) => {
             setMvp(objetoTapi.mvp);
             console.log("FUI NO SETMvP")
             
-            console.log(forceRender)
-            setForceRender(prev => !prev);
-            console.log(forceRender)
+            // console.log(forceRender)
+            // setForceRender(prev => !prev);
+            // console.log(forceRender)
             
         } catch (error) {
             console.error("Erro ao acessar a API do OpenAI:", error);
@@ -319,31 +322,36 @@ const geraTapi = async (problemDescription, contexto) => {
     
     //UseEffect para renderizar novamente as informações após geraTapi
     useEffect(() => {
+        console.log({selectedCard})
         if (selectedCard) {
             console.log("Entrei no useEffect de redenrização")
             setSelectedIniciativa(prevState => ({
                 ...prevState,
                 escopo: escopo,
                 tema: tema,
-                mvp: mvp
+                mvp: mvp,
             }));
 
-            console.log(escopo)
-            console.log(tema)
-            console.log(mvp)
+            console.log({escopo})
+            console.log({tema})
+            console.log({mvp})
         };
-    }, [escopo, tema, mvp]);
+    }, [escopo]);
     
     useEffect(() => {
+        setEscopo(escopo)
         console.log('Iniciativa selecionada atualizada:', selectedIniciativa);
     }, [selectedIniciativa]);
     
 
     //UseEffect para associar card a iniciativa
     useEffect(() => {
+
         arrayIniciativasState.map((iniciativa) => {
+            // setSelectedIniciativa(iniciativa)
             // console.log("selectedCard")
             // console.log(selectedCard)
+            setSelectedIniciativa(null)
             if(selectedCard.id === iniciativa.moduloId) {
                 setSelectedIniciativa(iniciativa)
             }
@@ -365,6 +373,8 @@ const geraTapi = async (problemDescription, contexto) => {
             //     { id: 4, problema: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.", curso: "es", modulo: "Módulo 06 - Engenharia de Software", nomeModulo: "Elaboração de aplicação para dispositivos móveis", solucao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. 4", tema: "Gestão de Projetos", mvp: ["Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação", "Formulário de entrada de propostas de projetos", "Dash de análise de Iniciativas / atribuição de ratings", "Dash de alocação de Projetos em  Módulos/Turmas"] },
             //     // { id: 5, problema: "O projeto visa atuar em dois problemas: a escassez de mão de obra nos canteiros, algo que é relatado por todo setor da construção civil; e a contratação manual e lenta de empreiteiros devido a todas as particularidades de uma empresa que atua em todo o território nacional.", solucao: "A proposta é a criação de uma plataforma self-service de captação e contratação de empreiteiros e profissionais autônomos, conectando a demanda de obra (MRV) com as ofertas de prestadores de serviço.", tema: "Gestão de Pessoas", mvp: ["Aplicação web capaz de disponibilizar as oportunidades de trabalho para os prestadores de serviço (com as informações de prazo, preço e disponibilidade)", "criar uma base de dados com contatos de todos os empreiteiros que se interessarem pela vaga integrada à referida aplicação."] }        
             // ])
+            console.log("atualizei selected card")
+            setSelectedCard(null)
         }
     }, [problemaEnviado]);
 
@@ -395,10 +405,14 @@ const geraTapi = async (problemDescription, contexto) => {
             {problemaEnviado ? 
             <div className={styles.principal2}>
                 <div className={styles.paiCard}>
-                    {modulosFiltradosState.map((modulo, index) => (
-                        <Card key={index} modulo={modulo.nomeModulo} nomeModulo={modulo.descricao} className={modulo === selectedCard ? styles.cardSelected : ''} onClick={() => setSelectedCard(modulo)}/>
+                    {modulosFiltradosState.map((modulo, index) => {
+                            console.log(modulo)
+                            return (
+                                <Card key={index} modulo={modulo.nomeModulo} nomeModulo={modulo.descricao} className={modulo === selectedCard ? styles.cardSelected : ''} onClick={() => setSelectedCard(modulo)}/>
+
+                            )
                         
-                    ))}
+                    })}
 
 
                 </div>

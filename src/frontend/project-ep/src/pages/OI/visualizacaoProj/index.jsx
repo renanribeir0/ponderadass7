@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from "../../../../src/components/atoms/navbar/index.jsx";
 import styles from "../../OI/visualizacaoProj/styles.module.scss";
 import ButtonUsage from "../../../components/atoms/botao.tsx";
 
+const url = 'http://127.0.0.1:3001/'
+
 const HomeOI = () => {
+
+  const [iniciativas, setIniciativas] = useState([]);
+  const [parceiro, setParceiro] = useState();
+  const [iniciativasParceiro, setIniciativasParceiro] = useState([]);
+
+  
+  const SalvarIniciativasParceiro = () => {
+    return iniciativas.filter(iniciativa => iniciativa.parceiroId === 1);
+  }
+
+  useEffect(() => {
+    fetch(url+'iniciativas')
+    .then((response) => response.json())
+    .then((data) => {
+        setIniciativas(data);
+        console.log(data)
+    })
+    .then(() => {
+    let iniciativasParceiro = iniciativas.filter(iniciativa => iniciativa.parceiroId === 1);
+    // SalvarIniciativasParceiro();
+    setIniciativasParceiro(iniciativasParceiro);
+
+    })
+    .then(() => {
+      console.log("SAMUBOYY")
+      console.log(iniciativas)
+      console.log(iniciativasParceiro)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
+
+
   return (
     <div>
       <Navbar />
@@ -19,7 +56,12 @@ const HomeOI = () => {
         <div className={styles.kanbanContainer}>
           <div className={styles.column}>
             <h2>Em Análise</h2>
-            {renderProjectCard("Projeto 4", "Módulo 4:", "Prototipação de solução para IoT", "Criar um rastreador de Pneus", "Turma: N/A", "Em Análise", "yellow")}
+            {iniciativasParceiro.map((iniciativa, index) => (
+              renderProjectCard(`Projeto ${index}`, iniciativa.nomeModulo, iniciativa.descricao, iniciativa.mvp, iniciativa.nomeTurma, iniciativa.status, "yellow")
+
+            ))
+            
+            }
           </div>
           <div className={styles.column}>
             <h2>Aprovado</h2>

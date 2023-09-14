@@ -11,6 +11,7 @@ import NovaSenha from './pages/OI/login/novasenha/index.jsx';
 import HomeOI from './pages/OI/visualizacaoProj/index.jsx';
 import styles from './global.module.scss'
 import DashIniciativa from './pages/EP/dashIniciativa'
+import DashAlocacao from './pages/EP/dashAlocacao';
 
 
 const router = createBrowserRouter([
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
     { path: "Home", element:(<HomeOI/>)},
     { path:"iniciativas", element: (<CadastraIniciativa/>)},
     { path:"cadastro", element: (<Cadastro/>)},
-    { path:"dashIniciativas", element: (<DashIniciativa/>)}
+    { path:"dashIniciativas", element: (<DashIniciativa/>)},
+    { path:"dashAlocacao", element: (<DashAlocacao/>)}
 
 
 ]);

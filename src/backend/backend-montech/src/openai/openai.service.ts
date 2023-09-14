@@ -46,7 +46,7 @@ export class OpenAIService {
 
   //   const headers = {
   //     // 'Content-Type': 'application/json',
-  //     'Authorization': `Bearer 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`,
+  //     'Authorization': `Bearer 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`,
   //     // 'Authorization': `Bearer <openai_key>`,
   //   };
     
@@ -100,13 +100,13 @@ export class OpenAIService {
   
       const headers = {
         // 'Content-Type': 'application/json',
-        'Authorization': `Bearer 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`,
+        'Authorization': `Bearer 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`,
         // 'Authorization': `Bearer <openai_key>`,
       };
       
       const body = {
         model: "text-davinci-003",
-        prompt: `Dado o problema a seguir, classifique a relevância de cada ferramenta tecnológica para a solução. As opções de classificação são: Muito Baixa, Baixa, Média, Alta, Muito Alta e Perfeita. Retorne um json com a classificação dela. Analise se o problema pode ser resolvido através dessa Ferramenta, seja bem criterioso e só classifique como Perfeita, se a ferramenta conseguir resolver o problema da melhor forma possível, Muito Alta se ele pode ser solucionado através desse contexto, mesmo que precise de outros complementos.
+        prompt: `Dado o problema a seguir, classifique a relevância de cada ferramenta tecnológica para a solução. As opções de classificação são: Muito Baixa, Baixa, Média, Alta, Muito Alta e Perfeita. Retorne um json com a classificação dela. Analise se o problema pode ser resolvido através dessa Ferramenta, só classifique como Perfeita, se a ferramenta conseguir resolver o problema da melhor forma possível, Muito Alta se ele pode ser solucionado através desse contexto, mesmo que precise de outros complementos.
         Seguem o Problema e as ferramentas tecnológicas:
   
         Problema: "${problemDescription}"
@@ -117,8 +117,8 @@ export class OpenAIService {
        
     
        
-       A resposta será manipulada como array através de um JSON.parse, por isso retorne apenas a string a seguir completando as classificações:
-       [<Classificação do modulo 1>, <Classificação do modulo 2>, <Classificação do modulo 3>, <Classificação do modulo 4>]`, 
+       A resposta será manipulada como array através de um JSON.parse, por isso retorne apenas a string a seguir como array completando as classificações:
+       ["<Classificação do modulo 1>", "<Classificação do modulo 2>", "<Classificação do modulo 3>", "<Classificação do modulo 4>" ]`, 
         max_tokens: 2500,
         temperature: 0.3
       };
@@ -135,17 +135,17 @@ export class OpenAIService {
   async geraTapi(descricao: string, contexto: string) {
     const headers = {
       // 'Content-Type': 'application/json',
-      'Authorization': `Bearer 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`,
+      'Authorization': `Bearer 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`,
       // 'Authorization': `Bearer <openai_key>`,
     };
     const body = {
       model: "text-davinci-003",
       prompt: `Dado  problema a seguir, e o contexto do módulo a seguir, que indica a ferramenta tecnológica a ser utilizada, retorne um json no seguinte molde:
-      {
+      "{
         "escopo": "<conteudo>",
         "tema": "<conteudo>",
         "mvp": "["1. <conteudo>", "2. <conteudo> ..."]"
-      }
+      }"
 
       Para isso, você deve idealizar um escopo de solução, ou seja, uma explicação de como o problema deve ser resolvido em um parágrafo curto. 
       Após isso, identificar o Tema do Projeto, como por exemplo: Fluxo de Caixa, Gestão de Pessoas, Gestão de Projetos, etc.

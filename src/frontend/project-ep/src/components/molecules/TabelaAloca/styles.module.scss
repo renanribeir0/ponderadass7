@@ -1,0 +1,21 @@
+.tableContainer {
+  width: 100%;
+  max-width: 100vw; /* Ajuste conforme necessário para mostrar 4 épocas do ano */
+  overflow-x: auto;
+}
+
+.table {
+    min-width: 260%;
+    border-collapse: collapse;
+}
+  
+.table th, .table td {
+border: 1px solid #000;
+text-align: center;
+width: 100px;
+height: 75px;
+}
+
+.table th {
+background-color: #f4f4f4;
+}

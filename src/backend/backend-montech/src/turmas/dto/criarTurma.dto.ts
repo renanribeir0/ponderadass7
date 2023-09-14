@@ -1,6 +1,5 @@
 import { Iniciativa } from "@prisma/client";
 
-export interface Turma {
-    id: number;
+export class CriaTurmaDto{
     iniciativas: Iniciativa[];
 }

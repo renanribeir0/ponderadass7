@@ -33,7 +33,10 @@ const CadastraIniciativa = (props) => {
     const [arrayIniciativasState, setArrayIniciativasState] = useState([]);
     const [modulosFiltradosState, setModulosFiltradosState] = useState([]);
     const [requestedModulesState, setRequestedModulesState] = useState([]);
+    const [forceRender, setForceRender] = useState(false);
 
+    
+    
     let arrayIniciativas = []
     let modulosFiltrados = []
     let requestedModules = []
@@ -45,17 +48,17 @@ const CadastraIniciativa = (props) => {
     };
 
     // const classificaModulo = async (problemDescription, modulo) => {
-    //     try {
-    //         const response = await fetch(url+'openai',
-    //         {
-    //             method: 'POST',
+        //     try {
+            //         const response = await fetch(url+'openai',
+            //         {
+                //             method: 'POST',
     //             headers: {
-    //                 'Content-Type': 'application/json',
+        //                 'Content-Type': 'application/json',
     //             },
     //             body: JSON.stringify({ description: problemDescription, modulo: modulo })
     //         }
     //         );
-            
+    
 
     //         const data = await response.json();
 
@@ -68,12 +71,12 @@ const CadastraIniciativa = (props) => {
     //         // console.log("data.text")
     //         console.log("objetoIniciativa")
     //         console.log(objetoIniciativa)
-            // console.log("objetoIniciativa.Ferramenta_Tecnologica")
-            // console.log(objetoIniciativa.Ferramenta_Tecnologica)
-
+    // console.log("objetoIniciativa.Ferramenta_Tecnologica")
+    // console.log(objetoIniciativa.Ferramenta_Tecnologica)
+    
             // if(objetoIniciativa.Ferramenta_Tecnologica === "Muito Alta" || objetoIniciativa.Ferramenta_Tecnologica === "Perfeita") {
-            //     console.log("AGORA A RESPOSTA DO ENDPOINT ");
-            //     console.log(objetoIniciativa);
+                //     console.log("AGORA A RESPOSTA DO ENDPOINT ");
+                //     console.log(objetoIniciativa);
             //     // console.log(modulo);
             //     modulosFiltrados.push(modulo);
             //     setModulosFiltradosState(modulosFiltrados);
@@ -81,9 +84,9 @@ const CadastraIniciativa = (props) => {
             //     // console.log("modulosFiltrados");
             //     // console.log(modulosFiltrados);
             //     // console.log(modulosFiltradosState);
-
+            
             //     await geraTapi(descricao, modulo.descricao)
-
+            
             //     // setApiResponse(prevState => [...prevState, objetoIniciativa]);
             //     const iniciativa = {
             //         moduloId: modulo.id,
@@ -95,7 +98,7 @@ const CadastraIniciativa = (props) => {
             //         tema: tema,
             //         mvp: mvp
             //     }
-                
+            
             //     console.log("iniciativa")
             //     console.log(iniciativa)
             //     // const aIniciativa = [arrayIniciativas, iniciativa]
@@ -106,12 +109,12 @@ const CadastraIniciativa = (props) => {
             //     console.log(arrayIniciativas);
             //     console.log(arrayIniciativasState);
             // }
+            
 
 
-
-    // TESTE IMPORTANTE
-
-
+            // TESTE IMPORTANTE
+            
+            
     const classificaModulo = async (problemDescription) => {
         try {
             const response = await fetch(url+'openai',
@@ -126,7 +129,7 @@ const CadastraIniciativa = (props) => {
             
 
             const data = await response.json();
-
+            
             console.log("data.text")
             console.log(data.text)
             // console.log("AQUI FUNCIONA PPRT")
@@ -136,25 +139,25 @@ const CadastraIniciativa = (props) => {
             // console.log("data.text")
             console.log("objetoIniciativa")
             console.log(objetoIniciativa)
-
+            
             // console.log("objetoIniciativa")
             // console.log(objetoIniciativa)
-
+            
             objetoIniciativa.map(async (classificacao, index) => {
-
+                
                 if(classificacao == "Muito Alta" || classificacao == "Perfeita"){
                     
-                console.log("AGORA A RESPOSTA DO ENDPOINT ");
-                console.log(objetoIniciativa);
-                console.log(index);
-                console.log(modulos[index])
-                modulosFiltrados.push(modulos[index]);
-                console.log(modulosFiltrados)
-                setModulosFiltradosState(modulosFiltrados);
-                // setSelectedCard(modulo)
-                // console.log("modulosFiltrados");
-                // console.log(modulosFiltrados);
-                console.log(modulosFiltradosState);
+                    console.log("AGORA A RESPOSTA DO ENDPOINT ");
+                    console.log(objetoIniciativa);
+                    console.log(index);
+                    console.log(modulos[index])
+                    modulosFiltrados.push(modulos[index]);
+                    console.log(modulosFiltrados)
+                    setModulosFiltradosState(modulosFiltrados);
+                    // setSelectedCard(modulo)
+                    // console.log("modulosFiltrados");
+                    // console.log(modulosFiltrados);
+                    console.log(modulosFiltradosState);
 
                 await geraTapi(descricao, modulos[index].descricao)
 
@@ -180,25 +183,25 @@ const CadastraIniciativa = (props) => {
                 console.log(arrayIniciativas);
                 console.log(arrayIniciativasState);
             
-                }
-            })
+            }
+        })
 
+        
+        
+        
+        
+        
+        
+        return null
+        // Processar a resposta aqui, por exemplo:
+        
+    } catch (error) {
+        console.error("Erro ao acessar a API do OpenAI:", error);
+        return null
+    }
+};
 
-
-
-
-
-
-            return null
-            // Processar a resposta aqui, por exemplo:
-            
-        } catch (error) {
-            console.error("Erro ao acessar a API do OpenAI:", error);
-            return null
-        }
-    };
-
-    const geraTapi = async (problemDescription, contexto) => {
+const geraTapi = async (problemDescription, contexto) => {
         try {
             const response = await fetch(url+'geraTapi',
             {
@@ -210,39 +213,41 @@ const CadastraIniciativa = (props) => {
             }
             );
             
-
+            
             const data = await response.json();
-
+            
             console.log("data.text do geraTapi")
             console.log(data.text)
-
+            
             // const jsonString = data.text.replace("Resposta: ", "");
             const jsonString = data.text.replace("Resposta: ", "");
             console.log("jsonString")
             console.log(jsonString)
-
-              // Convertendo a string restante para um objeto JSON
+            
+            // Convertendo a string restante para um objeto JSON
             const objetoTapi = JSON.parse(jsonString);
-
+            
             // // Agora você pode manipular os valores dentro do objetoTapi como strings normais
             // objetoTapi.escopo = objetoTapi.escopo.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
             // objetoTapi.tema = objetoTapi.tema.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
             // objetoTapi.mvp = objetoTapi.mvp.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
-
+            
             console.log("objetoTapi", objetoTapi);
             console.log("objetoTapi.escopo", objetoTapi.escopo);
             console.log("objetoTapi.tema", objetoTapi.tema);
             console.log("objetoTapi.mvp", objetoTapi.mvp);
-
             
-            setEscopo(objetoTapi.escopo)
-            setTema(objetoTapi.tema)
-            setMvp(objetoTapi.mvp)
-
-            console.log(escopo)
-            console.log(tema)
-            console.log(mvp)
-
+            
+            setEscopo(objetoTapi.escopo);
+            console.log("FUI NO SETESCOPO")
+            setTema(objetoTapi.tema);
+            console.log("FUI NO SETTEMA")
+            setMvp(objetoTapi.mvp);
+            console.log("FUI NO SETMvP")
+            
+            console.log(forceRender)
+            setForceRender(prev => !prev);
+            console.log(forceRender)
             
         } catch (error) {
             console.error("Erro ao acessar a API do OpenAI:", error);
@@ -251,10 +256,10 @@ const CadastraIniciativa = (props) => {
     }
 
     const iteraModulos = async (problemDescription) => {
-
-
+        
+        
         // for (const modulo of modulos) {
-
+            
             // if (!requestedModules.includes(modulo.id)) {
                 // console.log("modulo");
                 // console.log(modulo);
@@ -273,16 +278,16 @@ const CadastraIniciativa = (props) => {
             // if (iniciativa) {
             //     tempIniciativas.push(iniciativa);
             // }
-        // }
-        
-        
-
-        // setApiResponse(tempIniciativas);
-        // setApiResponse([
-        //     {
-        //         id: 2,
-        //         problema: descricao,
-        //         solucao: "Automatizar o processo de contratação, garantindo acessibilidade para todos os prestadores de serviço em seus locais de origem. Criar um ambiente de fácil acesso com disponibilização de oportunidades de trabalho para prestadores de serviços locais.",
+            // }
+            
+            
+            
+            // setApiResponse(tempIniciativas);
+            // setApiResponse([
+                //     {
+                    //         id: 2,
+                    //         problema: descricao,
+                    //         solucao: "Automatizar o processo de contratação, garantindo acessibilidade para todos os prestadores de serviço em seus locais de origem. Criar um ambiente de fácil acesso com disponibilização de oportunidades de trabalho para prestadores de serviços locais.",
         //         tema: "Gestão Operacional",
         //         curso: "cb",
         //         nomeModulo: "Módulo 02 - Ciclo Básico",
@@ -290,39 +295,49 @@ const CadastraIniciativa = (props) => {
         //         mvp: ["Aplicação web capaz de disponibilizar as oportunidades de trabalho para os prestadores de serviço (com as informações de prazo, preço e disponibilidade), assim como criar uma base de dados com contatos de todos os empreiteiros que se interessarem pela vaga integrada à referida aplicação."]
         //     },
         //     {
-        //         id: 2,
-        //         problema: descricao,
-        //         solucao: "Criação de modelos preditivos a partir de coortes de pacientes acompanhadas em projetos de pesquisa do Instituto do Câncer do Estado de São Paulo/Faculdade de Medicina da Universidade de São Paulo.",
-        //         tema: "Saúde",
-        //         curso: "cb",
-        //         nomeModulo: "Módulo 03 - Ciclo Básico",
+            //         id: 2,
+            //         problema: descricao,
+            //         solucao: "Criação de modelos preditivos a partir de coortes de pacientes acompanhadas em projetos de pesquisa do Instituto do Câncer do Estado de São Paulo/Faculdade de Medicina da Universidade de São Paulo.",
+            //         tema: "Saúde",
+            //         curso: "cb",
+            //         nomeModulo: "Módulo 03 - Ciclo Básico",
         //         descricao: "Construção de lógica para predição com inteligência artificial",
         //         mvp: [
-        //             "Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação",
-        //             "Formulário de entrada de propostas de projetos",
+            //             "Cadastro de módulos / contexto do Metaprojeto e o cronograma de operação",
+            //             "Formulário de entrada de propostas de projetos",
         //             "Dash de análise de Iniciativas / atribuição de ratings",
         //             "Dash de alocação de Projetos em  Módulos/Turmas"
         //         ]
         //     }
         // ])
-
+        
         // console.log("arrayIniciativas")
         // console.log("tempIniciativas")
         // console.log(tempIniciativas)
         
     }
-
+    
     //UseEffect para renderizar novamente as informações após geraTapi
     useEffect(() => {
         if (selectedCard) {
+            console.log("Entrei no useEffect de redenrização")
             setSelectedIniciativa(prevState => ({
                 ...prevState,
                 escopo: escopo,
                 tema: tema,
                 mvp: mvp
             }));
+
+            console.log(escopo)
+            console.log(tema)
+            console.log(mvp)
         };
     }, [escopo, tema, mvp]);
+    
+    useEffect(() => {
+        console.log('Iniciativa selecionada atualizada:', selectedIniciativa);
+    }, [selectedIniciativa]);
+    
 
     //UseEffect para associar card a iniciativa
     useEffect(() => {
@@ -451,7 +466,7 @@ const CadastraIniciativa = (props) => {
                         </h5>
                         <p>
                             
-                            Contexto - Dor -  Valor agregado
+                            Contexto - Dor -  Sugestão de Solução
                         </p>
                     </div>
 

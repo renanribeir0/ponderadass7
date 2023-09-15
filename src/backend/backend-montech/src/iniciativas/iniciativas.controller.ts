@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Put, Delete, Body, Query, Param } from "@nestjs/common";
-import { CriaIniciativaDto } from "src/iniciativas/dto/criarIniciativa.dto";
+import { CriaIniciativaDto } from "../iniciativas/dto/criarIniciativa.dto";
 import { IniciativasService } from "./iniciativas.service";
 // import { Iniciativa } from './interfaces/iniciativa.interface'
 // import { PrismaService } from '../prisma.service'

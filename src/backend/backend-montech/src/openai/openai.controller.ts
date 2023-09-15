@@ -11,8 +11,9 @@ export class OpenAIController {
   @Get()
   funcao() {
     return {
-        message: "O GET OPEN AI FUNCIONA"
-    }
+      resposta: "O GET OPEN AI FUNCIONA"
+  }
+
   }
   
   @Post()

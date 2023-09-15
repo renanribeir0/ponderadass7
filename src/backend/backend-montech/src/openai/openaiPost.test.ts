@@ -18,19 +18,8 @@ test('postOpenAI', async () => {
     .send(requestBody)
 
     console.log(response)
-    console.log(response.data)
+    console.log(response.text)
     expect(response.statusCode).toEqual(201); // 201 é o status code típico para uma criação bem-sucedida via POST
+    expect(response.text).toBeTruthy()
 
 })
-
-// test('GET/calcularIdade/2003-06-28/2023-08-14', async () => {
-//     const response = await supertest(app).get('/calcularIdade/2003-06-28/2023-08-14');
-//     expect(response.statusCode).toEqual(200);
-//     expect(response.body.idade).toEqual(20)
-// })
-
-// test('GET/validarIdade/2003-06-28', async () => {
-//     const response = await supertest(app).get('/validarIdade/2003-06-28');
-//     expect(response.statusCode).toEqual(200);
-//     expect(response.body.idadeValidada).toEqual(true)
-// })

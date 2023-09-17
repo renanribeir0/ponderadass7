@@ -54,6 +54,8 @@ const ModalAloca = (props) => {
                 </div>
 
                 <div className={styles.info}>
+                    {props.iniciativasAAlocar.length > 0 ? 
+
                     <div className={styles.cards}>
                         {props.iniciativasAAlocar.map((iniciativa, index) => (
                             <CardAlocaIniciativa key={index} className={iniciativa == selectedIniciativa ? 'iniciativaSelected' : ''} iniciativa={iniciativa} onClick={() => {
@@ -65,6 +67,11 @@ const ModalAloca = (props) => {
                             }}/>
                         ))}
                     </div>
+                    :
+                    <div className={styles.naoHaProjetos}>
+                        <p>Não há Projetos a serem Alocados!!</p>
+                    </div>
+                    }
 
                     <div className={styles.margem}>
                         <div className={styles.infoModulo}>

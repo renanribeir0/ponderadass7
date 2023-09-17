@@ -22,7 +22,7 @@ const Celula = (props) =>  {
   
     return (
        
-        <div className={styles.celula} onClick={props.onCelulaClick} style={{ backgroundColor: determinarCor(props.iniciativa) }}>
+        <div className={`${styles.celula} ${props.iniciativa.status}`} onClick={props.onCelulaClick} style={{ backgroundColor: determinarCor(props.iniciativa) }}>
           {props.iniciativa ? (
             <>
               <div>Parceiro: {props.iniciativa.nomeEmpresa}</div>

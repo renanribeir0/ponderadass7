@@ -1,10 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from './styles.module.scss';
 import fechar from '../../../assets/fechar.png'
 import Button from '@mui/material/Button';
-import CardDash from "../cardsDashIniciativa/cardIniciativa";
+import ButtonUsage from "../../../components/atoms/botao.tsx";
+import CardDash from "../cardsDashIniciativa/cardIniciativa/index";
+import CardAlocaIniciativa from "../cardAlocaIniciativas";
 
-const Modal = (props) => {
+let url = 'http://127.0.0.1:3001/'
+
+const ModalAloca = (props) => {
+
+    console.log(props.celula)
+
+    const [modulo, setModulo] = useState({});
+    const [selectedIniciativa, setSelectedIniciativa] = useState(null)
+    const [forceRender, setForceRender] = useState(false)
+
+    useEffect(() => {
+        if(props.isOpen){
+
+            console.log(props.celula)
+            fetch(url+`modulos/${props.celula[1] + 6}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setModulo(data[0]);
+                console.log("setei modulo")
+                console.log(props.celula[1] + 6)
+            })
+            .catch((err) => {
+              console.log(err.message);
+            });
+        }
+        else {
+            setModulo({})
+        }
+
+    }, [props.isOpen])
+
+    useEffect(() => {
+        // setForceRender(!forceRender)
+        console.log("modulo")
+        console.log(modulo)
+    }, [modulo])
 
     if(props.isOpen){
     
@@ -19,34 +56,55 @@ const Modal = (props) => {
                 <div className={styles.info}>
                     <div className={styles.cards}>
                         {props.iniciativasAAlocar.map((iniciativa, index) => (
-                            <CardDash key={index} iniciativa={iniciativa} onClick={() => {
-                                props.setSelectedCard(iniciativa);
+                            <CardAlocaIniciativa key={index} className={iniciativa == selectedIniciativa ? 'iniciativaSelected' : ''} iniciativa={iniciativa} onClick={() => {
+                                console.log("iniciativa");
+                                console.log(iniciativa)
+                                setSelectedIniciativa(iniciativa);
+                                console.log(iniciativa == selectedIniciativa)
+                                console.log(selectedIniciativa)
                             }}/>
                         ))}
                     </div>
 
                     <div className={styles.margem}>
                         <div className={styles.infoModulo}>
-                            <div>
+                            <div className={styles.info}>
                                 <strong>Módulo: </strong>
-                                <p>{props.iniciativa.nomeModulo}</p>
+                                {modulo ? 
+
+                                <p>{modulo.nomeModulo}</p>
+                                :
+                                null
+                                }
 
                             </div>
-                            <div>
-                                <strong>Descrição</strong>
-                                <p>{props.iniciativa.descricao}</p>
+                            <div className={styles.info}>
+                                <strong>Descrição: </strong>
+                                {modulo ?
+
+                                <p>{modulo.descricao}</p>
+                                :
+                                null
+                                }
 
                             </div>
-                            {props.iniciativa.competencias.map((competencia, index) => (
-                                <p>{competencia}</p>
-                            )
-                                
-                            )}
+                            <div className={styles.competencia}>
+                                <strong>Competências: </strong>
+                                {/* {modulo.competencias.map((competencia, index) => (
+                                    <p>{index+1}: {competencia}</p>
+                                )
+                                    
+                                )} */}
+
+                            </div>
                             
                         </div>
 
                     </div>
 
+                </div>
+                <div className={styles.botao}>
+                    <ButtonUsage tipo={'aloca Iniciativa'} setIsModalOpen={props.setIsModalOpen} celula={props.celula} iniciativa={selectedIniciativa} alocaIniciativa={props.alocaIniciativa}  conteudo={"ALOCAR"}/>
                 </div>
                 </div>
                 
@@ -58,4 +116,4 @@ const Modal = (props) => {
     }
 }
 
-export default Modal;
+export default ModalAloca;

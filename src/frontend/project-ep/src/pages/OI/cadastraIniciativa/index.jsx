@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../../components/atoms/navbar/index.jsx";
-import ButtonUsage from "../../../components/atoms/botao.tsx";
+import ButtonUsage from "../../../components/atoms/botao.tsx";              
 import Card from '../../../components/molecules/card/index.jsx'
 import styles from '../cadastraIniciativa/styles.module.scss';
 import ModalSucesso from "../../../components/molecules/modalSucesso/index.jsx";
@@ -129,10 +129,10 @@ const CadastraIniciativa = (props) => {
             
 
             const data = await response.json();
-            
+            console.log("clarinha")
             console.log("data.text")
             console.log(data.text)
-            const objetoIniciativaString = data.text.replace("Resposta: ", "");
+            const objetoIniciativaString = data.text.replace("Resposta: ", ""); 
 
             // console.log("AQUI FUNCIONA PPRT")
             

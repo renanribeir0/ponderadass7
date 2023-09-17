@@ -8,7 +8,7 @@ const url = 'http://127.0.0.1:3001/'
 const HomeOI = () => {
 
   const [iniciativas, setIniciativas] = useState([]);
-  const [parceiro, setParceiro] = useState({});
+  const [parceiro, setParceiro] = useState({ });
   const [iniciativasParceiro, setIniciativasParceiro] = useState([]);
 
   
@@ -66,21 +66,42 @@ const HomeOI = () => {
         <div className={styles.kanbanContainer}>
           <div className={styles.column}>
             <h2>Em Análise</h2>
-            {iniciativasParceiro.map((iniciativa, index) => (
+            {iniciativasParceiro.map((iniciativa, index) => {
+              if(iniciativa.status == "Analise" || iniciativa.status == "Rejeitado"){
+              return (
               renderProjectCard(`Projeto ${index}`, iniciativa.nomeModulo, iniciativa.descricao, iniciativa.mvp, iniciativa.nomeTurma, iniciativa.status, "yellow")
 
-            ))
+            )}
+            else return null
+          })
             
             }
           </div>
           <div className={styles.column}>
             <h2>Aprovado</h2>
-            {renderProjectCard("Projeto 2", "Módulo 2:", "Elaboração de aplicação para ambiente web", "Website para contratação de novos empreiteiros", "Turma: 5", "Aprovado", "green")}
-            {renderProjectCard("Projeto 3", "Módulo 3:", "Construção de lógica para predição com inteligência artificial", "...", "Turma: 2", "Aprovado", "green")}
+            {iniciativasParceiro.map((iniciativa, index) => {
+              if(iniciativa.status == "Preparado" || iniciativa.status == "Negociacao "){
+              return (
+              renderProjectCard(`Projeto ${index}`, iniciativa.nomeModulo, iniciativa.descricao, iniciativa.mvp, iniciativa.nomeTurma, iniciativa.status, "yellow")
+
+            )}
+            else return null
+          })
+            
+            }
           </div>
           <div className={styles.column}>
             <h2>Finalizado</h2>
-            {renderProjectCard("Projeto 1", "Módulo 1:", "Desenvolvimento de jogo digital", "...", "Turma: 6", "Finalizado", "blue")}
+            {iniciativasParceiro.map((iniciativa, index) => {
+              if(iniciativa.status == "Finalizado "){
+              return (
+              renderProjectCard(`Projeto ${index}`, iniciativa.nomeModulo, iniciativa.descricao, iniciativa.mvp, iniciativa.nomeTurma, iniciativa.status, "yellow")
+
+            )}
+            else return null
+          })
+            
+            }
           </div>
         </div>
       </div>

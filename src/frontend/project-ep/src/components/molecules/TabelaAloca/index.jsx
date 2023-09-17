@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Modal from '../modalAloca/index';
+import ModalAloca from '../modalAloca/index';
 import styles from './styles.module.scss'
 import Celula from '../../atoms/Celula/index'
 
@@ -7,25 +7,13 @@ const url = 'http://127.0.0.1:3001/'
 
 function Tabela() {
   const [iniciativas, setIniciativas] = useState([]);
-  const [iniciativasAlocadasState, setIniciativasAlocadasState] = useState([]); // Estado para armazenar os dados das iniciativas
+  const [iniciativasAlocadasState, setIniciativasAlocadasState] = useState({}); // Estado para armazenar os dados das iniciativas
   const [iniciativasAAlocarState, setIniciativasAAlocarState] = useState([]);
-  const [turmas, setTurmas] = useState([])
-  const [turmasIdState, setTurmasIdState] = useState([])
+  const [turmas, setTurmas] = useState([]);
   const [modalOpen, setModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
   const [selectedCell, setSelectedCell] = useState(null); // Estado para armazenar a célula selecionada
   const [selectedIndex, setSelectedIndex] = useState(null)
   // const [turmaId, setTurmaId] = useState(null)
-
-  
-
-  // const SalvarIdDasTurmas = () => {
-  //   let turmasId = []
-  //   turmas.map((turma, index) => {
-  //     turmasId.push(turma.id)
-  //   })
-  //   setTurmasIdState(turmasId)
-  //   console.log(turmasId)
-  // }
 
   const SalvarIniciativasAAlocar = () => {
     let iniciativasAAlocar = []
@@ -49,12 +37,23 @@ function Tabela() {
 
   const SalvarIniciativasPorTurma = () => {
     const hashtable = {}
+    turmas.map((turma, i) => {
+      const idTurma = turma.id;
+      const iniciativasDaTurma = iniciativas.filter(iniciativa => iniciativa.turmaId == idTurma)
 
-    for(let i = 0; i < turmas.length; i++){
-      const idTurma = turmas[i].id;
-      hashtable[idTurma] = iniciativas.filter(iniciativa => iniciativa.turmaId == idTurma) 
+      hashtable[idTurma] = []
+
+      iniciativasDaTurma.forEach(iniciativa => {
+        hashtable[idTurma][iniciativa.moduloId - 6] = iniciativa;
+      });
+
+      // hashtable[idTurma] = iniciativas.filter(iniciativa => iniciativa.turmaId == idTurma) 
+      console.log(`hashtable[${idTurma}]`)
       console.log(hashtable[idTurma])
-    }
+
+    })
+    // for(let i = 0; i < turmas.length; i++){
+    // }
       // iniciativasPorTurma = turmas.map((turma, index) => {
       //   return iniciativas.filter(iniciativa => iniciativa.turmaId == turma.id)
       // })
@@ -66,7 +65,7 @@ function Tabela() {
     .then((response) => response.json())
     .then((data) => {
         setTurmas(data);
-        console.log(data)
+        // console.log(data)
 
     })
     .then(() => {
@@ -80,16 +79,6 @@ function Tabela() {
 
     })
   }, [])
-
-  // UseEffect para pegar id das turmas
-  // useEffect(() => {
-  //   let turmasId = []
-  //   turmas.map((turma, index) => {
-  //     turmasId.push(turma.id)
-  //   })
-  //   setTurmasIdState(turmasId)
-  //   console.log(turmasId)
-  // }, [turmas])
 
   // UseEffect para pegar iniciativas
   useEffect(() => {
@@ -153,10 +142,20 @@ function Tabela() {
     console.log(iniciativasAlocadasState);
   }, [iniciativasAlocadasState])
 
+  useEffect(() => {
+    if(selectedCell){
+      openModal()
+      console.log(selectedCell)
+    }
+  }, [selectedCell])
+
   // Função para abrir o modal e definir a célula selecionada
-  const openModal = (iniciativa) => {
-    setSelectedCell(iniciativa);
-    setSelectedIndex(iniciativa.id)
+  const openModal = () => {
+    // setSelectedCell(celula);
+    // console.log(celula)
+    // console.log("iniciativa")
+    // console.log(iniciativa)
+    // setSelectedIndex(iniciativa.id)
     setModalOpen(true);
   };
 
@@ -167,23 +166,42 @@ function Tabela() {
   };
 
   // Função para alocar uma iniciativa à célula selecionada
-  const allocateInitiative = (initiative) => {
+  const AlocarIniciativa = async (celula, iniciativa) => {
+    console.log(celula)
     setIniciativasAlocadasState(prevData => {
-      const newData = [...prevData];
-      newData[selectedCell] = initiative;
+      const newData = JSON.parse(JSON.stringify(prevData));
+      // const newData = [...prevData];
+      newData[celula[0]].push(iniciativa);
       return newData;
     });
+
+    iniciativa.turmaId = celula[0] + 1
+    iniciativa.status = 'Alocado'
+
+    const response = await fetch(url+'iniciativas/'+iniciativa.id, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    // body: JSON.stringify({ iniciativa: iniciativa }),
+    body: JSON.stringify(iniciativa),
+
+  })
+
+    if (!response.ok) {
+      throw new Error('Erro na requisição');
+    }
     closeModal();
   };
 
-  const headers = ["2022.1A", "2022.1B", "2022.2A", "2022.2B", "2023.1A", "2023.1B", "2023.2A", "2023.2B", "2024.1A", "2024.1B", "2024.2A", "2024.2B",]
+  const headers = ["Módulo 1", "Módulo 2", "Módulo 3", "Módulo 4", "Módulo 5", "Módulo 6", "Módulo 7", "Módulo 8", "Módulo 9", "Módulo 10", "Módulo 11", "Módulo 12",]
 
   return (
     <div className={styles.tableContainer}>
       <table className={styles.table}>
         <thead>
         <tr>
-            <th>Turma / Tri</th>
+            <th>Turma / Módulo</th>
             {headers.map((header, index) => (
               <th key={index}>{header}</th>
             ))}
@@ -195,22 +213,23 @@ function Tabela() {
                     <td>{turma.nomeTurma}</td>
                     {
                         headers.map((cabecalho, i) => (
-                            <td key={i} >
-                                {iniciativasAlocadasState[index] && iniciativasAlocadasState[index][i] ? (
-                                    <Celula iniciativa={iniciativasAlocadasState[index][i]} onCelulaClick={() => {
-                                      console.log("NHAAAA")
-                                      console.log(iniciativasAlocadasState[index][i])
-                                      openModal(iniciativasAlocadasState[index][i])
-                                    } 
-                                    }
-                                    />
-                                ) : (
-                                    <div onClick={() =>  {
-                                      console.log("NHAAAA")
-                                      openModal({turmaIndex: index, cellIndex: i}
-                                      )}}>+</div>
-                                )}
-                            </td>
+                          <td key={i} >
+                            {iniciativasAlocadasState[index] && iniciativasAlocadasState[index][i] ? (
+                                <Celula iniciativa={iniciativasAlocadasState[index][i]} onCelulaClick={() => {
+                                  console.log([index, i])
+                                  console.log(iniciativasAlocadasState[index][i])
+                                  // openModal(iniciativasAlocadasState[index][i], [index, i])
+                                } 
+                                }
+                                />
+                            ) : (
+                                <div onClick={() =>  {
+                                  setSelectedCell([index, i])
+                                  console.log([index, i])
+                                  // openModal([index, i])
+                                }}>+</div>
+                            )}
+                          </td>
                         ))
                     }
 
@@ -219,7 +238,8 @@ function Tabela() {
         </tbody>
       </table>
       {/* {modalOpen && <Modal onClose={closeModal} onSelect={allocateInitiative} />} */}
-      <Modal key={selectedIndex} iniciativa={selectedCell} iniciativasAAlocar={iniciativasAAlocarState} isOpen={modalOpen} setIsModalOpen={setModalOpen}/>
+      <ModalAloca key={selectedIndex} alocaIniciativa={AlocarIniciativa} celula={selectedCell} iniciativasAAlocar={iniciativasAAlocarState} isOpen={modalOpen} setIsModalOpen={setModalOpen}/>
+
     </div>
   );
 }

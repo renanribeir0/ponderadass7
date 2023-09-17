@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { Prisma, PrismaClient } from "@prisma/client";
 import { TabelaGenerica } from "./interfaces/tabelaGenerica.interface";
-import { CriaIniciativaDto } from "src/iniciativas/dto/criarIniciativa.dto";
+// import { CriaIniciativaDto } from "src/iniciativas/dto/criarIniciativa.dto";
 import { CriaTabelaGenericaDto } from "./dto/criarTabelaGenerica.dto";
 
 

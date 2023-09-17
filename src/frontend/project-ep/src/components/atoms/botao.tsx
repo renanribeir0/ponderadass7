@@ -48,6 +48,12 @@ const ButtonUsage = (props) => {
     else if(props.tipo == "novo Projeto") {
       navigate('/iniciativas')
     }
+    else if(props.tipo == "aloca Iniciativa"){
+      console.log(props.celula)
+      console.log("CHEGUEI NO BOTÃO")
+      props.alocaIniciativa(props.celula, props.iniciativa)
+      props.setIsModalOpen(false)
+    }
   }} disabled={props.disabled}>{props.conteudo}</Button>;
   
 }
